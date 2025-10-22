@@ -289,4 +289,4 @@ Every feature must:
 
 **Related:**
 - [Design Principles →](./design-principles.md)
-- [Components →](../components/)
+- [Components →](../components/buttons.md)

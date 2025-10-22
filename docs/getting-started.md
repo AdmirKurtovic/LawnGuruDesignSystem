@@ -193,11 +193,11 @@ Each component is documented with:
 - Accessibility notes
 - Code examples
 
-Browse the [Components documentation](./components/).
+Browse the [Components documentation](./components/buttons.md).
 
 ### 7. Resources
 
-- [Component Library](./components/)
+- [Component Library](./components/buttons.md)
 - [Design Tokens](./foundations/tokens.md)
 - [Accessibility Guidelines](./guidelines/accessibility.md)
 - [Contributing Guide](./guidelines/contributing.md)
