@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Components - LawnGuru Design System</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        .component-section {
+            margin: var(--spacing-32) 0;
+        }
+        
+        .example-container {
+            background-color: var(--color-gray-50);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-24);
+            margin: var(--spacing-16) 0;
+        }
+        
+        .example-title {
+            font-size: var(--font-size-16);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-16);
+            color: var(--color-gray-700);
+        }
+        
+        .button-example {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-12);
+            align-items: center;
+            margin-bottom: var(--spacing-16);
+        }
+        
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-8);
+            align-items: center;
+        }
+        
+        .button-group.vertical {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        
+        .button-group.vertical .btn {
+            width: 100%;
+        }
+        
+        .code-block {
+            background-color: var(--color-gray-900);
+            color: var(--color-gray-100);
+            padding: var(--spacing-16);
+            border-radius: var(--border-radius-md);
+            overflow-x: auto;
+            margin: var(--spacing-16) 0;
+            position: relative;
+        }
+        
+        .code-block pre {
+            margin: 0;
+            background: none;
+        }
+        
+        .btn-demo {
+            margin: var(--spacing-4);
+        }
+        
+        .btn-demo:hover {
+            transform: translateY(-1px);
+        }
+        
+        .btn-demo:active {
+            transform: translateY(0);
+        }
+        
+        .state-example {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-16);
+            margin: var(--spacing-16) 0;
+        }
+        
+        .state-card {
+            text-align: center;
+            padding: var(--spacing-16);
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--border-radius-md);
+        }
+        
+        .state-label {
+            font-size: var(--font-size-12);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-gray-600);
+            margin-bottom: var(--spacing-8);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .anatomy-diagram {
+            background-color: var(--color-white);
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-16);
+            margin: var(--spacing-16) 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .anatomy-diagram::before {
+            content: 'Button Container';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--color-white);
+            padding: 0 var(--spacing-8);
+            font-size: var(--font-size-12);
+            color: var(--color-gray-600);
+        }
+        
+        .anatomy-parts {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-8);
+        }
+        
+        .anatomy-part {
+            padding: var(--spacing-8) var(--spacing-12);
+            background-color: var(--color-gray-100);
+            border-radius: var(--border-radius-sm);
+            font-size: var(--font-size-12);
+            color: var(--color-gray-700);
+        }
+        
+        .anatomy-part.icon {
+            background-color: var(--color-primary-100);
+            color: var(--color-primary-700);
+        }
+        
+        .anatomy-part.text {
+            background-color: var(--color-gray-200);
+            color: var(--color-gray-800);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="../index.html" class="brand-link">
+                    <span class="brand-icon">🌱</span>
+                    <span class="brand-text">LawnGuru Design System</span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Foundations</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="colors.html">Colors</a></li>
+                            <li><a href="typography.html">Typography</a></li>
+                            <li><a href="spacing.html">Spacing</a></li>
+                            <li><a href="tokens.html">Tokens</a></li>
+                            <li><a href="icons.html">Icons</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Components</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="buttons.html" class="active">Buttons</a></li>
+                            <li><a href="forms.html">Forms</a></li>
+                            <li><a href="cards.html">Cards</a></li>
+                            <li><a href="navigation.html">Navigation</a></li>
+                            <li><a href="feedback.html">Feedback</a></li>
+                            <li><a href="data-display.html">Data Display</a></li>
+                            <li><a href="modals.html">Modals</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Patterns</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="layouts.html">Layouts</a></li>
+                            <li><a href="responsive.html">Responsive</a></li>
+                            <li><a href="form-patterns.html">Form Patterns</a></li>
+                            <li><a href="nav-patterns.html">Navigation Patterns</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Guidelines</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="accessibility.html">Accessibility</a></li>
+                            <li><a href="writing.html">Writing</a></li>
+                            <li><a href="motion.html">Motion</a></li>
+                            <li><a href="design-principles.html">Design Principles</a></li>
+                            <li><a href="contributing.html">Contributing</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Getting Started</h3>
+                <ul class="sidebar-list">
+                    <li><a href="getting-started.html">Getting Started Guide</a></li>
+                    <li><a href="design-principles.html">Design Principles</a></li>
+                    <li><a href="contributing.html">Contributing</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Foundations</h3>
+                <ul class="sidebar-list">
+                    <li><a href="colors.html">Color Palette</a></li>
+                    <li><a href="typography.html">Typography</a></li>
+                    <li><a href="spacing.html">Spacing</a></li>
+                    <li><a href="tokens.html">Tokens</a></li>
+                    <li><a href="icons.html">Icons</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Components</h3>
+                <ul class="sidebar-list">
+                    <li><a href="buttons.html" class="active">Buttons</a></li>
+                    <li><a href="forms.html">Forms</a></li>
+                    <li><a href="cards.html">Cards</a></li>
+                    <li><a href="navigation.html">Navigation</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="data-display.html">Data Display</a></li>
+                    <li><a href="modals.html">Modals</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Patterns</h3>
+                <ul class="sidebar-list">
+                    <li><a href="layouts.html">Page Layouts</a></li>
+                    <li><a href="responsive.html">Responsive Patterns</a></li>
+                    <li><a href="form-patterns.html">Forms Patterns</a></li>
+                    <li><a href="nav-patterns.html">Navigation Patterns</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Guidelines</h3>
+                <ul class="sidebar-list">
+                    <li><a href="accessibility.html">Accessibility</a></li>
+                    <li><a href="writing.html">Writing Style</a></li>
+                    <li><a href="motion.html">Motion</a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Button Components</h1>
+                <p class="page-description">Buttons are interactive elements that trigger actions or navigate users through the application.</p>
+            </div>
+            
+            <div class="page-content">
+                <!-- Overview -->
+                <section>
+                    <h2>Overview</h2>
+                    <p>LawnGuru's button system consists of two main button types: <strong>CTA Button</strong> (Call-to-Action) and <strong>Link Button</strong>, each with multiple variants and states.</p>
+                </section>
+
+                <!-- CTA Button -->
+                <section class="component-section">
+                    <h2>🟢 CTA Button (Primary Action Button)</h2>
+                    <p>High-emphasis button used for primary actions and conversions. Features solid backgrounds with clear visual hierarchy.</p>
+                    
+                    <h3>Variants</h3>
+                    
+                    <h4>Primary (Green)</h4>
+                    <p><strong>Purpose:</strong> Main call-to-action, primary user actions</p>
+                    <p><strong>Use cases:</strong> Submit forms, Start service, Book now, Sign up</p>
+                    
+                    <div class="example-container">
+                        <div class="example-title">Primary Button Examples</div>
+                        <div class="button-example">
+                            <button class="btn btn-primary btn-sm btn-demo">Small</button>
+                            <button class="btn btn-primary btn-demo">Medium</button>
+                            <button class="btn btn-primary btn-lg btn-demo">Large</button>
+                        </div>
+                    </div>
+                    
+                    <div class="code-block">
+                        <pre><code class="language-html">&lt;!-- Primary Button --&gt;
+&lt;button class="btn btn-primary btn-sm"&gt;Small&lt;/button&gt;
+&lt;button class="btn btn-primary"&gt;Medium&lt;/button&gt;
+&lt;button class="btn btn-primary btn-lg"&gt;Large&lt;/button&gt;</code></pre>
+                    </div>
+                    
+                    <h4>Secondary (White/Gray)</h4>
+                    <p><strong>Purpose:</strong> Secondary actions, less emphasis</p>
+                    <p><strong>Use cases:</strong> Cancel, Go back, Learn more</p>
+                    
+                    <div class="example-container">
+                        <div class="example-title">Secondary Button Examples</div>
+                        <div class="button-example">
+                            <button class="btn btn-secondary btn-sm btn-demo">Small</button>
+                            <button class="btn btn-secondary btn-demo">Medium</button>
+                            <button class="btn btn-secondary btn-lg btn-demo">Large</button>
+                        </div>
+                    </div>
+                    
+                    <div class="code-block">
+                        <pre><code class="language-html">&lt;!-- Secondary Button --&gt;
+&lt;button class="btn btn-secondary btn-sm"&gt;Small&lt;/button&gt;
+&lt;button class="btn btn-secondary"&gt;Medium&lt;/button&gt;
+&lt;button class="btn btn-secondary btn-lg"&gt;Large&lt;/button&gt;</code></pre>
+                    </div>
+                    
+                    <h4>Destructive (Red)</h4>
+                    <p><strong>Purpose:</strong> Destructive or critical actions</p>
+                    <p><strong>Use cases:</strong> Delete, Remove, Cancel subscription</p>
+                    
+                    <div class="example-container">
+                        <div class="example-title">Destructive Button Examples</div>
+                        <div class="button-example">
+                            <button class="btn btn-destructive btn-sm btn-demo">Small</button>
+                            <button class="btn btn-destructive btn-demo">Medium</button>
+                            <button class="btn btn-destructive btn-lg btn-demo">Large</button>
+                        </div>
+                    </div>
+                    
+                    <div class="code-block">
+                        <pre><code class="language-html">&lt;!-- Destructive Button --&gt;
+&lt;button class="btn btn-destructive btn-sm"&gt;Small&lt;/button&gt;
+&lt;button class="btn btn-destructive"&gt;Medium&lt;/button&gt;
+&lt;button class="btn btn-destructive btn-lg"&gt;Large&lt;/button&gt;</code></pre>
+                    </div>
+                </section>
+
+                <!-- Link Button -->
+                <section class="component-section">
+                    <h2>🔗 Link Button (Text Button)</h2>
+                    <p>Low-emphasis button styled as text links. Used for tertiary actions or navigation.</p>
+                    
+                    <h3>Variants</h3>
+                    
+                    <div class="example-container">
+                        <div class="example-title">Link Button Examples</div>
+                        <div class="button-example">
+                            <button class="btn btn-link btn-sm btn-demo">Small Link</button>
+                            <button class="btn btn-link btn-demo">Medium Link</button>
+                            <button class="btn btn-link btn-lg btn-demo">Large Link</button>
+                        </div>
+                    </div>
+                    
+                    <div class="code-block">
+                        <pre><code class="language-html">&lt;!-- Link Button --&gt;
+&lt;button class="btn btn-link btn-sm"&gt;Small Link&lt;/button&gt;
+&lt;button class="btn btn-link"&gt;Medium Link&lt;/button&gt;
+&lt;button class="btn btn-link btn-lg"&gt;Large Link&lt;/button&gt;</code></pre>
+                    </div>
+                </section>
+
+                <!-- Button States -->
+                <section class="component-section">
+                    <h2>Button States</h2>
+                    <p>Buttons have different states to provide feedback to users.</p>
+                    
+                    <div class="state-example">
+                        <div class="state-card">
+                            <div class="state-label">Default</div>
+                            <button class="btn btn-primary btn-demo">Default</button>
+                        </div>
+                        <div class="state-card">
+                            <div class="state-label">Hover</div>
+                            <button class="btn btn-primary btn-demo" style="background-color: var(--color-primary-700);">Hover</button>
+                        </div>
+                        <div class="state-card">
+                            <div class="state-label">Active</div>
+                            <button class="btn btn-primary btn-demo" style="background-color: var(--color-primary-800); transform: translateY(0);">Active</button>
+                        </div>
+                        <div class="state-card">
+                            <div class="state-label">Focus</div>
+                            <button class="btn btn-primary btn-demo" style="outline: 2px solid var(--color-primary-500); outline-offset: 2px;">Focus</button>
+                        </div>
+                        <div class="state-card">
+                            <div class="state-label">Disabled</div>
+                            <button class="btn btn-primary btn-demo" disabled style="background-color: var(--color-gray-300); color: var(--color-gray-500); cursor: not-allowed;">Disabled</button>
+                        </div>
+                        <div class="state-card">
+                            <div class="state-label">Loading</div>
+                            <button class="btn btn-primary btn-demo" disabled style="background-color: var(--color-primary-600);">
+                                <span style="margin-right: 8px;">⏳</span>Loading...
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Button Groups -->
+                <section class="component-section">
+                    <h2>Button Groups</h2>
+                    <p>Buttons can be grouped together for related actions.</p>
+                    
+                    <div class="example-container">
+                        <div class="example-title">Horizontal Button Group</div>
+                        <div class="button-group">
+                            <button class="btn btn-primary btn-demo">Save</button>
+                            <button class="btn btn-secondary btn-demo">Cancel</button>
+                            <button class="btn btn-link btn-demo">Reset</button>
+                        </div>
+                    </div>
+                    
+                    <div class="example-container">
+                        <div class="example-title">Vertical Button Group (Mobile)</div>
+                        <div class="button-group vertical">
+                            <button class="btn btn-primary btn-demo">Primary Action</button>
+                            <button class="btn btn-secondary btn-demo">Secondary Action</button>
+                        </div>
+                    </div>
+                    
+                    <div class="code-block">
+                        <pre><code class="language-html">&lt;!-- Horizontal Group --&gt;
+&lt;div class="button-group"&gt;
+  &lt;button class="btn btn-primary"&gt;Save&lt;/button&gt;
+  &lt;button class="btn btn-secondary"&gt;Cancel&lt;/button&gt;
+  &lt;button class="btn btn-link"&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Vertical Group --&gt;
+&lt;div class="button-group vertical"&gt;
+  &lt;button class="btn btn-primary"&gt;Primary Action&lt;/button&gt;
+  &lt;button class="btn btn-secondary"&gt;Secondary Action&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </section>
+
+                <!-- Component Anatomy -->
+                <section class="component-section">
+                    <h2>📊 Component Anatomy</h2>
+                    
+                    <div class="anatomy-diagram">
+                        <div class="anatomy-parts">
+                            <div class="anatomy-part icon">◄icon</div>
+                            <div class="anatomy-part text">Label</div>
+                            <div class="anatomy-part icon">icon►</div>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Spacing:</strong></p>
+                    <ul>
+                        <li>Icon-to-text gap: 8px</li>
+                        <li>Horizontal padding: varies by size</li>
+                        <li>Vertical padding: varies by size</li>
+                    </ul>
+                </section>
+
+                <!-- Usage Guidelines -->
+                <section class="component-section">
+                    <h2>📋 Usage Guidelines</h2>
+                    
+                    <h3>When to use CTA Button:</h3>
+                    <ul>
+                        <li>✅ Primary actions that move users forward</li>
+                        <li>✅ Form submissions</li>
+                        <li>✅ High-priority conversions</li>
+                        <li>✅ Actions that commit changes</li>
+                    </ul>
+                    
+                    <h3>When to use Link Button:</h3>
+                    <ul>
+                        <li>✅ Navigation within content</li>
+                        <li>✅ Tertiary actions</li>
+                        <li>✅ Less important actions</li>
+                        <li>✅ Dense interfaces where visual weight matters</li>
+                    </ul>
+                    
+                    <h3>Button Hierarchy Rules:</h3>
+                    <ol>
+                        <li><strong>One primary CTA per screen section</strong> - Avoid competing CTAs</li>
+                        <li><strong>Use secondary for alternative actions</strong> - Provide options without distraction</li>
+                        <li><strong>Use link buttons for low-priority actions</strong> - Reduce visual noise</li>
+                        <li><strong>Destructive actions should always be confirmed</strong> - Prevent accidental deletions</li>
+                    </ol>
+                </section>
+
+                <!-- Accessibility -->
+                <section class="component-section">
+                    <h2>♿ Accessibility Requirements</h2>
+                    
+                    <h3>Minimum Requirements:</h3>
+                    <ul>
+                        <li><strong>Touch target:</strong> Minimum 44x44px for mobile</li>
+                        <li><strong>Focus indicators:</strong> Clear visible focus state (2px outline)</li>
+                        <li><strong>Color contrast:</strong> WCAG AA minimum (4.5:1 for text)</li>
+                        <li><strong>Disabled buttons:</strong> Not focusable via keyboard</li>
+                        <li><strong>Loading states:</strong> Announce to screen readers</li>
+                    </ul>
+                    
+                    <h3>ARIA Attributes:</h3>
+                    
+                    <div class="code-block">
+                        <pre><code class="language-html">&lt;!-- Basic button --&gt;
+&lt;button type="button"&gt;Submit&lt;/button&gt;
+
+&lt;!-- Loading button --&gt;
+&lt;button type="button" aria-busy="true" aria-live="polite"&gt;
+  &lt;span class="sr-only"&gt;Loading...&lt;/span&gt;
+  Processing
+&lt;/button&gt;
+
+&lt;!-- Disabled button --&gt;
+&lt;button type="button" disabled aria-disabled="true"&gt;
+  Unavailable
+&lt;/button&gt;
+
+&lt;!-- Destructive action with confirmation --&gt;
+&lt;button
+  type="button"
+  aria-label="Delete account - this action cannot be undone"
+&gt;
+  Delete
+&lt;/button&gt;</code></pre>
+                    </div>
+                </section>
+
+                <!-- Responsive Behavior -->
+                <section class="component-section">
+                    <h2>📱 Responsive Behavior</h2>
+                    
+                    <h3>Mobile (&lt; 768px)</h3>
+                    <ul>
+                        <li>Consider full-width buttons for primary CTAs</li>
+                        <li>Minimum touch target: 44x44px</li>
+                        <li>Stack buttons vertically with 12px gap</li>
+                        <li>Reduce padding slightly if needed for fit</li>
+                    </ul>
+                    
+                    <h3>Tablet (768px - 1024px)</h3>
+                    <ul>
+                        <li>Standard button sizes</li>
+                        <li>Can use inline button groups</li>
+                        <li>Maintain proper spacing</li>
+                    </ul>
+                    
+                    <h3>Desktop (&gt; 1024px)</h3>
+                    <ul>
+                        <li>Full size options available</li>
+                        <li>Inline button groups work well</li>
+                        <li>Hover states fully visible</li>
+                    </ul>
+                </section>
+
+                <!-- Design Tokens -->
+                <section class="component-section">
+                    <h2>🎨 Design Tokens Used</h2>
+                    
+                    <div class="code-block">
+                        <pre><code class="language-css">/* Colors */
+--color-primary
+--color-primary-600
+--color-primary-700
+--color-white
+--color-gray-300
+--color-error
+
+/* Spacing */
+--button-padding-x-sm
+--button-padding-y-sm
+--button-padding-x-md
+--button-padding-y-md
+--button-padding-x-lg
+--button-padding-y-lg
+
+/* Border */
+--border-radius-md
+
+/* Typography */
+--font-weight-medium
+--font-weight-semibold
+
+/* Animation */
+--animation-duration-fast
+--animation-easing-ease-out</code></pre>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-icon">🌱</span>
+                    <span class="brand-text">LawnGuru Design System</span>
+                </div>
+                <div class="footer-text">
+                    <p>Built with 🌱 by the LawnGuru team</p>
+                    <p class="footer-license">Proprietary - LawnGuru © 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>

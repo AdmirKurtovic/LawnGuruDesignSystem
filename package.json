@@ -1,0 +1,26 @@
+{
+  "name": "lawnguru-design-system",
+  "version": "1.0.0",
+  "description": "LawnGuru Design System Documentation",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "docs:update-colors": "node docs/scripts/update-docs.js colors",
+    "docs:update-typography": "node docs/scripts/update-docs.js typography",
+    "docs:update-buttons": "node docs/scripts/update-docs.js buttons"
+  },
+  "devDependencies": {
+    "vitepress": "^1.0.0",
+    "vue": "^3.3.4"
+  },
+  "keywords": [
+    "design-system",
+    "documentation",
+    "lawnguru",
+    "components"
+  ],
+  "author": "LawnGuru Team",
+  "license": "PROPRIETARY"
+}

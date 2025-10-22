@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} - LawnGuru Design System</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="../index.html" class="brand-link">
+                    <span class="brand-icon">🌱</span>
+                    <span class="brand-text">LawnGuru Design System</span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Foundations</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="colors.html">Colors</a></li>
+                            <li><a href="typography.html">Typography</a></li>
+                            <li><a href="spacing.html">Spacing</a></li>
+                            <li><a href="tokens.html">Tokens</a></li>
+                            <li><a href="icons.html">Icons</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Components</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="buttons.html">Buttons</a></li>
+                            <li><a href="forms.html">Forms</a></li>
+                            <li><a href="cards.html">Cards</a></li>
+                            <li><a href="navigation.html">Navigation</a></li>
+                            <li><a href="feedback.html">Feedback</a></li>
+                            <li><a href="data-display.html">Data Display</a></li>
+                            <li><a href="modals.html">Modals</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Patterns</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="layouts.html">Layouts</a></li>
+                            <li><a href="responsive.html">Responsive</a></li>
+                            <li><a href="form-patterns.html">Form Patterns</a></li>
+                            <li><a href="nav-patterns.html">Navigation Patterns</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Guidelines</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="accessibility.html">Accessibility</a></li>
+                            <li><a href="writing.html">Writing</a></li>
+                            <li><a href="motion.html">Motion</a></li>
+                            <li><a href="design-principles.html">Design Principles</a></li>
+                            <li><a href="contributing.html">Contributing</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Getting Started</h3>
+                <ul class="sidebar-list">
+                    <li><a href="getting-started.html">Getting Started Guide</a></li>
+                    <li><a href="design-principles.html">Design Principles</a></li>
+                    <li><a href="contributing.html">Contributing</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Foundations</h3>
+                <ul class="sidebar-list">
+                    <li><a href="colors.html">Color Palette</a></li>
+                    <li><a href="typography.html">Typography</a></li>
+                    <li><a href="spacing.html">Spacing</a></li>
+                    <li><a href="tokens.html">Tokens</a></li>
+                    <li><a href="icons.html">Icons</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Components</h3>
+                <ul class="sidebar-list">
+                    <li><a href="buttons.html">Buttons</a></li>
+                    <li><a href="forms.html">Forms</a></li>
+                    <li><a href="cards.html">Cards</a></li>
+                    <li><a href="navigation.html">Navigation</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="data-display.html">Data Display</a></li>
+                    <li><a href="modals.html">Modals</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Patterns</h3>
+                <ul class="sidebar-list">
+                    <li><a href="layouts.html">Page Layouts</a></li>
+                    <li><a href="responsive.html">Responsive Patterns</a></li>
+                    <li><a href="form-patterns.html">Forms Patterns</a></li>
+                    <li><a href="nav-patterns.html">Navigation Patterns</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Guidelines</h3>
+                <ul class="sidebar-list">
+                    <li><a href="accessibility.html">Accessibility</a></li>
+                    <li><a href="writing.html">Writing Style</a></li>
+                    <li><a href="motion.html">Motion</a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">{{title}}</h1>
+                <p class="page-description">{{description}}</p>
+            </div>
+            
+            <div class="page-content">
+                {{content}}
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-icon">🌱</span>
+                    <span class="brand-text">LawnGuru Design System</span>
+                </div>
+                <div class="footer-text">
+                    <p>Built with 🌱 by the LawnGuru team</p>
+                    <p class="footer-license">Proprietary - LawnGuru © 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>

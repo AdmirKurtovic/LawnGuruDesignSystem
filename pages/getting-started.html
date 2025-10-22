@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started - LawnGuru Design System</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        .step-card {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-24);
+            margin: var(--spacing-16) 0;
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background-color: var(--color-primary-600);
+            color: var(--color-white);
+            border-radius: var(--border-radius-full);
+            font-weight: var(--font-weight-semibold);
+            font-size: var(--font-size-14);
+            margin-bottom: var(--spacing-12);
+        }
+        
+        .code-example {
+            background-color: var(--color-gray-900);
+            color: var(--color-gray-100);
+            padding: var(--spacing-16);
+            border-radius: var(--border-radius-md);
+            overflow-x: auto;
+            margin: var(--spacing-16) 0;
+        }
+        
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-24);
+            margin: var(--spacing-24) 0;
+        }
+        
+        .example-card {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-24);
+        }
+        
+        .example-title {
+            font-size: var(--font-size-18);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-12);
+            color: var(--color-gray-900);
+        }
+        
+        .learning-path {
+            background-color: var(--color-gray-50);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-24);
+            margin: var(--spacing-24) 0;
+        }
+        
+        .week-card {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-16);
+            margin: var(--spacing-12) 0;
+        }
+        
+        .week-title {
+            font-size: var(--font-size-16);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-primary-600);
+            margin-bottom: var(--spacing-8);
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-16);
+            margin: var(--spacing-24) 0;
+        }
+        
+        .resource-card {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-16);
+            text-align: center;
+        }
+        
+        .resource-icon {
+            font-size: var(--font-size-24);
+            margin-bottom: var(--spacing-8);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="../index.html" class="brand-link">
+                    <span class="brand-icon">🌱</span>
+                    <span class="brand-text">LawnGuru Design System</span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Foundations</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="colors.html">Colors</a></li>
+                            <li><a href="typography.html">Typography</a></li>
+                            <li><a href="spacing.html">Spacing</a></li>
+                            <li><a href="tokens.html">Tokens</a></li>
+                            <li><a href="icons.html">Icons</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Components</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="buttons.html">Buttons</a></li>
+                            <li><a href="forms.html">Forms</a></li>
+                            <li><a href="cards.html">Cards</a></li>
+                            <li><a href="navigation.html">Navigation</a></li>
+                            <li><a href="feedback.html">Feedback</a></li>
+                            <li><a href="data-display.html">Data Display</a></li>
+                            <li><a href="modals.html">Modals</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Patterns</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="layouts.html">Layouts</a></li>
+                            <li><a href="responsive.html">Responsive</a></li>
+                            <li><a href="form-patterns.html">Form Patterns</a></li>
+                            <li><a href="nav-patterns.html">Navigation Patterns</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Guidelines</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="accessibility.html">Accessibility</a></li>
+                            <li><a href="writing.html">Writing</a></li>
+                            <li><a href="motion.html">Motion</a></li>
+                            <li><a href="design-principles.html">Design Principles</a></li>
+                            <li><a href="contributing.html">Contributing</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Getting Started</h3>
+                <ul class="sidebar-list">
+                    <li><a href="getting-started.html" class="active">Getting Started Guide</a></li>
+                    <li><a href="design-principles.html">Design Principles</a></li>
+                    <li><a href="contributing.html">Contributing</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Foundations</h3>
+                <ul class="sidebar-list">
+                    <li><a href="colors.html">Color Palette</a></li>
+                    <li><a href="typography.html">Typography</a></li>
+                    <li><a href="spacing.html">Spacing</a></li>
+                    <li><a href="tokens.html">Tokens</a></li>
+                    <li><a href="icons.html">Icons</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Components</h3>
+                <ul class="sidebar-list">
+                    <li><a href="buttons.html">Buttons</a></li>
+                    <li><a href="forms.html">Forms</a></li>
+                    <li><a href="cards.html">Cards</a></li>
+                    <li><a href="navigation.html">Navigation</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="data-display.html">Data Display</a></li>
+                    <li><a href="modals.html">Modals</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Patterns</h3>
+                <ul class="sidebar-list">
+                    <li><a href="layouts.html">Page Layouts</a></li>
+                    <li><a href="responsive.html">Responsive Patterns</a></li>
+                    <li><a href="form-patterns.html">Forms Patterns</a></li>
+                    <li><a href="nav-patterns.html">Navigation Patterns</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Guidelines</h3>
+                <ul class="sidebar-list">
+                    <li><a href="accessibility.html">Accessibility</a></li>
+                    <li><a href="writing.html">Writing Style</a></li>
+                    <li><a href="motion.html">Motion</a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Getting Started with LawnGuru Design System</h1>
+                <p class="page-description">Everything you need to start using the LawnGuru Design System.</p>
+            </div>
+            
+            <div class="page-content">
+                <!-- Welcome -->
+                <section>
+                    <h2>👋 Welcome!</h2>
+                    <p>The LawnGuru Design System helps you build consistent, accessible, and beautiful experiences. This guide will get you up and running quickly.</p>
+                </section>
+
+                <!-- Who is this for -->
+                <section>
+                    <h2>🎯 Who is this for?</h2>
+                    
+                    <div class="example-grid">
+                        <div class="example-card">
+                            <h3>🎨 Designers</h3>
+                            <ul>
+                                <li>Access Figma components</li>
+                                <li>Use design tokens</li>
+                                <li>Follow design guidelines</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="example-card">
+                            <h3>💻 Developers</h3>
+                            <ul>
+                                <li>Install component library</li>
+                                <li>Implement components</li>
+                                <li>Use design tokens in code</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="example-card">
+                            <h3>📊 Product Managers</h3>
+                            <ul>
+                                <li>Understand patterns</li>
+                                <li>Reference best practices</li>
+                                <li>Plan features</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- For Designers -->
+                <section>
+                    <h2>🎨 For Designers</h2>
+                    
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Access Figma</h3>
+                        <p>Get access to the LawnGuru Design Library:</p>
+                        <ul>
+                            <li><a href="https://www.figma.com/design/3a9rDSr5fnmhcTaYxLgqkF/Design-library" target="_blank">Figma Design Library</a></li>
+                            <li>Request access from the design team</li>
+                            <li>Enable the library in your Figma file</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Enable the Library</h3>
+                        <p>In your Figma file:</p>
+                        <ol>
+                            <li>Click the <strong>Assets</strong> panel</li>
+                            <li>Click the <strong>Library</strong> icon (book)</li>
+                            <li>Find "LawnGuru Design System"</li>
+                            <li>Toggle <strong>ON</strong></li>
+                        </ol>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Use Components</h3>
+                        <p>Drag components from the Assets panel:</p>
+                        <ul>
+                            <li>Browse by category</li>
+                            <li>Use component properties to change variants</li>
+                            <li>Detach only when absolutely necessary</li>
+                            <li>Stay in sync with library updates</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3>Use Design Tokens</h3>
+                        <p>All components use design tokens for:</p>
+                        <ul>
+                            <li>Colors (color styles)</li>
+                            <li>Typography (text styles)</li>
+                            <li>Spacing (auto-layout spacing)</li>
+                            <li>Effects (shadows, blurs)</li>
+                        </ul>
+                        <p><strong>Best Practice:</strong> Use color styles and text styles instead of hardcoded values.</p>
+                    </div>
+                </section>
+
+                <!-- For Developers -->
+                <section>
+                    <h2>💻 For Developers</h2>
+                    
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Install the Package</h3>
+                        <div class="code-example">
+                            <pre><code class="language-bash"># Using npm
+npm install @lawnguru/ui
+
+# Using yarn
+yarn add @lawnguru/ui
+
+# Using pnpm
+pnpm add @lawnguru/ui</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Import Components</h3>
+                        <div class="code-example">
+                            <pre><code class="language-tsx">// Import individual components
+import { Button, Input, Card } from '@lawnguru/ui';
+
+// Use in your app
+function App() {
+  return (
+    &lt;Card&gt;
+      &lt;Input placeholder="Enter your email" /&gt;
+      &lt;Button variant="primary"&gt;Submit&lt;/Button&gt;
+    &lt;/Card&gt;
+  );
+}</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Add Styles</h3>
+                        <p>Import the base styles in your main CSS/JS file:</p>
+                        <div class="code-example">
+                            <pre><code class="language-tsx">// In your main file (e.g., App.tsx or _app.tsx)
+import '@lawnguru/ui/styles.css';</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3>Use Design Tokens</h3>
+                        
+                        <h4>CSS Variables</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">/* Use CSS variables directly */
+.custom-element {
+  color: var(--color-primary);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-base);
+}</code></pre>
+                        </div>
+                        
+                        <h4>JavaScript/TypeScript</h4>
+                        <div class="code-example">
+                            <pre><code class="language-typescript">import { tokens } from '@lawnguru/ui/tokens';
+
+const styles = {
+  color: tokens.color.primary,
+  padding: tokens.spacing.md,
+};</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Start Examples -->
+                <section>
+                    <h2>📦 Quick Start Examples</h2>
+                    
+                    <div class="example-card">
+                        <div class="example-title">Example 1: Simple Form</div>
+                        <div class="code-example">
+                            <pre><code class="language-tsx">import { Button, Input, Label } from '@lawnguru/ui';
+
+function ContactForm() {
+  return (
+    &lt;form&gt;
+      &lt;div&gt;
+        &lt;Label htmlFor="name"&gt;Name&lt;/Label&gt;
+        &lt;Input id="name" placeholder="Your name" /&gt;
+      &lt;/div&gt;
+
+      &lt;div&gt;
+        &lt;Label htmlFor="email"&gt;Email&lt;/Label&gt;
+        &lt;Input id="email" type="email" placeholder="your@email.com" /&gt;
+      &lt;/div&gt;
+
+      &lt;Button type="submit" variant="primary"&gt;
+        Send Message
+      &lt;/Button&gt;
+    &lt;/form&gt;
+  );
+}</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="example-card">
+                        <div class="example-title">Example 2: Service Card</div>
+                        <div class="code-example">
+                            <pre><code class="language-tsx">import { Card, Button, Badge } from '@lawnguru/ui';
+
+function ServiceCard({ title, price, description }) {
+  return (
+    &lt;Card&gt;
+      &lt;Card.Header&gt;
+        &lt;h3&gt;{title}&lt;/h3&gt;
+        &lt;Badge variant="success"&gt;Popular&lt;/Badge&gt;
+      &lt;/Card.Header&gt;
+
+      &lt;Card.Body&gt;
+        &lt;p className="text-2xl font-bold"&gt;{price}&lt;/p&gt;
+        &lt;p&gt;{description}&lt;/p&gt;
+      &lt;/Card.Body&gt;
+
+      &lt;Card.Footer&gt;
+        &lt;Button variant="primary" size="lg" className="w-full"&gt;
+          Book Service
+        &lt;/Button&gt;
+      &lt;/Card.Footer&gt;
+    &lt;/Card&gt;
+  );
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Learning Path -->
+                <section>
+                    <h2>🎓 Learning Path</h2>
+                    
+                    <div class="learning-path">
+                        <h3>Week 1: Foundations</h3>
+                        <div class="week-card">
+                            <div class="week-title">Day 1-2: Design Principles</div>
+                            <p>Read <a href="design-principles.html">Design Principles</a> and understand our core values</p>
+                        </div>
+                        <div class="week-card">
+                            <div class="week-title">Day 3-4: Color Palette</div>
+                            <p>Review <a href="colors.html">Color Palette</a> and learn proper usage</p>
+                        </div>
+                        <div class="week-card">
+                            <div class="week-title">Day 5-7: Typography & Spacing</div>
+                            <p>Understand <a href="typography.html">Typography</a> and <a href="spacing.html">Spacing</a> systems</p>
+                        </div>
+                        
+                        <h3>Week 2: Components</h3>
+                        <div class="week-card">
+                            <div class="week-title">Day 1-2: Buttons</div>
+                            <p>Start with <a href="buttons.html">Buttons</a> - the most common component</p>
+                        </div>
+                        <div class="week-card">
+                            <div class="week-title">Day 3-4: Forms</div>
+                            <p>Learn <a href="forms.html">Forms</a> and input components</p>
+                        </div>
+                        <div class="week-card">
+                            <div class="week-title">Day 5-7: Cards & Navigation</div>
+                            <p>Explore <a href="cards.html">Cards</a> and <a href="navigation.html">Navigation</a> patterns</p>
+                        </div>
+                        
+                        <h3>Week 3: Patterns</h3>
+                        <div class="week-card">
+                            <div class="week-title">Day 1-3: Layouts</div>
+                            <p>Review <a href="layouts.html">Layouts</a> and page templates</p>
+                        </div>
+                        <div class="week-card">
+                            <div class="week-title">Day 4-5: Responsive Patterns</div>
+                            <p>Understand <a href="responsive.html">Responsive Patterns</a></p>
+                        </div>
+                        <div class="week-card">
+                            <div class="week-title">Day 6-7: Form Patterns</div>
+                            <p>Learn complete <a href="form-patterns.html">Form Patterns</a></p>
+                        </div>
+                        
+                        <h3>Week 4: Guidelines</h3>
+                        <div class="week-card">
+                            <div class="week-title">Day 1-3: Accessibility</div>
+                            <p>Study <a href="accessibility.html">Accessibility</a> standards</p>
+                        </div>
+                        <div class="week-card">
+                            <div class="week-title">Day 4-5: Writing Guidelines</div>
+                            <p>Read <a href="writing.html">Writing Guidelines</a></p>
+                        </div>
+                        <div class="week-card">
+                            <div class="week-title">Day 6-7: Motion</div>
+                            <p>Understand <a href="motion.html">Motion</a> principles</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Getting Help -->
+                <section>
+                    <h2>🆘 Getting Help</h2>
+                    
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <div class="resource-icon">📚</div>
+                            <h3>Documentation</h3>
+                            <p>Browse full documentation, search for specific topics, check component examples</p>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <div class="resource-icon">🐛</div>
+                            <h3>Issues & Bugs</h3>
+                            <p>Report bugs, search existing issues first, provide reproduction steps</p>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <div class="resource-icon">❓</div>
+                            <h3>Questions</h3>
+                            <p>GitHub Discussions, Slack #design-system channel, Email design-system@lawnguru.com</p>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <div class="resource-icon">🤝</div>
+                            <h3>Contributing</h3>
+                            <p>Read Contributing Guide, submit improvements, help others</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Next Steps -->
+                <section>
+                    <h2>🚀 Next Steps</h2>
+                    <p>Now that you're set up:</p>
+                    <ol>
+                        <li><strong>Explore the documentation</strong> - Familiarize yourself with available components</li>
+                        <li><strong>Build something</strong> - Start with a simple component</li>
+                        <li><strong>Share feedback</strong> - Let us know what works (and what doesn't)</li>
+                        <li><strong>Contribute</strong> - Help make the design system better</li>
+                    </ol>
+                </section>
+
+                <!-- Additional Resources -->
+                <section>
+                    <h2>📚 Additional Resources</h2>
+                    
+                    <h3>External Resources</h3>
+                    <ul>
+                        <li><a href="https://react.dev/" target="_blank">React Documentation</a></li>
+                        <li><a href="https://www.typescriptlang.org/docs/" target="_blank">TypeScript Handbook</a></li>
+                        <li><a href="https://www.w3.org/WAI/" target="_blank">Web Accessibility</a></li>
+                        <li><a href="https://css-tricks.com/" target="_blank">CSS-Tricks</a></li>
+                    </ul>
+                    
+                    <h3>Design Systems Inspiration</h3>
+                    <ul>
+                        <li><a href="https://material.io/" target="_blank">Material Design</a></li>
+                        <li><a href="https://developer.apple.com/design/" target="_blank">Apple Human Interface Guidelines</a></li>
+                        <li><a href="https://atlassian.design/" target="_blank">Atlassian Design System</a></li>
+                        <li><a href="https://polaris.shopify.com/" target="_blank">Shopify Polaris</a></li>
+                    </ul>
+                </section>
+
+                <!-- Welcome Message -->
+                <section>
+                    <div class="step-card" style="background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-white) 100%); border-color: var(--color-primary-200);">
+                        <h2>🎉 Welcome to the LawnGuru Design System!</h2>
+                        <p>We're excited to have you here. Happy building! 🌱</p>
+                        <p><strong>Questions?</strong> Don't hesitate to reach out to the design system team.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-icon">🌱</span>
+                    <span class="brand-text">LawnGuru Design System</span>
+                </div>
+                <div class="footer-text">
+                    <p>Built with 🌱 by the LawnGuru team</p>
+                    <p class="footer-license">Proprietary - LawnGuru © 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>

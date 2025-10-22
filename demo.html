@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LawnGuru Design System - Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .demo-section {
+            margin: var(--spacing-48) 0;
+            padding: var(--spacing-32);
+            background-color: var(--color-gray-50);
+            border-radius: var(--border-radius-lg);
+        }
+        
+        .demo-title {
+            font-size: var(--font-size-24);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-16);
+            color: var(--color-gray-900);
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-24);
+            margin: var(--spacing-24) 0;
+        }
+        
+        .demo-card {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-24);
+            transition: var(--transition-fast);
+        }
+        
+        .demo-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .interactive-demo {
+            background-color: var(--color-white);
+            border: 2px solid var(--color-primary-200);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-24);
+            margin: var(--spacing-24) 0;
+        }
+        
+        .form-demo {
+            max-width: 400px;
+            margin: var(--spacing-24) 0;
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-16);
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: var(--font-weight-medium);
+            margin-bottom: var(--spacing-4);
+            color: var(--color-gray-700);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: var(--spacing-12);
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--border-radius-md);
+            font-size: var(--font-size-16);
+            transition: var(--transition-fast);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-primary-500);
+            box-shadow: 0 0 0 3px var(--color-primary-100);
+        }
+        
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .alert-demo {
+            padding: var(--spacing-16);
+            border-radius: var(--border-radius-md);
+            margin: var(--spacing-12) 0;
+            border-left: 4px solid;
+        }
+        
+        .alert-success {
+            background-color: var(--color-success-light);
+            border-left-color: var(--color-success);
+            color: var(--color-success-dark);
+        }
+        
+        .alert-error {
+            background-color: var(--color-error-light);
+            border-left-color: var(--color-error);
+            color: var(--color-error-dark);
+        }
+        
+        .alert-warning {
+            background-color: var(--color-warning-light);
+            border-left-color: var(--color-warning);
+            color: var(--color-warning-dark);
+        }
+        
+        .alert-info {
+            background-color: var(--color-info-light);
+            border-left-color: var(--color-info);
+            color: var(--color-info-dark);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: var(--spacing-4) var(--spacing-8);
+            font-size: var(--font-size-12);
+            font-weight: var(--font-weight-medium);
+            border-radius: var(--border-radius-full);
+        }
+        
+        .badge-success {
+            background-color: var(--color-success-light);
+            color: var(--color-success-dark);
+        }
+        
+        .badge-error {
+            background-color: var(--color-error-light);
+            color: var(--color-error-dark);
+        }
+        
+        .badge-warning {
+            background-color: var(--color-warning-light);
+            color: var(--color-warning-dark);
+        }
+        
+        .badge-info {
+            background-color: var(--color-info-light);
+            color: var(--color-info-dark);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: var(--color-gray-200);
+            border-radius: var(--border-radius-full);
+            overflow: hidden;
+            margin: var(--spacing-8) 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background-color: var(--color-primary-500);
+            transition: width var(--transition-normal);
+        }
+        
+        .progress-75 { width: 75%; }
+        .progress-50 { width: 50%; }
+        .progress-25 { width: 25%; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="brand-link">
+                    <span class="brand-icon">🌱</span>
+                    <span class="brand-text">LawnGuru Design System</span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Foundations</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pages/colors.html">Colors</a></li>
+                            <li><a href="pages/typography.html">Typography</a></li>
+                            <li><a href="pages/spacing.html">Spacing</a></li>
+                            <li><a href="pages/tokens.html">Tokens</a></li>
+                            <li><a href="pages/icons.html">Icons</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Components</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pages/buttons.html">Buttons</a></li>
+                            <li><a href="pages/forms.html">Forms</a></li>
+                            <li><a href="pages/cards.html">Cards</a></li>
+                            <li><a href="pages/navigation.html">Navigation</a></li>
+                            <li><a href="pages/feedback.html">Feedback</a></li>
+                            <li><a href="pages/data-display.html">Data Display</a></li>
+                            <li><a href="pages/modals.html">Modals</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Patterns</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pages/layouts.html">Layouts</a></li>
+                            <li><a href="pages/responsive.html">Responsive</a></li>
+                            <li><a href="pages/form-patterns.html">Form Patterns</a></li>
+                            <li><a href="pages/nav-patterns.html">Navigation Patterns</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Guidelines</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pages/accessibility.html">Accessibility</a></li>
+                            <li><a href="pages/writing.html">Writing</a></li>
+                            <li><a href="pages/motion.html">Motion</a></li>
+                            <li><a href="pages/design-principles.html">Design Principles</a></li>
+                            <li><a href="pages/contributing.html">Contributing</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Getting Started</h3>
+                <ul class="sidebar-list">
+                    <li><a href="pages/getting-started.html">Getting Started Guide</a></li>
+                    <li><a href="pages/design-principles.html">Design Principles</a></li>
+                    <li><a href="pages/contributing.html">Contributing</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Foundations</h3>
+                <ul class="sidebar-list">
+                    <li><a href="pages/colors.html">Color Palette</a></li>
+                    <li><a href="pages/typography.html">Typography</a></li>
+                    <li><a href="pages/spacing.html">Spacing</a></li>
+                    <li><a href="pages/tokens.html">Tokens</a></li>
+                    <li><a href="pages/icons.html">Icons</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Components</h3>
+                <ul class="sidebar-list">
+                    <li><a href="pages/buttons.html">Buttons</a></li>
+                    <li><a href="pages/forms.html">Forms</a></li>
+                    <li><a href="pages/cards.html">Cards</a></li>
+                    <li><a href="pages/navigation.html">Navigation</a></li>
+                    <li><a href="pages/feedback.html">Feedback</a></li>
+                    <li><a href="pages/data-display.html">Data Display</a></li>
+                    <li><a href="pages/modals.html">Modals</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Patterns</h3>
+                <ul class="sidebar-list">
+                    <li><a href="pages/layouts.html">Page Layouts</a></li>
+                    <li><a href="pages/responsive.html">Responsive Patterns</a></li>
+                    <li><a href="pages/form-patterns.html">Forms Patterns</a></li>
+                    <li><a href="pages/nav-patterns.html">Navigation Patterns</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Guidelines</h3>
+                <ul class="sidebar-list">
+                    <li><a href="pages/accessibility.html">Accessibility</a></li>
+                    <li><a href="pages/writing.html">Writing Style</a></li>
+                    <li><a href="pages/motion.html">Motion</a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Design System Demo</h1>
+                <p class="page-description">Interactive examples showcasing the LawnGuru Design System components and patterns.</p>
+            </div>
+            
+            <div class="page-content">
+                <!-- Button Demo -->
+                <section class="demo-section">
+                    <h2 class="demo-title">🟢 Button Components</h2>
+                    <p>Interactive button examples with different variants and sizes.</p>
+                    
+                    <div class="interactive-demo">
+                        <h3>CTA Buttons</h3>
+                        <div class="button-group">
+                            <button class="btn btn-primary btn-sm btn-demo">Small Primary</button>
+                            <button class="btn btn-primary btn-demo">Medium Primary</button>
+                            <button class="btn btn-primary btn-lg btn-demo">Large Primary</button>
+                        </div>
+                        
+                        <h3>Secondary Buttons</h3>
+                        <div class="button-group">
+                            <button class="btn btn-secondary btn-sm btn-demo">Small Secondary</button>
+                            <button class="btn btn-secondary btn-demo">Medium Secondary</button>
+                            <button class="btn btn-secondary btn-lg btn-demo">Large Secondary</button>
+                        </div>
+                        
+                        <h3>Link Buttons</h3>
+                        <div class="button-group">
+                            <button class="btn btn-link btn-sm btn-demo">Small Link</button>
+                            <button class="btn btn-link btn-demo">Medium Link</button>
+                            <button class="btn btn-link btn-lg btn-demo">Large Link</button>
+                        </div>
+                        
+                        <h3>Destructive Actions</h3>
+                        <div class="button-group">
+                            <button class="btn btn-destructive btn-sm btn-demo">Small Destructive</button>
+                            <button class="btn btn-destructive btn-demo">Medium Destructive</button>
+                            <button class="btn btn-destructive btn-lg btn-demo">Large Destructive</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Form Demo -->
+                <section class="demo-section">
+                    <h2 class="demo-title">📝 Form Components</h2>
+                    <p>Interactive form elements with proper validation states.</p>
+                    
+                    <div class="interactive-demo">
+                        <div class="form-demo">
+                            <div class="form-group">
+                                <label class="form-label" for="name">Full Name</label>
+                                <input type="text" id="name" class="form-input" placeholder="Enter your full name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address</label>
+                                <input type="email" id="email" class="form-input" placeholder="your@email.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="service">Service Type</label>
+                                <select id="service" class="form-input">
+                                    <option value="">Select a service</option>
+                                    <option value="lawn-mowing">Lawn Mowing</option>
+                                    <option value="landscaping">Landscaping</option>
+                                    <option value="tree-care">Tree Care</option>
+                                    <option value="pest-control">Pest Control</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="message">Message</label>
+                                <textarea id="message" class="form-input form-textarea" placeholder="Tell us about your lawn care needs..."></textarea>
+                            </div>
+                            
+                            <div class="button-group">
+                                <button class="btn btn-primary btn-demo">Submit Request</button>
+                                <button class="btn btn-secondary btn-demo">Save Draft</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Feedback Demo -->
+                <section class="demo-section">
+                    <h2 class="demo-title">💬 Feedback Components</h2>
+                    <p>Alerts, badges, and progress indicators.</p>
+                    
+                    <div class="interactive-demo">
+                        <h3>Alert Messages</h3>
+                        <div class="alert-demo alert-success">
+                            ✅ Your lawn service has been successfully booked!
+                        </div>
+                        <div class="alert-demo alert-error">
+                            ❌ Unable to process payment. Please try again.
+                        </div>
+                        <div class="alert-demo alert-warning">
+                            ⚠️ Weather conditions may affect service quality.
+                        </div>
+                        <div class="alert-demo alert-info">
+                            ℹ️ Service will be completed within 2-4 hours.
+                        </div>
+                        
+                        <h3>Badges</h3>
+                        <div class="button-group">
+                            <span class="badge badge-success">Available</span>
+                            <span class="badge badge-error">Unavailable</span>
+                            <span class="badge badge-warning">Pending</span>
+                            <span class="badge badge-info">New</span>
+                        </div>
+                        
+                        <h3>Progress Indicators</h3>
+                        <div>
+                            <p>Service Progress: 75% Complete</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill progress-75"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Payment Status: 50% Complete</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill progress-50"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Profile Setup: 25% Complete</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill progress-25"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Card Demo -->
+                <section class="demo-section">
+                    <h2 class="demo-title">🃏 Card Components</h2>
+                    <p>Service cards and content containers.</p>
+                    
+                    <div class="demo-grid">
+                        <div class="demo-card">
+                            <h3>Lawn Mowing Service</h3>
+                            <p>Professional lawn mowing service with weekly maintenance.</p>
+                            <div class="button-group">
+                                <button class="btn btn-primary btn-demo">Book Now</button>
+                                <button class="btn btn-link btn-demo">Learn More</button>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-card">
+                            <h3>Landscaping Design</h3>
+                            <p>Custom landscaping design and installation services.</p>
+                            <div class="button-group">
+                                <button class="btn btn-primary btn-demo">Get Quote</button>
+                                <button class="btn btn-link btn-demo">View Portfolio</button>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-card">
+                            <h3>Tree Care Services</h3>
+                            <p>Professional tree trimming, removal, and maintenance.</p>
+                            <div class="button-group">
+                                <button class="btn btn-primary btn-demo">Schedule</button>
+                                <button class="btn btn-link btn-demo">Emergency Service</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Color Palette Demo -->
+                <section class="demo-section">
+                    <h2 class="demo-title">🎨 Color Palette</h2>
+                    <p>Primary colors and semantic color usage.</p>
+                    
+                    <div class="interactive-demo">
+                        <h3>Primary Green Palette</h3>
+                        <div class="button-group">
+                            <div style="width: 60px; height: 40px; background-color: var(--color-primary-300); border-radius: 4px; display: inline-block; margin: 4px;"></div>
+                            <div style="width: 60px; height: 40px; background-color: var(--color-primary-500); border-radius: 4px; display: inline-block; margin: 4px;"></div>
+                            <div style="width: 60px; height: 40px; background-color: var(--color-primary-700); border-radius: 4px; display: inline-block; margin: 4px;"></div>
+                        </div>
+                        
+                        <h3>Semantic Colors</h3>
+                        <div class="button-group">
+                            <div style="width: 60px; height: 40px; background-color: var(--color-success); border-radius: 4px; display: inline-block; margin: 4px;"></div>
+                            <div style="width: 60px; height: 40px; background-color: var(--color-error); border-radius: 4px; display: inline-block; margin: 4px;"></div>
+                            <div style="width: 60px; height: 40px; background-color: var(--color-warning); border-radius: 4px; display: inline-block; margin: 4px;"></div>
+                            <div style="width: 60px; height: 40px; background-color: var(--color-info); border-radius: 4px; display: inline-block; margin: 4px;"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Typography Demo -->
+                <section class="demo-section">
+                    <h2 class="demo-title">📝 Typography</h2>
+                    <p>Font families, sizes, and text styles.</p>
+                    
+                    <div class="interactive-demo">
+                        <h1>Heading 1 - Main Page Title</h1>
+                        <h2>Heading 2 - Section Title</h2>
+                        <h3>Heading 3 - Subsection Title</h3>
+                        <h4>Heading 4 - Component Title</h4>
+                        <h5>Heading 5 - Small Heading</h5>
+                        <h6>Heading 6 - Smallest Heading</h6>
+                        
+                        <p>This is a paragraph with regular text. It demonstrates the body text styling with proper line height and spacing for optimal readability.</p>
+                        
+                        <p><strong>This is bold text</strong> and <em>this is italic text</em>. You can also use <a href="#">links</a> within paragraphs.</p>
+                        
+                        <blockquote>
+                            "A well-maintained lawn is the foundation of a beautiful landscape. Our design system helps create consistent, accessible experiences for all users."
+                        </blockquote>
+                    </div>
+                </section>
+
+                <!-- Interactive Features -->
+                <section class="demo-section">
+                    <h2 class="demo-title">⚡ Interactive Features</h2>
+                    <p>Try these interactive features:</p>
+                    
+                    <div class="interactive-demo">
+                        <h3>Toast Notifications</h3>
+                        <div class="button-group">
+                            <button class="btn btn-primary btn-demo" onclick="showDemoToast('success')">Success Toast</button>
+                            <button class="btn btn-secondary btn-demo" onclick="showDemoToast('error')">Error Toast</button>
+                            <button class="btn btn-link btn-demo" onclick="showDemoToast('info')">Info Toast</button>
+                        </div>
+                        
+                        <h3>Mobile Menu Toggle</h3>
+                        <p>On mobile devices, tap the hamburger menu in the top-right to see the responsive navigation.</p>
+                        
+                        <h3>Keyboard Navigation</h3>
+                        <p>Use <kbd>Tab</kbd> to navigate through interactive elements and <kbd>Esc</kbd> to close menus.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-icon">🌱</span>
+                    <span class="brand-text">LawnGuru Design System</span>
+                </div>
+                <div class="footer-text">
+                    <p>Built with 🌱 by the LawnGuru team</p>
+                    <p class="footer-license">Proprietary - LawnGuru © 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Demo-specific JavaScript
+        function showDemoToast(type) {
+            const messages = {
+                success: 'Service booked successfully!',
+                error: 'Something went wrong. Please try again.',
+                info: 'Your request is being processed.'
+            };
+            
+            if (window.LawnGuruDS && window.LawnGuruDS.showToast) {
+                window.LawnGuruDS.showToast(messages[type], type);
+            } else {
+                alert(messages[type]);
+            }
+        }
+        
+        // Add some interactive behavior to form elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const formInputs = document.querySelectorAll('.form-input');
+            formInputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.classList.add('focused');
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.parentElement.classList.remove('focused');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

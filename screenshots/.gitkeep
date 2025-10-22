@@ -1,0 +1,12 @@
+# Screenshots Directory
+
+Place Figma export screenshots here for documentation automation.
+
+Example naming:
+- buttons-cta.png
+- buttons-link.png
+- colors-palette.png
+- typography-scale.png
+- icons-library.png
+
+See docs/AUTOMATION_GUIDE.md for more information.

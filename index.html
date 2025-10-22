@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LawnGuru Design System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="brand-link">
+                    <span class="brand-icon">🌱</span>
+                    <span class="brand-text">LawnGuru Design System</span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Foundations</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pages/colors.html">Colors</a></li>
+                            <li><a href="pages/typography.html">Typography</a></li>
+                            <li><a href="pages/spacing.html">Spacing</a></li>
+                            <li><a href="pages/tokens.html">Tokens</a></li>
+                            <li><a href="pages/icons.html">Icons</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Components</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pages/buttons.html">Buttons</a></li>
+                            <li><a href="pages/forms.html">Forms</a></li>
+                            <li><a href="pages/cards.html">Cards</a></li>
+                            <li><a href="pages/navigation.html">Navigation</a></li>
+                            <li><a href="pages/feedback.html">Feedback</a></li>
+                            <li><a href="pages/data-display.html">Data Display</a></li>
+                            <li><a href="pages/modals.html">Modals</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Patterns</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pages/layouts.html">Layouts</a></li>
+                            <li><a href="pages/responsive.html">Responsive</a></li>
+                            <li><a href="pages/form-patterns.html">Form Patterns</a></li>
+                            <li><a href="pages/nav-patterns.html">Navigation Patterns</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Guidelines</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pages/accessibility.html">Accessibility</a></li>
+                            <li><a href="pages/writing.html">Writing</a></li>
+                            <li><a href="pages/motion.html">Motion</a></li>
+                            <li><a href="pages/design-principles.html">Design Principles</a></li>
+                            <li><a href="pages/contributing.html">Contributing</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Getting Started</h3>
+                <ul class="sidebar-list">
+                    <li><a href="pages/getting-started.html">Getting Started Guide</a></li>
+                    <li><a href="pages/design-principles.html">Design Principles</a></li>
+                    <li><a href="pages/contributing.html">Contributing</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Foundations</h3>
+                <ul class="sidebar-list">
+                    <li><a href="pages/colors.html">Color Palette</a></li>
+                    <li><a href="pages/typography.html">Typography</a></li>
+                    <li><a href="pages/spacing.html">Spacing</a></li>
+                    <li><a href="pages/tokens.html">Tokens</a></li>
+                    <li><a href="pages/icons.html">Icons</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Components</h3>
+                <ul class="sidebar-list">
+                    <li><a href="pages/buttons.html">Buttons</a></li>
+                    <li><a href="pages/forms.html">Forms</a></li>
+                    <li><a href="pages/cards.html">Cards</a></li>
+                    <li><a href="pages/navigation.html">Navigation</a></li>
+                    <li><a href="pages/feedback.html">Feedback</a></li>
+                    <li><a href="pages/data-display.html">Data Display</a></li>
+                    <li><a href="pages/modals.html">Modals</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Patterns</h3>
+                <ul class="sidebar-list">
+                    <li><a href="pages/layouts.html">Page Layouts</a></li>
+                    <li><a href="pages/responsive.html">Responsive Patterns</a></li>
+                    <li><a href="pages/form-patterns.html">Forms Patterns</a></li>
+                    <li><a href="pages/nav-patterns.html">Navigation Patterns</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Guidelines</h3>
+                <ul class="sidebar-list">
+                    <li><a href="pages/accessibility.html">Accessibility</a></li>
+                    <li><a href="pages/writing.html">Writing Style</a></li>
+                    <li><a href="pages/motion.html">Motion</a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">LawnGuru Design System</h1>
+                    <p class="hero-subtitle">A comprehensive design system for building consistent, accessible, and beautiful lawn care experiences.</p>
+                    <div class="hero-meta">
+                        <span class="meta-item">
+                            <strong>Version:</strong> 1.0.0
+                        </span>
+                        <span class="meta-item">
+                            <strong>Status:</strong> <span class="status-badge active">🟢 Active Development</span>
+                        </span>
+                        <span class="meta-item">
+                            <strong>Last Updated:</strong> 2025-10-22
+                        </span>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="pages/getting-started.html" class="btn btn-primary btn-lg">Get Started</a>
+                        <a href="pages/design-principles.html" class="btn btn-secondary btn-lg">Design Principles</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Links -->
+            <section class="quick-links">
+                <h2 class="section-title">Quick Links</h2>
+                <div class="links-grid">
+                    <a href="https://www.figma.com/design/3a9rDSr5fnmhcTaYxLgqkF/Design-library" class="link-card" target="_blank">
+                        <div class="link-icon">🎨</div>
+                        <h3>Figma Design Library</h3>
+                        <p>Access our complete component library in Figma</p>
+                    </a>
+                    <a href="#" class="link-card">
+                        <div class="link-icon">📚</div>
+                        <h3>Component Storybook</h3>
+                        <p>Interactive component playground (Coming Soon)</p>
+                    </a>
+                    <a href="#" class="link-card">
+                        <div class="link-icon">📦</div>
+                        <h3>NPM Package</h3>
+                        <p>Install our React component library (Coming Soon)</p>
+                    </a>
+                    <a href="#" class="link-card">
+                        <div class="link-icon">🐙</div>
+                        <h3>GitHub Repository</h3>
+                        <p>View source code and contribute</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Goals Section -->
+            <section class="goals">
+                <h2 class="section-title">Our Goals</h2>
+                <div class="goals-grid">
+                    <div class="goal-card">
+                        <div class="goal-icon">🎯</div>
+                        <h3>Consistency</h3>
+                        <p>Ensure a unified experience across all touchpoints</p>
+                    </div>
+                    <div class="goal-card">
+                        <div class="goal-icon">⚡</div>
+                        <h3>Efficiency</h3>
+                        <p>Speed up design and development with reusable components</p>
+                    </div>
+                    <div class="goal-card">
+                        <div class="goal-icon">♿</div>
+                        <h3>Accessibility</h3>
+                        <p>Build inclusive products that work for everyone</p>
+                    </div>
+                    <div class="goal-card">
+                        <div class="goal-icon">✨</div>
+                        <h3>Quality</h3>
+                        <p>Maintain high standards for design and code</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Audience Section -->
+            <section class="audience">
+                <h2 class="section-title">Who is this for?</h2>
+                <div class="audience-grid">
+                    <div class="audience-card">
+                        <div class="audience-icon">🎨</div>
+                        <h3>Designers</h3>
+                        <ul>
+                            <li>Use Figma components and design guidelines</li>
+                            <li>Access design tokens and patterns</li>
+                            <li>Follow consistent design principles</li>
+                        </ul>
+                    </div>
+                    <div class="audience-card">
+                        <div class="audience-icon">💻</div>
+                        <h3>Developers</h3>
+                        <ul>
+                            <li>Implement with code examples and specs</li>
+                            <li>Use design tokens in development</li>
+                            <li>Build accessible components</li>
+                        </ul>
+                    </div>
+                    <div class="audience-card">
+                        <div class="audience-icon">📊</div>
+                        <h3>Product Managers</h3>
+                        <ul>
+                            <li>Understand patterns and best practices</li>
+                            <li>Reference design guidelines</li>
+                            <li>Plan features with consistency</li>
+                        </ul>
+                    </div>
+                    <div class="audience-card">
+                        <div class="audience-icon">✍️</div>
+                        <h3>Content Writers</h3>
+                        <ul>
+                            <li>Follow voice and tone guidelines</li>
+                            <li>Use consistent messaging patterns</li>
+                            <li>Create accessible content</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tech Stack -->
+            <section class="tech-stack">
+                <h2 class="section-title">Tech Stack</h2>
+                <p class="section-subtitle">This design system supports:</p>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-icon">🌐</div>
+                        <h3>Web</h3>
+                        <p>React, Next.js, Tailwind CSS</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">📱</div>
+                        <h3>Mobile</h3>
+                        <p>React Native</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🎨</div>
+                        <h3>Design</h3>
+                        <p>Figma</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Support Section -->
+            <section class="support">
+                <h2 class="section-title">Support</h2>
+                <div class="support-grid">
+                    <div class="support-item">
+                        <h3>Questions?</h3>
+                        <p>Open a GitHub discussion</p>
+                    </div>
+                    <div class="support-item">
+                        <h3>Found a bug?</h3>
+                        <p>File an issue</p>
+                    </div>
+                    <div class="support-item">
+                        <h3>Need help?</h3>
+                        <p>Contact the design system team</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-icon">🌱</span>
+                    <span class="brand-text">LawnGuru Design System</span>
+                </div>
+                <div class="footer-text">
+                    <p>Built with 🌱 by the LawnGuru team</p>
+                    <p class="footer-license">Proprietary - LawnGuru © 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

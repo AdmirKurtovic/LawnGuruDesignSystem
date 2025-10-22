@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette - LawnGuru Design System</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-16);
+            margin: var(--spacing-24) 0;
+        }
+        
+        .color-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            transition: var(--transition-fast);
+        }
+        
+        .color-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .color-swatch {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-weight: var(--font-weight-semibold);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .color-info {
+            padding: var(--spacing-16);
+        }
+        
+        .color-name {
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-4);
+        }
+        
+        .color-value {
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: var(--font-size-12);
+            color: var(--color-gray-600);
+            background-color: var(--color-gray-100);
+            padding: var(--spacing-2) var(--spacing-6);
+            border-radius: var(--border-radius-sm);
+            display: inline-block;
+        }
+        
+        .usage-examples {
+            margin: var(--spacing-32) 0;
+        }
+        
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-24);
+            margin-top: var(--spacing-24);
+        }
+        
+        .example-card {
+            padding: var(--spacing-24);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--color-gray-200);
+        }
+        
+        .example-card.success {
+            background-color: var(--color-success-light);
+            border-color: var(--color-success);
+        }
+        
+        .example-card.error {
+            background-color: var(--color-error-light);
+            border-color: var(--color-error);
+        }
+        
+        .example-card.warning {
+            background-color: var(--color-warning-light);
+            border-color: var(--color-warning);
+        }
+        
+        .example-card.info {
+            background-color: var(--color-info-light);
+            border-color: var(--color-info);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="../index.html" class="brand-link">
+                    <span class="brand-icon">🌱</span>
+                    <span class="brand-text">LawnGuru Design System</span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Foundations</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="colors.html" class="active">Colors</a></li>
+                            <li><a href="typography.html">Typography</a></li>
+                            <li><a href="spacing.html">Spacing</a></li>
+                            <li><a href="tokens.html">Tokens</a></li>
+                            <li><a href="icons.html">Icons</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Components</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="buttons.html">Buttons</a></li>
+                            <li><a href="forms.html">Forms</a></li>
+                            <li><a href="cards.html">Cards</a></li>
+                            <li><a href="navigation.html">Navigation</a></li>
+                            <li><a href="feedback.html">Feedback</a></li>
+                            <li><a href="data-display.html">Data Display</a></li>
+                            <li><a href="modals.html">Modals</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Patterns</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="layouts.html">Layouts</a></li>
+                            <li><a href="responsive.html">Responsive</a></li>
+                            <li><a href="form-patterns.html">Form Patterns</a></li>
+                            <li><a href="nav-patterns.html">Navigation Patterns</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Guidelines</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="accessibility.html">Accessibility</a></li>
+                            <li><a href="writing.html">Writing</a></li>
+                            <li><a href="motion.html">Motion</a></li>
+                            <li><a href="design-principles.html">Design Principles</a></li>
+                            <li><a href="contributing.html">Contributing</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Getting Started</h3>
+                <ul class="sidebar-list">
+                    <li><a href="getting-started.html">Getting Started Guide</a></li>
+                    <li><a href="design-principles.html">Design Principles</a></li>
+                    <li><a href="contributing.html">Contributing</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Foundations</h3>
+                <ul class="sidebar-list">
+                    <li><a href="colors.html" class="active">Color Palette</a></li>
+                    <li><a href="typography.html">Typography</a></li>
+                    <li><a href="spacing.html">Spacing</a></li>
+                    <li><a href="tokens.html">Tokens</a></li>
+                    <li><a href="icons.html">Icons</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Components</h3>
+                <ul class="sidebar-list">
+                    <li><a href="buttons.html">Buttons</a></li>
+                    <li><a href="forms.html">Forms</a></li>
+                    <li><a href="cards.html">Cards</a></li>
+                    <li><a href="navigation.html">Navigation</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="data-display.html">Data Display</a></li>
+                    <li><a href="modals.html">Modals</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Patterns</h3>
+                <ul class="sidebar-list">
+                    <li><a href="layouts.html">Page Layouts</a></li>
+                    <li><a href="responsive.html">Responsive Patterns</a></li>
+                    <li><a href="form-patterns.html">Forms Patterns</a></li>
+                    <li><a href="nav-patterns.html">Navigation Patterns</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Guidelines</h3>
+                <ul class="sidebar-list">
+                    <li><a href="accessibility.html">Accessibility</a></li>
+                    <li><a href="writing.html">Writing Style</a></li>
+                    <li><a href="motion.html">Motion</a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Color Palette</h1>
+                <p class="page-description">LawnGuru's color system is designed to create a fresh, natural, and trustworthy brand experience.</p>
+            </div>
+            
+            <div class="page-content">
+                <!-- Brand Colors -->
+                <section>
+                    <h2>🎨 Brand Colors</h2>
+                    <h3>Primary Green</h3>
+                    <p>The signature LawnGuru green represents growth, nature, and vitality.</p>
+                    
+                    <div class="color-palette">
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-primary-50); color: var(--color-gray-900);">
+                                50
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Primary 50</div>
+                                <div class="color-value">#f0fdf4</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-primary-100); color: var(--color-gray-900);">
+                                100
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Primary 100</div>
+                                <div class="color-value">#dcfce7</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-primary-200); color: var(--color-gray-900);">
+                                200
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Primary 200</div>
+                                <div class="color-value">#bbf7d0</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-primary-300); color: var(--color-gray-900);">
+                                300
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Primary 300</div>
+                                <div class="color-value">#86efac</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-primary-400); color: var(--color-gray-900);">
+                                400
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Primary 400</div>
+                                <div class="color-value">#4ade80</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-primary-500);">
+                                500
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Primary 500 (Main)</div>
+                                <div class="color-value">#22c55e</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-primary-600);">
+                                600
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Primary 600</div>
+                                <div class="color-value">#16a34a</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-primary-700);">
+                                700
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Primary 700</div>
+                                <div class="color-value">#15803d</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-primary-800);">
+                                800
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Primary 800</div>
+                                <div class="color-value">#166534</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-primary-900);">
+                                900
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Primary 900</div>
+                                <div class="color-value">#14532d</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4>Usage:</h4>
+                    <ul>
+                        <li>Primary CTAs and buttons</li>
+                        <li>Active states</li>
+                        <li>Links and interactive elements</li>
+                        <li>Brand moments</li>
+                    </ul>
+                </section>
+
+                <!-- Semantic Colors -->
+                <section>
+                    <h2>🔴 Semantic Colors</h2>
+                    
+                    <div class="color-palette">
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-success-light); color: var(--color-gray-900);">
+                                Light
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Success Light</div>
+                                <div class="color-value">#dcfce7</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-success);">
+                                Main
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Success</div>
+                                <div class="color-value">#22c55e</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-success-dark);">
+                                Dark
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Success Dark</div>
+                                <div class="color-value">#16a34a</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Usage:</strong> Confirmation messages, successful actions, positive status</p>
+                    
+                    <h3>Error/Destructive</h3>
+                    <div class="color-palette">
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-error-light); color: var(--color-gray-900);">
+                                Light
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Error Light</div>
+                                <div class="color-value">#fef2f2</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-error);">
+                                Main
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Error</div>
+                                <div class="color-value">#ef4444</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-error-dark);">
+                                Dark
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Error Dark</div>
+                                <div class="color-value">#dc2626</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Usage:</strong> Error messages, destructive actions, alerts, validation errors</p>
+                    
+                    <h3>Warning</h3>
+                    <div class="color-palette">
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-warning-light); color: var(--color-gray-900);">
+                                Light
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Warning Light</div>
+                                <div class="color-value">#fefce8</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-warning); color: var(--color-gray-900);">
+                                Main
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Warning</div>
+                                <div class="color-value">#eab308</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-warning-dark); color: var(--color-gray-900);">
+                                Dark
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Warning Dark</div>
+                                <div class="color-value">#ca8a04</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Usage:</strong> Warnings, caution states, pending actions</p>
+                    
+                    <h3>Info</h3>
+                    <div class="color-palette">
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-info-light); color: var(--color-gray-900);">
+                                Light
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Info Light</div>
+                                <div class="color-value">#eff6ff</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-info);">
+                                Main
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Info</div>
+                                <div class="color-value">#3b82f6</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-info-dark);">
+                                Dark
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Info Dark</div>
+                                <div class="color-value">#2563eb</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Usage:</strong> Informational messages, tips, neutral notifications</p>
+                </section>
+
+                <!-- Neutral Colors -->
+                <section>
+                    <h2>⚫⚪ Neutral Colors</h2>
+                    <h3>Gray Scale</h3>
+                    
+                    <div class="color-palette">
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-gray-50); color: var(--color-gray-900);">
+                                50
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Gray 50</div>
+                                <div class="color-value">#f9fafb</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-gray-100); color: var(--color-gray-900);">
+                                100
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Gray 100</div>
+                                <div class="color-value">#f3f4f6</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-gray-200); color: var(--color-gray-900);">
+                                200
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Gray 200</div>
+                                <div class="color-value">#e5e7eb</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-gray-300); color: var(--color-gray-900);">
+                                300
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Gray 300</div>
+                                <div class="color-value">#d1d5db</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-gray-400); color: var(--color-white);">
+                                400
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Gray 400</div>
+                                <div class="color-value">#9ca3af</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-gray-500); color: var(--color-white);">
+                                500
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Gray 500</div>
+                                <div class="color-value">#6b7280</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-gray-600); color: var(--color-white);">
+                                600
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Gray 600</div>
+                                <div class="color-value">#4b5563</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-gray-700); color: var(--color-white);">
+                                700
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Gray 700</div>
+                                <div class="color-value">#374151</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-gray-800); color: var(--color-white);">
+                                800
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Gray 800</div>
+                                <div class="color-value">#1f2937</div>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-swatch" style="background-color: var(--color-gray-900); color: var(--color-white);">
+                                900
+                            </div>
+                            <div class="color-info">
+                                <div class="color-name">Gray 900</div>
+                                <div class="color-value">#111827</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4>Usage:</h4>
+                    <ul>
+                        <li>Text colors</li>
+                        <li>Borders and dividers</li>
+                        <li>Backgrounds</li>
+                        <li>Disabled states</li>
+                    </ul>
+                </section>
+
+                <!-- Usage Guidelines -->
+                <section>
+                    <h2>📋 Usage Guidelines</h2>
+                    
+                    <h3>Do's ✅</h3>
+                    <ul>
+                        <li>Use primary green for main CTAs and brand moments</li>
+                        <li>Maintain sufficient contrast ratios (WCAG AA minimum: 4.5:1)</li>
+                        <li>Use semantic colors consistently for their intended purpose</li>
+                        <li>Test colors in both light and dark modes</li>
+                    </ul>
+                    
+                    <h3>Don'ts ❌</h3>
+                    <ul>
+                        <li>Don't use red for anything other than errors or destructive actions</li>
+                        <li>Don't override semantic color meanings</li>
+                        <li>Don't use colors as the only way to convey information</li>
+                        <li>Avoid using too many colors in a single interface</li>
+                    </ul>
+                </section>
+
+                <!-- Accessibility -->
+                <section>
+                    <h2>♿ Accessibility</h2>
+                    
+                    <p>All color combinations must meet WCAG 2.1 Level AA standards:</p>
+                    <ul>
+                        <li><strong>Normal text:</strong> Minimum 4.5:1 contrast ratio</li>
+                        <li><strong>Large text</strong> (18pt+): Minimum 3:1 contrast ratio</li>
+                        <li><strong>UI components:</strong> Minimum 3:1 contrast ratio</li>
+                    </ul>
+                    
+                    <h3>Color Blindness Considerations</h3>
+                    <ul>
+                        <li>Don't rely solely on color to convey information</li>
+                        <li>Use patterns, icons, or labels in addition to color</li>
+                        <li>Test designs with color blindness simulators</li>
+                    </ul>
+                </section>
+
+                <!-- Usage Examples -->
+                <section class="usage-examples">
+                    <h2>Usage Examples</h2>
+                    
+                    <div class="example-grid">
+                        <div class="example-card success">
+                            <h4>✅ Success Message</h4>
+                            <p>Your lawn service has been successfully booked!</p>
+                        </div>
+                        
+                        <div class="example-card error">
+                            <h4>❌ Error Message</h4>
+                            <p>Unable to process payment. Please try again.</p>
+                        </div>
+                        
+                        <div class="example-card warning">
+                            <h4>⚠️ Warning Message</h4>
+                            <p>Weather conditions may affect service quality.</p>
+                        </div>
+                        
+                        <div class="example-card info">
+                            <h4>ℹ️ Info Message</h4>
+                            <p>Service will be completed within 2-4 hours.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CSS Implementation -->
+                <section>
+                    <h2>💻 CSS Implementation</h2>
+                    
+                    <h3>Using CSS Variables</h3>
+                    <pre><code class="language-css">/* Use CSS variables directly */
+.custom-element {
+  color: var(--color-primary);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-base);
+}
+
+/* Primary button example */
+.btn-primary {
+  background-color: var(--color-primary-600);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-12) var(--spacing-24);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-700);
+}</code></pre>
+                    
+                    <h3>Tailwind Configuration</h3>
+                    <pre><code class="language-javascript">// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: 'var(--color-primary-50)',
+          100: 'var(--color-primary-100)',
+          200: 'var(--color-primary-200)',
+          300: 'var(--color-primary-300)',
+          400: 'var(--color-primary-400)',
+          500: 'var(--color-primary-500)',
+          600: 'var(--color-primary-600)',
+          700: 'var(--color-primary-700)',
+          800: 'var(--color-primary-800)',
+          900: 'var(--color-primary-900)',
+        },
+        success: {
+          light: 'var(--color-success-light)',
+          DEFAULT: 'var(--color-success)',
+          dark: 'var(--color-success-dark)',
+        },
+        error: {
+          light: 'var(--color-error-light)',
+          DEFAULT: 'var(--color-error)',
+          dark: 'var(--color-error-dark)',
+        },
+        warning: {
+          light: 'var(--color-warning-light)',
+          DEFAULT: 'var(--color-warning)',
+          dark: 'var(--color-warning-dark)',
+        },
+        info: {
+          light: 'var(--color-info-light)',
+          DEFAULT: 'var(--color-info)',
+          dark: 'var(--color-info-dark)',
+        },
+      },
+    },
+  },
+};</code></pre>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-icon">🌱</span>
+                    <span class="brand-text">LawnGuru Design System</span>
+                </div>
+                <div class="footer-text">
+                    <p>Built with 🌱 by the LawnGuru team</p>
+                    <p class="footer-license">Proprietary - LawnGuru © 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+/**
+ * LawnGuru Design System - Custom Theme Styles
+ *
+ * This file customizes the VitePress theme with LawnGuru branding
+ */
+
+/* ============================================
+   Color Palette - LawnGuru Green Theme
+   ============================================ */
+
+:root {
+  /* Primary Green - LawnGuru Brand */
+  --vp-c-brand-1: #10b981;
+  --vp-c-brand-2: #059669;
+  --vp-c-brand-3: #047857;
+  --vp-c-brand-soft: rgba(16, 185, 129, 0.14);
+
+  /* Accent Colors */
+  --vp-c-green-1: #10b981;
+  --vp-c-green-2: #059669;
+  --vp-c-green-3: #047857;
+  --vp-c-green-soft: rgba(16, 185, 129, 0.14);
+
+  /* Custom Colors */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+
+  /* Button Colors */
+  --vp-button-brand-bg: #10b981;
+  --vp-button-brand-hover-bg: #059669;
+  --vp-button-brand-active-bg: #047857;
+
+  /* Link Colors */
+  --vp-c-brand: #10b981;
+  --vp-c-brand-dark: #059669;
+  --vp-c-brand-darker: #047857;
+  --vp-c-brand-light: #34d399;
+  --vp-c-brand-lighter: #6ee7b7;
+
+  /* Backgrounds */
+  --vp-c-bg-soft: #f9fafb;
+}
+
+/* Dark Mode Adjustments */
+.dark {
+  --vp-c-brand-1: #34d399;
+  --vp-c-brand-2: #10b981;
+  --vp-c-brand-3: #059669;
+
+  --vp-button-brand-bg: #10b981;
+  --vp-button-brand-hover-bg: #34d399;
+  --vp-button-brand-active-bg: #059669;
+}
+
+/* ============================================
+   Custom Styling
+   ============================================ */
+
+/* Hero Section */
+.VPHome .name {
+  background: var(--vp-home-hero-name-background);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Feature Cards */
+.VPFeature {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.VPFeature:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Code Blocks */
+.vp-doc div[class*='language-'] {
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+/* Custom Info Boxes */
+.vp-doc .custom-block {
+  border-radius: 8px;
+  border-left-width: 4px;
+}
+
+.vp-doc .custom-block.tip {
+  border-color: var(--vp-c-brand-1);
+}
+
+/* Tables */
+.vp-doc table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.VPSidebar {
+  background-color: var(--vp-c-bg-soft);
+}
+
+/* Navigation */
+.VPNavBar {
+  border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+/* Links */
+.vp-doc a {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+.vp-doc a:hover {
+  color: var(--vp-c-brand-dark);
+}
+
+/* Buttons */
+.VPButton.brand {
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 12px 24px;
+  transition: all 0.2s ease;
+}
+
+.VPButton.brand:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(16, 185, 129, 0.2);
+}
+
+/* Badge */
+.vp-doc .badge {
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-weight: 600;
+}
+
+/* ============================================
+   Custom Components
+   ============================================ */
+
+/* Status Badges */
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.active {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-badge.deprecated {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.status-badge.beta {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+/* Color Swatches */
+.color-swatch {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 2px solid #e5e7eb;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* Spacing Examples */
+.spacing-example {
+  display: inline-block;
+  background: var(--vp-c-brand-soft);
+  border: 2px dashed var(--vp-c-brand-1);
+  margin: 4px;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 768px) {
+  .VPButton.brand {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+
+@media print {
+  .VPNav,
+  .VPSidebar,
+  .VPFooter {
+    display: none;
+  }
+
+  .vp-doc {
+    max-width: 100%;
+  }
+}
