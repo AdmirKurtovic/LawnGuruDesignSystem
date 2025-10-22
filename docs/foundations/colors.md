@@ -11,16 +11,16 @@ The signature LawnGuru green represents growth, nature, and vitality. Multiple s
 
 ```css
 /* Primary Green Scale - from lightest to darkest */
---grass-50: [Lightest green]
---grass-100: [Very light green]
---grass-200: [Light green]
---grass-300: [Medium-light green]
---grass-400: [Medium green]
---grass-500: [Base green - Primary brand color]
---grass-600: [Medium-dark green]
---grass-700: [Dark green]
---grass-800: [Very dark green]
---grass-900: [Darkest green]
+--grass-50: #F0FFEA;  /* Lightest green - subtle backgrounds */
+--grass-100: #E4FFDB; /* Very light green - hover states */
+--grass-200: #BAFFA3; /* Light green - light accents */
+--grass-300: #8DFC72; /* Medium-light green - soft highlights */
+--grass-400: #5DF53F; /* Medium green - interactive elements */
+--grass-600: #00A31B; /* Medium-dark green - primary CTAs */
+--grass-700: #008934; /* Dark green - PRIMARY BRAND COLOR */
+--grass-800: #056535; /* Very dark green - hover states */
+--grass-900: #024B33; /* Darker green - active states */
+--grass-950: #003028; /* Darkest green - emphasis */
 ```
 
 **Usage:**
@@ -39,45 +39,44 @@ The LawnGuru design system includes a complete set of semantic colors for convey
 
 ### Success (Green)
 ```css
---success-light: [Light success green]
---success-base: [Base success green]
---success-dark: [Dark success green]
+--success-light: #E4FFDB;  /* Light success green - backgrounds */
+--success-base: #008934;   /* Base success green - primary */
+--success-dark: #024B33;   /* Dark success green - emphasis */
 ```
 
 **Usage:** Confirmation messages, successful actions, positive status, completed states
 
-### Error (Red)
+### Error / Critical (Red)
 ```css
---error-light: [Light error red]
---error-base: [Base error red]
---error-dark: [Dark error red]
+--error-light: #FDEDEF;  /* Light error red - backgrounds */
+--error-base: #E5132E;   /* Base error red - primary */
+--error-dark: #790C1B;   /* Dark error red - emphasis */
 ```
 
 **Usage:** Error messages, destructive actions, alerts, validation errors, critical warnings
 
-### Warning (Yellow/Amber)
+### Warning (Yellow)
 ```css
---warning-light: [Light warning yellow]
---warning-base: [Base warning yellow]
---warning-dark: [Dark warning yellow]
+--warning-light: #FDF6DB;  /* Light warning yellow - backgrounds */
+--warning-base: #FFCC00;   /* Base warning yellow - primary */
+--warning-dark: #6D4607;   /* Dark warning yellow - emphasis */
 ```
 
 **Usage:** Warnings, caution states, pending actions, important notices
 
-### Info (Blue)
+### Info / Interactive (Blue)
 ```css
---info-light: [Light info blue]
---info-base: [Base info blue]
---info-dark: [Dark info blue]
+--info-light: #E0F3FE;  /* Light info blue - backgrounds */
+--info-base: #0B65E3;   /* Base info blue - primary */
+--info-dark: #0A1D56;   /* Dark info blue - emphasis */
 ```
 
-**Usage:** Informational messages, tips, neutral notifications, help text
+**Usage:** Informational messages, tips, neutral notifications, help text, interactive elements
 
 ### Accent (Pink/Magenta)
 ```css
---accent-light: [Light accent]
---accent-base: [Base accent]
---accent-dark: [Dark accent]
+--accent-base: #DD086C;  /* Base accent - from Figma */
+--accent-alt: #F6539F;   /* Alternative accent - grass-dark theme */
 ```
 
 **Usage:** Special highlights, featured content, promotional elements, call-outs
@@ -90,42 +89,25 @@ The LawnGuru design system includes a complete set of semantic colors for convey
 A comprehensive gray scale from light to dark for text, borders, backgrounds, and UI elements.
 
 ```css
-/* Gray Scale - from lightest to darkest */
---gray-50: [Lightest gray - subtle backgrounds]
---gray-100: [Very light gray - hover states]
---gray-200: [Light gray - borders]
---gray-300: [Medium-light gray - subtle borders]
---gray-400: [Medium gray - disabled text]
---gray-500: [Base gray - secondary text]
---gray-600: [Medium-dark gray - tertiary text]
---gray-700: [Dark gray - secondary headings]
---gray-800: [Very dark gray - body text]
---gray-900: [Darkest gray - primary headings]
+/* Neutral Scale - from lightest to darkest */
+--neutral-00: #FFFFFF;   /* Pure white - page backgrounds */
+--neutral-50: #F6F6F6;   /* Lightest gray - subtle backgrounds */
+--neutral-100: #F1F1F1;  /* Very light gray - cards, hover states */
+--neutral-900: #2A2A2A;  /* Dark gray - secondary text */
+--neutral-950: #0B0B0B;  /* Darkest gray - primary text, headings */
+--neutral-1000: #000000; /* Pure black - maximum contrast */
 ```
 
 **Usage:**
 - **Text colors:**
-  - Primary text: `--gray-900`
-  - Secondary text: `--gray-700`
-  - Tertiary/helper text: `--gray-500`
-  - Disabled text: `--gray-400`
-- **Borders and dividers:** `--gray-200` to `--gray-300`
+  - Primary text: `--neutral-950` (#0B0B0B)
+  - Secondary text: `--neutral-900` (#2A2A2A)
 - **Backgrounds:**
-  - Subtle: `--gray-50`
-  - Cards: `--gray-100`
-  - Hover: `--gray-100` to `--gray-200`
-- **Disabled states:** `--gray-400` text on `--gray-100` background
-
-### Black & White
-```css
---black: #000000 (or very dark gray)
---white: #FFFFFF
-```
-
-**Usage:**
-- High contrast text on colored backgrounds
-- Pure black for shadows and overlays
-- Pure white for light backgrounds and reverse text
+  - Primary/Page: `--neutral-00` (#FFFFFF)
+  - Subtle/Secondary: `--neutral-50` (#F6F6F6)
+  - Cards/Tertiary: `--neutral-100` (#F1F1F1)
+- **Shadows and overlays:** `--neutral-950` or `--neutral-1000` with opacity
+- **Maximum contrast:** `--neutral-00` (white) and `--neutral-1000` (black)
 
 ---
 
@@ -169,15 +151,58 @@ The LawnGuru color system is built on a comprehensive token-based approach with:
 - **Neutrals:** Complete gray scale (gray-50 through gray-900)
 - **Special:** Black and White for maximum contrast
 
-### Extracting Exact Values
+## 🎨 Complete Color Palette Reference
 
-To get exact hex values from Figma:
-1. Open the Figma design library
-2. Select the "Tokens" page or color swatches
-3. Use Figma's inspect panel to copy hex values
-4. Or export as JSON using a Figma tokens plugin
+### All Green Palette Colors
+| Variable | Hex Code | Usage |
+|----------|----------|-------|
+| `--green-50` | `#F0FFEA` | Lightest tint |
+| `--green-100` | `#E4FFDB` | Success backgrounds |
+| `--green-200` | `#BAFFA3` | Light accents |
+| `--green-300` | `#8DFC72` | Medium-light |
+| `--green-400` | `#5DF53F` | Interactive states |
+| `--green-600` | `#00A31B` | Primary CTAs |
+| `--green-700` | `#008934` | **PRIMARY BRAND** |
+| `--green-800` | `#056535` | Dark states |
+| `--green-900` | `#024B33` | Very dark |
+| `--green-950` | `#003028` | Darkest |
 
-> **Last Updated:** Generated from Figma screenshot (2025-10-22)
+### All Blue Palette Colors
+| Variable | Hex Code | Usage |
+|----------|----------|-------|
+| `--blue-100` | `#E0F3FE` | Info backgrounds |
+| `--blue-400` | `#52B1FF` | Light interactive |
+| `--blue-500` | `#2885FA` | Medium interactive |
+| `--blue-600` | `#0B65E3` | Primary interactive |
+| `--blue-900` | `#0A1D56` | Dark interactive |
+| `--blue-950` | `#0C143B` | Darkest |
+
+### All Red Palette Colors
+| Variable | Hex Code | Usage |
+|----------|----------|-------|
+| `--red-100` | `#FDEDEF` | Error backgrounds |
+| `--red-400` | `#FF7789` | Light error |
+| `--red-600` | `#E5132E` | Primary error/critical |
+| `--red-900` | `#790C1B` | Dark error |
+
+### All Yellow Palette Colors
+| Variable | Hex Code | Usage |
+|----------|----------|-------|
+| `--yellow-100` | `#FDF6DB` | Warning backgrounds |
+| `--yellow-200` | `#FFF1AD` | Light warning |
+| `--yellow-500` | `#FFCC00` | Primary warning |
+| `--yellow-800` | `#6D4607` | Dark warning |
+| `--yellow-900` | `#4C3209` | Darkest warning |
+
+### Additional Palette Colors
+| Variable | Hex Code | Usage |
+|----------|----------|-------|
+| `--platinum-100` | `#EDF0ED` | Alternative light background |
+| `--platinum-900` | `#2E3731` | Alternative dark |
+| `--silver-100` | `#EDF1F1` | Alternative subtle background |
+
+> **Last Updated:** Extracted from Figma Color.json tokens (2025-10-22)
+> **Primary Brand Color:** `#008934` (green-700)
 
 ---
 

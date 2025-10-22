@@ -9,47 +9,47 @@
    ============================================ */
 
 :root {
-  /* Primary Green - LawnGuru Brand */
-  --vp-c-brand-1: #10b981;
-  --vp-c-brand-2: #059669;
-  --vp-c-brand-3: #047857;
-  --vp-c-brand-soft: rgba(16, 185, 129, 0.14);
+  /* Primary Green - LawnGuru Brand (from Figma tokens) */
+  --vp-c-brand-1: #008934;  /* green-700 - PRIMARY BRAND COLOR */
+  --vp-c-brand-2: #056535;  /* green-800 - Darker green */
+  --vp-c-brand-3: #024B33;  /* green-900 - Very dark green */
+  --vp-c-brand-soft: rgba(0, 137, 52, 0.14);
 
   /* Accent Colors */
-  --vp-c-green-1: #10b981;
-  --vp-c-green-2: #059669;
-  --vp-c-green-3: #047857;
-  --vp-c-green-soft: rgba(16, 185, 129, 0.14);
+  --vp-c-green-1: #008934;  /* green-700 */
+  --vp-c-green-2: #056535;  /* green-800 */
+  --vp-c-green-3: #024B33;  /* green-900 */
+  --vp-c-green-soft: rgba(0, 137, 52, 0.14);
 
   /* Custom Colors */
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --vp-home-hero-name-background: linear-gradient(135deg, #00A31B 0%, #008934 100%);
 
   /* Button Colors */
-  --vp-button-brand-bg: #10b981;
-  --vp-button-brand-hover-bg: #059669;
-  --vp-button-brand-active-bg: #047857;
+  --vp-button-brand-bg: #008934;    /* green-700 */
+  --vp-button-brand-hover-bg: #00A31B;  /* green-600 - Lighter on hover */
+  --vp-button-brand-active-bg: #056535; /* green-800 - Darker on active */
 
   /* Link Colors */
-  --vp-c-brand: #10b981;
-  --vp-c-brand-dark: #059669;
-  --vp-c-brand-darker: #047857;
-  --vp-c-brand-light: #34d399;
-  --vp-c-brand-lighter: #6ee7b7;
+  --vp-c-brand: #008934;       /* green-700 */
+  --vp-c-brand-dark: #056535;  /* green-800 */
+  --vp-c-brand-darker: #024B33; /* green-900 */
+  --vp-c-brand-light: #00A31B;  /* green-600 */
+  --vp-c-brand-lighter: #8DFC72; /* green-300 */
 
   /* Backgrounds */
-  --vp-c-bg-soft: #f9fafb;
+  --vp-c-bg-soft: #F6F6F6; /* neutral-50 */
 }
 
 /* Dark Mode Adjustments */
 .dark {
-  --vp-c-brand-1: #34d399;
-  --vp-c-brand-2: #10b981;
-  --vp-c-brand-3: #059669;
+  --vp-c-brand-1: #8DFC72;  /* green-300 - Lighter for dark mode */
+  --vp-c-brand-2: #5DF53F;  /* green-400 - Medium-light */
+  --vp-c-brand-3: #BAFFA3;  /* green-200 - Very light */
 
-  --vp-button-brand-bg: #10b981;
-  --vp-button-brand-hover-bg: #34d399;
-  --vp-button-brand-active-bg: #059669;
+  --vp-button-brand-bg: #008934;    /* green-700 - Keep primary strong */
+  --vp-button-brand-hover-bg: #8DFC72;  /* green-300 - Bright on hover */
+  --vp-button-brand-active-bg: #056535; /* green-800 - Darker on active */
 }
 
 /* ============================================
@@ -103,7 +103,7 @@
 
 /* Navigation */
 .VPNavBar {
-  border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+  border-bottom: 1px solid rgba(0, 137, 52, 0.1); /* green-700 with opacity */
 }
 
 /* Links */
@@ -126,7 +126,7 @@
 
 .VPButton.brand:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 137, 52, 0.2); /* green-700 with opacity */
 }
 
 /* Badge */
