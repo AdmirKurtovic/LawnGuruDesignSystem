@@ -236,9 +236,65 @@ Typography scales based on viewport size for optimal readability.
 - Weights: 400 (Regular), 500 (Medium), 600 (Semibold), 700 (Bold)
 - Letter spacing: -1.5% to +1.5%
 
-> **Last Updated:** Generated from Figma screenshot (2025-10-22)
+> **Last Updated:** Extracted from Figma Font.json tokens (2025-10-22)
 >
 > **Note:** This typography system provides a comprehensive, accessible type scale optimized for digital interfaces. All sizes and line heights are designed to work together harmoniously.
+
+---
+
+## 📊 Complete Typography Token Reference
+
+### Font Size Tokens
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `font-size-34` | 34px | Display, hero headings |
+| `font-size-28` | 28px | H1, page titles |
+| `font-size-24` | 24px | Large headings |
+| `font-size-20` | 20px | H2, section headings |
+| `font-size-18` | 18px | H3, subsection headings |
+| `font-size-16` | 16px | **Base body text** |
+| `font-size-15` | 15px | Medium body text |
+| `font-size-14` | 14px | Small body text, UI labels |
+| `font-size-13` | 13px | Small labels |
+| `font-size-12` | 12px | Captions, helper text |
+| `font-size-11` | 11px | Fine print |
+| `font-size-10` | 10px | Smallest text, badges |
+
+### Line Height (font-height) Tokens
+
+| Token | Value | Best Paired With |
+|-------|-------|------------------|
+| `font-height-46` | 46px | font-size-34 |
+| `font-height-38` | 38px | font-size-28 |
+| `font-height-32` | 32px | font-size-24 |
+| `font-height-28` | 28px | font-size-20 |
+| `font-height-26` | 26px | font-size-18 |
+| `font-height-25` | 25px | font-size-18 |
+| `font-height-24` | 24px | font-size-16 (base) |
+| `font-height-22` | 22px | font-size-15 |
+| `font-height-21` | 21px | font-size-14 |
+| `font-height-20` | 20px | font-size-14 |
+| `font-height-18` | 18px | font-size-13 |
+| `font-height-17` | 17px | font-size-12 |
+| `font-height-15` | 15px | font-size-11 |
+| `font-height-14` | 14px | font-size-10 |
+
+### Font Family Tokens
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `font-family-geist` | Geist | Headings, display text |
+| `font-family-inter` | Inter | Body text, UI elements |
+
+### Font Weight Tokens
+
+| Token | Value | Name | Usage |
+|-------|-------|------|-------|
+| `font-weight-700` | 700 | Bold | Large headings, emphasis |
+| `font-weight-600` | 600 | Semibold | Headings, labels |
+| `font-weight-500` | 500 | Medium | Subheadings, important UI |
+| `font-weight-400` | 400 | Regular | Body text, default |
 
 ---
 

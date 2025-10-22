@@ -193,12 +193,49 @@ Spacing can be reduced on mobile devices for space efficiency:
 
 ---
 
-## 🔄 Auto-generated Section
+## 📊 Complete Spacing Token Reference
 
-> **Note:** To update this section with exact values from Figma:
-> 1. Export the "Tokens" page screenshot (spacing section)
-> 2. Run `npm run docs:update-spacing`
-> 3. This section will be automatically populated
+### Core Spacing Scale
+
+| Token | Value | Name | Usage |
+|-------|-------|------|-------|
+| `spacing-none` | 0px | None | No spacing, flush elements |
+| `spacing-2` | 2px | 2X-Small | Minimal spacing, tight elements |
+| `spacing-4` | 4px | X-Small | Very tight, icon spacing |
+| `spacing-6` | 6px | Small | Label to input, tight groups |
+| `spacing-8` | 8px | Base | **Base unit** - component internals |
+| `spacing-10` | 10px | Medium | Form fields, small padding |
+| `spacing-12` | 12px | Medium+ | Button padding, card internals |
+| `spacing-16` | 16px | Large | **Standard** - cards, sections |
+| `spacing-20` | 20px | Large+ | Comfortable padding |
+| `spacing-24` | 24px | X-Large | Section spacing |
+| `spacing-32` | 32px | 2X-Large | Major sections |
+| `spacing-40` | 40px | 3X-Large | Page sections |
+| `spacing-48` | 48px | 4X-Large | Large sections |
+| `spacing-64` | 64px | 5X-Large | Hero sections |
+| `spacing-80` | 80px | Huge | Maximum spacing |
+
+### Page Layout Tokens
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `spacing-page-grid-margin` | 16px | Page side margins |
+| `spacing-page-grid-gutter` | 8px | Grid column gutters |
+
+### Spacing System Guidelines
+
+**Use the 8px base unit:**
+- Most spacing should be multiples of 8: 8, 16, 24, 32, 40, 48, 64, 80
+- Use 4px increments for fine-tuning: 4, 12, 20
+- Use 2px only for very tight spacing
+- Avoid arbitrary values - stick to the scale
+
+**Responsive Spacing:**
+- Mobile: Reduce by 25-50% (e.g., 64px → 32-48px)
+- Tablet: Reduce by 15-25%
+- Desktop: Use full scale
+
+> **Last Updated:** Extracted from Figma Spacing.json tokens (2025-10-22)
 
 ---
 

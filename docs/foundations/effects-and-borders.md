@@ -321,7 +321,40 @@ Consistent border thickness for UI elements.
 - **Border Radius:** 12 values (0-32px + 9999px for pills)
 - **Border Width:** 7 values (0-4px including 0.5px hairline)
 
-> **Last Updated:** Generated from Figma screenshots (2025-10-22)
+> **Last Updated:** Extracted from Figma Shape.json tokens (2025-10-22)
+
+---
+
+## 📊 Complete Token Reference
+
+### Border Radius Tokens
+
+| Token | Value | Naming | Usage |
+|-------|-------|--------|-------|
+| `radius-none` | 0px | None | Square corners |
+| `radius-3xs` | 2px | 3X-Small | Minimal rounding |
+| `radius-2xs` | 4px | 2X-Small | Subtle rounding |
+| `radius-xs` | 6px | X-Small | Small elements |
+| `radius-sm` | 8px | Small | Buttons, inputs |
+| `radius-md` | 10px | Medium | Cards, panels |
+| `radius-lg` | 12px | Large | Large cards |
+| `radius-xl` | 16px | X-Large | Modal, containers |
+| `radius-2xl` | 20px | 2X-Large | Hero cards |
+| `radius-3xl` | 24px | 3X-Large | Feature sections |
+| `radius-4xl` | 32px | 4X-Large | Huge containers |
+| `radius-full` | 999px | Full | Pills, circles, avatars |
+
+### Border Width Tokens
+
+| Token | Value | Naming | Usage |
+|-------|-------|--------|-------|
+| `border-width-none` | 0px | None | No border |
+| `border-width-thin` | 0.5px | Thin | Hairline dividers |
+| `border-width-regular` | 1px | Regular | Standard borders |
+| `border-width-medium` | 1.5px | Medium | Emphasized borders |
+| `border-width-semibold` | 2px | Semibold | Strong borders |
+| `border-width-bold` | 3px | Bold | Very strong borders |
+| `border-width-black` | 4px | Black | Maximum emphasis |
 
 ---
 

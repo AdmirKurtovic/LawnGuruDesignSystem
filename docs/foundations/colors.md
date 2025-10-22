@@ -206,6 +206,76 @@ The LawnGuru color system is built on a comprehensive token-based approach with:
 
 ---
 
+## 🎯 Semantic Color Tokens
+
+The design system uses semantic color tokens for consistent application of colors across different UI elements.
+
+### Content/Text Colors
+
+| Token | Usage | Grass-Light | Notes |
+|-------|-------|-------------|-------|
+| `color-content-primary` | Primary text | `#0B0B0B` (neutral-950) | Headings, body text |
+| `color-content-secondary` | Secondary text | `#0B0B0B` @ 74% | Subtext, less emphasis |
+| `color-content-tertiary` | Tertiary text | `#0B0B0B` @ 60% | Helper text, captions |
+| `color-content-placeholder` | Placeholder text | `#0B0B0B` @ 48% | Form placeholders |
+| `color-content-disabled` | Disabled text | `#0B0B0B` @ 36% | Disabled states |
+| `color-content-brand` | Brand content | `#056535` (green-800) | Brand moments |
+| `color-content-brand-on` | Brand on light | `#008934` (green-700) | Primary brand text |
+| `color-content-brand-dark` | Brand dark | `#024B33` (green-900) | Dark brand text |
+| `color-content-brand-loud` | Brand emphasis | `#003028` (green-950) | Strong emphasis |
+| `color-content-interactive` | Interactive text | `#0B65E3` (blue-600) | Links, buttons |
+| `color-content-ascent` | Accent content | `#DD086C` | Special highlights |
+| `color-content-success` | Success text | `#056535` (green-800) | Success messages |
+| `color-content-warning` | Warning text | `#6D4607` (yellow-800) | Warning messages |
+| `color-content-critical` | Error text | `#E5132E` (red-600) | Error messages |
+| `color-content-inverted-primary` | Inverted primary | `#FFFFFF` (neutral-00) | Text on dark backgrounds |
+| `color-content-inverted-secondary` | Inverted secondary | `#FFFFFF` @ 88% | Secondary on dark |
+
+### Border Colors
+
+| Token | Grass-Light | Usage |
+|-------|-------------|-------|
+| `color-border-10` | `#0B0B0B` @ 10% | Subtle borders |
+| `color-border-15` | `#0B0B0B` @ 15% | Light borders |
+| `color-border-20` | `#0B0B0B` @ 20% | Default borders |
+| `color-border-30` | `#0B0B0B` @ 30% | Medium borders |
+| `color-border-40` | `#0B0B0B` @ 40% | Emphasized borders |
+| `color-border-50` | `#0B0B0B` @ 50% | Strong borders |
+| `color-border-60` | `#0B0B0B` @ 60% | Very strong borders |
+| `color-border-success` | `#00A31B` (green-600) | Success indicators |
+| `color-border-warning` | `#FFCC00` (yellow-500) | Warning indicators |
+| `color-border-critical` | `#E5132E` (red-600) | Error indicators |
+| `color-border-highlight` | `#00A31B` @ 74% | Highlighted borders |
+| `color-border-inverted-10` | `#FFFFFF` @ 10% | Subtle inverted |
+| `color-border-inverted-20` | `#FFFFFF` @ 20% | Inverted borders |
+
+### Interactive State Colors
+
+| Token | Grass-Light | Usage |
+|-------|-------------|-------|
+| `color-state-hover` | `#000000` @ 10% | Hover overlay |
+| `color-state-pressed` | `#000000` @ 20% | Pressed/active overlay |
+| `color-state-hover-inverted` | `#FFFFFF` @ 10% | Inverted hover |
+| `color-state-pressed-inverted` | `#FFFFFF` @ 20% | Inverted pressed |
+
+### Shadow Colors
+
+Shadow tokens with varying opacity for depth and elevation:
+
+**Neutral Shadows:**
+| Token | Base Color | Opacity Range | Usage |
+|-------|------------|---------------|-------|
+| `color-shadow-neutral-*` | `#0B0B0B` | 7-15% | Standard shadows for cards, modals |
+
+**Brand Shadows:**
+| Token | Base Color | Opacity Range | Usage |
+|-------|------------|---------------|-------|
+| `color-shadow-brand-*` | `#003028` (green-950) | 8-16% | Brand element shadows |
+
+*Note: Shadow tokens have multiple levels (e.g., -center-07, -center-08, etc.) for different elevation depths.*
+
+---
+
 **Next Steps:**
 - [Typography →](./typography.md)
 - [Spacing →](./spacing.md)
