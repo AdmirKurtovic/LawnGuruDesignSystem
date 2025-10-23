@@ -49,8 +49,6 @@ import { ref } from 'vue'
 </div>
 </ClientOnly>
 
----
-
 ## 📝 Inputs
 
 ### Basic Input (shadcn-style)
@@ -179,8 +177,6 @@ import { ref } from 'vue'
 </div>
 </ClientOnly>
 
----
-
 ## 🏷️ Badges
 
 ### Badge Variants
@@ -249,8 +245,6 @@ import { ref } from 'vue'
 </div>
 </ClientOnly>
 
----
-
 ## 👤 Avatars
 
 ### Avatar Sizes
@@ -299,8 +293,6 @@ import { ref } from 'vue'
   <LgAvatar initials="MK" border color="red" />
 </div>
 </ClientOnly>
-
----
 
 ## 🎮 Interactive Examples
 
