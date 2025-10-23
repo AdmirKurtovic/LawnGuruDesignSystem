@@ -56,7 +56,7 @@ import { ref } from 'vue'
 ### Basic Input (shadcn-style)
 
 <ClientOnly>
-<div class="component-demo">
+<div class="component-demo input-demo">
   <LgInput
     label="Email Address"
     placeholder="your@email.com"
@@ -68,7 +68,7 @@ import { ref } from 'vue'
 ### Input Sizes (shadcn-style)
 
 <ClientOnly>
-<div class="component-demo">
+<div class="component-demo input-demo">
   <LgInput size="sm" placeholder="Small input" />
   <LgInput size="default" placeholder="Default input" />
   <LgInput size="lg" placeholder="Large input" />
@@ -78,7 +78,7 @@ import { ref } from 'vue'
 ### Input States (shadcn-style)
 
 <ClientOnly>
-<div class="component-demo">
+<div class="component-demo input-demo">
   <LgInput
     label="Success State"
     placeholder="Enter value"
@@ -102,7 +102,7 @@ import { ref } from 'vue'
 ### Clearable Input (shadcn-style)
 
 <ClientOnly>
-<div class="component-demo">
+<div class="component-demo input-demo">
   <LgInput
     label="Search"
     placeholder="Type to search..."
@@ -114,7 +114,7 @@ import { ref } from 'vue'
 ### File Input (shadcn-style)
 
 <ClientOnly>
-<div class="component-demo">
+<div class="component-demo input-demo">
   <LgInput
     label="Upload File"
     type="file"
@@ -126,7 +126,7 @@ import { ref } from 'vue'
 ### Horizontal Layout (shadcn-style)
 
 <ClientOnly>
-<div class="component-demo" style="flex-direction: column; align-items: stretch;">
+<div class="component-demo input-demo">
   <LgInput
     label="Full Name"
     placeholder="John Doe"
@@ -149,7 +149,7 @@ import { ref } from 'vue'
 ### Input + Button (shadcn-style)
 
 <ClientOnly>
-<div class="component-demo" style="flex-direction: column; align-items: stretch;">
+<div class="component-demo input-demo">
   <LgInputGroup size="default">
     <template #input>
       <LgInput placeholder="Enter your email..." />
@@ -307,7 +307,7 @@ import { ref } from 'vue'
 ### Form Example
 
 <ClientOnly>
-<div class="component-demo" style="max-width: 400px;">
+<div class="component-demo input-demo" style="max-width: 400px;">
   <LgInput
     label="Full Name"
     placeholder="John Doe"
@@ -384,6 +384,13 @@ import { ref } from 'vue'
   border-radius: var(--radius-lg);
   background: var(--color-bg-primary);
   margin: 16px 0;
+}
+
+/* Input Demo - Stack vertically with full width */
+.input-demo {
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 600px;
 }
 
 .user-card {
