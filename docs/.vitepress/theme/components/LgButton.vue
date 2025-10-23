@@ -32,13 +32,13 @@ import { computed } from 'vue'
 const props = defineProps({
   variant: {
     type: String,
-    default: 'primary',
-    validator: (value) => ['primary', 'secondary', 'outline', 'ghost', 'danger', 'link'].includes(value)
+    default: 'default',
+    validator: (value) => ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'].includes(value)
   },
   size: {
     type: String,
-    default: 'md',
-    validator: (value) => ['sm', 'md', 'lg'].includes(value)
+    default: 'default',
+    validator: (value) => ['default', 'sm', 'lg', 'icon'].includes(value)
   },
   fullWidth: {
     type: Boolean,
@@ -77,8 +77,7 @@ const buttonClasses = computed(() => [
   {
     'lg-button--full-width': props.fullWidth,
     'lg-button--loading': props.loading,
-    'lg-button--disabled': props.disabled,
-    'lg-button--icon-only': !props.$slots.default && (props.icon || props.$slots['icon-left'] || props.$slots['icon-right'])
+    'lg-button--disabled': props.disabled
   }
 ])
 
@@ -90,147 +89,167 @@ const handleClick = (event) => {
 </script>
 
 <style scoped>
-/* Base Button Styles */
+/* Base Button Styles - Inspired by shadcn */
 .lg-button {
-  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-8);
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-500);
-  border: var(--border-width-regular) solid transparent;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  text-decoration: none;
   white-space: nowrap;
-  user-select: none;
-}
-
-.lg-button:focus-visible {
-  outline: 2px solid var(--grass-600);
-  outline-offset: 2px;
-}
-
-/* Sizes */
-.lg-button--sm {
-  height: 32px;
-  padding: 0 var(--spacing-12);
+  border-radius: var(--radius-md);
   font-size: var(--font-size-14);
-  line-height: var(--font-height-20);
-  border-radius: var(--radius-sm);
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  outline: none;
+  position: relative;
 }
 
-.lg-button--md {
+/* Focus Ring - shadcn style */
+.lg-button:focus-visible {
+  outline: none;
+  ring: 2px;
+  ring-color: var(--grass-600);
+  ring-offset: 2px;
+  box-shadow: 0 0 0 2px var(--color-bg-primary), 0 0 0 4px var(--grass-600);
+}
+
+/* Size Variants - shadcn inspired */
+.lg-button--default {
   height: 40px;
   padding: 0 var(--spacing-16);
-  font-size: var(--font-size-14);
-  line-height: var(--font-height-20);
-  border-radius: var(--radius-sm);
 }
 
-.lg-button--lg {
-  height: 48px;
-  padding: 0 var(--spacing-24);
-  font-size: var(--font-size-16);
-  line-height: var(--font-height-24);
+.lg-button--sm {
+  height: 36px;
+  padding: 0 var(--spacing-12);
+  font-size: var(--font-size-13);
   border-radius: var(--radius-md);
 }
 
-/* Primary Variant */
-.lg-button--primary {
+.lg-button--lg {
+  height: 44px;
+  padding: 0 var(--spacing-24);
+  font-size: var(--font-size-15);
+  border-radius: var(--radius-md);
+}
+
+.lg-button--icon {
+  height: 40px;
+  width: 40px;
+  padding: 0;
+}
+
+.lg-button--icon.lg-button--sm {
+  height: 36px;
+  width: 36px;
+}
+
+.lg-button--icon.lg-button--lg {
+  height: 44px;
+  width: 44px;
+}
+
+/* Default Variant (Primary with LawnGuru green) */
+.lg-button--default {
   background: var(--grass-700);
   color: var(--neutral-00);
-  box-shadow: var(--shadow-bottom-02);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-.lg-button--primary:hover:not(:disabled) {
+.lg-button--default:hover:not(:disabled) {
   background: var(--grass-800);
-  box-shadow: var(--shadow-bottom-03);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
-.lg-button--primary:active:not(:disabled) {
+.lg-button--default:active:not(:disabled) {
   background: var(--grass-900);
-  box-shadow: var(--shadow-bottom-01);
+  transform: translateY(0);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-/* Secondary Variant */
+/* Destructive Variant (using LawnGuru red) */
+.lg-button--destructive {
+  background: var(--red-600);
+  color: var(--neutral-00);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.lg-button--destructive:hover:not(:disabled) {
+  background: var(--red-900);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.lg-button--destructive:active:not(:disabled) {
+  background: var(--red-900);
+  opacity: 0.9;
+}
+
+/* Outline Variant - shadcn style with LawnGuru colors */
+.lg-button--outline {
+  border: 1px solid var(--color-border-20);
+  background: transparent;
+  color: var(--color-content-primary);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.lg-button--outline:hover:not(:disabled) {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border-30);
+}
+
+.lg-button--outline:active:not(:disabled) {
+  background: var(--color-bg-tertiary);
+}
+
+/* Secondary Variant - subtle with LawnGuru neutral */
 .lg-button--secondary {
   background: var(--color-bg-secondary);
   color: var(--color-content-primary);
-  border-color: var(--color-border-20);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .lg-button--secondary:hover:not(:disabled) {
   background: var(--color-bg-tertiary);
-  border-color: var(--color-border-30);
 }
 
 .lg-button--secondary:active:not(:disabled) {
   background: var(--color-bg-tertiary);
+  opacity: 0.8;
 }
 
-/* Outline Variant */
-.lg-button--outline {
-  background: transparent;
-  color: var(--grass-700);
-  border-color: var(--grass-700);
-}
-
-.lg-button--outline:hover:not(:disabled) {
-  background: var(--color-bg-brand-subtle);
-  border-color: var(--grass-800);
-  color: var(--grass-800);
-}
-
-.lg-button--outline:active:not(:disabled) {
-  background: rgba(0, 137, 52, 0.15);
-}
-
-/* Ghost Variant */
+/* Ghost Variant - shadcn style */
 .lg-button--ghost {
   background: transparent;
   color: var(--color-content-primary);
-  border-color: transparent;
+  box-shadow: none;
 }
 
 .lg-button--ghost:hover:not(:disabled) {
-  background: var(--color-state-hover);
+  background: var(--color-bg-secondary);
 }
 
 .lg-button--ghost:active:not(:disabled) {
-  background: var(--color-state-pressed);
+  background: var(--color-bg-tertiary);
 }
 
-/* Danger Variant */
-.lg-button--danger {
-  background: var(--red-600);
-  color: var(--neutral-00);
-  box-shadow: var(--shadow-bottom-02);
-}
-
-.lg-button--danger:hover:not(:disabled) {
-  background: var(--red-900);
-  box-shadow: var(--shadow-bottom-03);
-}
-
-.lg-button--danger:active:not(:disabled) {
-  background: var(--red-900);
-}
-
-/* Link Variant */
+/* Link Variant - shadcn style with LawnGuru green */
 .lg-button--link {
   background: transparent;
   color: var(--grass-700);
-  border-color: transparent;
-  padding: 0;
-  height: auto;
   text-decoration: underline;
-  text-underline-offset: 2px;
+  text-underline-offset: 4px;
+  box-shadow: none;
+  height: auto;
+  padding: 0;
 }
 
 .lg-button--link:hover:not(:disabled) {
   color: var(--grass-800);
+  text-decoration: underline;
 }
 
 .lg-button--link:active:not(:disabled) {
@@ -242,30 +261,45 @@ const handleClick = (event) => {
   width: 100%;
 }
 
-/* Disabled State */
+/* Disabled State - shadcn style */
 .lg-button:disabled,
 .lg-button--disabled {
+  pointer-events: none;
   opacity: 0.5;
-  cursor: not-allowed;
-  box-shadow: none;
 }
 
 /* Loading State */
 .lg-button--loading {
-  cursor: wait;
+  color: transparent;
   pointer-events: none;
 }
 
 .lg-button__spinner {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .lg-button__spinner-icon {
   width: 16px;
   height: 16px;
   animation: spin 1s linear infinite;
+}
+
+.lg-button--default .lg-button__spinner-icon,
+.lg-button--destructive .lg-button__spinner-icon {
+  color: var(--neutral-00);
+}
+
+.lg-button--outline .lg-button__spinner-icon,
+.lg-button--secondary .lg-button__spinner-icon,
+.lg-button--ghost .lg-button__spinner-icon {
+  color: var(--color-content-primary);
+}
+
+.lg-button--link .lg-button__spinner-icon {
+  color: var(--grass-700);
 }
 
 @keyframes spin {
@@ -277,16 +311,12 @@ const handleClick = (event) => {
   }
 }
 
-.lg-button--loading .lg-button__content,
-.lg-button--loading .lg-button__icon {
-  opacity: 0;
-}
-
 /* Icon Styles */
 .lg-button__icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .lg-button__icon svg,
@@ -301,20 +331,9 @@ const handleClick = (event) => {
   height: 20px;
 }
 
-/* Icon Only Button */
-.lg-button--icon-only {
-  padding: 0;
-}
-
-.lg-button--icon-only.lg-button--sm {
-  width: 32px;
-}
-
-.lg-button--icon-only.lg-button--md {
-  width: 40px;
-}
-
-.lg-button--icon-only.lg-button--lg {
-  width: 48px;
+.lg-button--sm .lg-button__icon svg,
+.lg-button--sm .lg-button__icon img {
+  width: 14px;
+  height: 14px;
 }
 </style>

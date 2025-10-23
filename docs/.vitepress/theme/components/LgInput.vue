@@ -27,7 +27,7 @@
         @keydown="handleKeydown"
       />
 
-      <span v-if="$slots['icon-right'] || clearable && modelValue" class="lg-input__icon lg-input__icon--right">
+      <span v-if="$slots['icon-right'] || (clearable && modelValue)" class="lg-input__icon lg-input__icon--right">
         <button
           v-if="clearable && modelValue && !disabled && !readonly"
           type="button"
@@ -35,7 +35,9 @@
           @click="handleClear"
           aria-label="Clear input"
         >
-          ×
+          <svg width="16" height="16" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
         </button>
         <slot v-else name="icon-right"></slot>
       </span>
@@ -117,8 +119,8 @@ const props = defineProps({
   },
   size: {
     type: String,
-    default: 'md',
-    validator: (value) => ['sm', 'md', 'lg'].includes(value)
+    default: 'default',
+    validator: (value) => ['sm', 'default', 'lg'].includes(value)
   }
 })
 
@@ -127,7 +129,6 @@ const emit = defineEmits(['update:modelValue', 'focus', 'blur', 'clear', 'keydow
 const inputRef = ref(null)
 const isFocused = ref(false)
 
-// Generate unique ID for accessibility
 const inputId = computed(() => `lg-input-${Math.random().toString(36).substr(2, 9)}`)
 
 const wrapperClasses = computed(() => [
@@ -172,7 +173,6 @@ const handleKeydown = (event) => {
   emit('keydown', event)
 }
 
-// Expose focus method
 defineExpose({
   focus: () => inputRef.value?.focus(),
   blur: () => inputRef.value?.blur()
@@ -187,12 +187,13 @@ defineExpose({
   width: 100%;
 }
 
-/* Label */
+/* Label - shadcn style */
 .lg-input__label {
   font-size: var(--font-size-14);
   font-weight: var(--font-weight-500);
   color: var(--color-content-primary);
   line-height: var(--font-height-20);
+  margin-bottom: 0;
 }
 
 .lg-input__required {
@@ -207,88 +208,116 @@ defineExpose({
   align-items: center;
 }
 
-/* Base Input */
+/* Base Input - shadcn inspired */
 .lg-input {
+  flex: 1;
   width: 100%;
   font-family: var(--font-family-primary);
   font-size: var(--font-size-14);
   line-height: var(--font-height-20);
   color: var(--color-content-primary);
   background: var(--color-bg-primary);
-  border: var(--border-width-regular) solid var(--color-border-20);
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
+  border: 1px solid var(--color-border-20);
+  border-radius: var(--radius-md);
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
 }
 
-/* Sizes */
+/* Size Variants */
 .lg-input--sm {
-  height: 32px;
+  height: 36px;
   padding: 0 var(--spacing-12);
+  font-size: var(--font-size-13);
 }
 
-.lg-input--md {
+.lg-input--default {
   height: 40px;
   padding: 0 var(--spacing-12);
 }
 
 .lg-input--lg {
-  height: 48px;
+  height: 44px;
   padding: 0 var(--spacing-16);
-  font-size: var(--font-size-16);
+  font-size: var(--font-size-15);
 }
 
 /* With Icons */
-.lg-input--with-icon-left {
-  padding-left: var(--spacing-40);
+.lg-input--with-icon-left.lg-input--sm {
+  padding-left: 36px;
 }
 
-.lg-input--with-icon-right {
-  padding-right: var(--spacing-40);
+.lg-input--with-icon-left.lg-input--default {
+  padding-left: 40px;
 }
 
-/* States */
+.lg-input--with-icon-left.lg-input--lg {
+  padding-left: 44px;
+}
+
+.lg-input--with-icon-right.lg-input--sm {
+  padding-right: 36px;
+}
+
+.lg-input--with-icon-right.lg-input--default {
+  padding-right: 40px;
+}
+
+.lg-input--with-icon-right.lg-input--lg {
+  padding-right: 44px;
+}
+
+/* Placeholder - shadcn style */
 .lg-input::placeholder {
   color: var(--color-content-placeholder);
 }
 
+/* Hover State */
 .lg-input:hover:not(:disabled):not(:readonly) {
   border-color: var(--color-border-30);
 }
 
+/* Focus State - shadcn style with ring */
 .lg-input:focus,
 .lg-input--focused {
   border-color: var(--grass-600);
-  box-shadow: 0 0 0 3px rgba(0, 163, 27, 0.1);
+  box-shadow: 0 0 0 1px var(--grass-600);
 }
 
+/* Error State */
 .lg-input--error {
   border-color: var(--red-600);
 }
 
 .lg-input--error:focus {
-  box-shadow: 0 0 0 3px rgba(229, 19, 46, 0.1);
+  border-color: var(--red-600);
+  box-shadow: 0 0 0 1px var(--red-600);
 }
 
+/* Success State */
 .lg-input--success {
   border-color: var(--grass-600);
 }
 
 .lg-input--success:focus {
-  box-shadow: 0 0 0 3px rgba(0, 163, 27, 0.1);
+  border-color: var(--grass-600);
+  box-shadow: 0 0 0 1px var(--grass-600);
 }
 
+/* Disabled State - shadcn style */
 .lg-input--disabled,
 .lg-input:disabled {
   background: var(--color-bg-secondary);
   color: var(--color-content-disabled);
   cursor: not-allowed;
+  opacity: 0.5;
 }
 
+/* Readonly State */
 .lg-input--readonly,
 .lg-input:readonly {
   background: var(--color-bg-secondary);
   cursor: default;
+  opacity: 0.8;
 }
 
 /* Icons */
@@ -297,16 +326,31 @@ defineExpose({
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-content-secondary);
+  color: var(--color-content-tertiary);
   pointer-events: none;
 }
 
 .lg-input__icon--left {
-  left: var(--spacing-12);
+  left: 0;
 }
 
 .lg-input__icon--right {
-  right: var(--spacing-12);
+  right: 0;
+}
+
+.lg-input-wrapper--sm .lg-input__icon {
+  width: 36px;
+  height: 36px;
+}
+
+.lg-input-wrapper--default .lg-input__icon {
+  width: 40px;
+  height: 40px;
+}
+
+.lg-input-wrapper--lg .lg-input__icon {
+  width: 44px;
+  height: 44px;
 }
 
 .lg-input__icon svg {
@@ -315,50 +359,74 @@ defineExpose({
 }
 
 .lg-input-wrapper--lg .lg-input__icon svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
-/* Clear Button */
+/* Clear Button - shadcn style */
 .lg-input__clear {
-  width: 20px;
-  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
   border: none;
-  background: var(--color-bg-secondary);
-  color: var(--color-content-secondary);
-  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-content-tertiary);
+  border-radius: var(--radius-sm);
   cursor: pointer;
   pointer-events: auto;
-  font-size: 18px;
-  line-height: 1;
-  transition: all var(--transition-fast);
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .lg-input__clear:hover {
-  background: var(--color-bg-tertiary);
   color: var(--color-content-primary);
+  background: var(--color-bg-secondary);
 }
 
-/* Messages */
+.lg-input__clear:active {
+  background: var(--color-bg-tertiary);
+}
+
+/* Messages - shadcn style */
 .lg-input__message {
-  font-size: var(--font-size-12);
-  line-height: var(--font-height-16);
-  min-height: var(--font-height-16);
+  font-size: var(--font-size-13);
+  line-height: var(--font-height-18);
+  font-weight: var(--font-weight-400);
 }
 
 .lg-input__message--helper {
-  color: var(--color-content-secondary);
+  color: var(--color-content-tertiary);
 }
 
 .lg-input__message--error {
   color: var(--red-600);
+  font-weight: var(--font-weight-500);
 }
 
 .lg-input__message--success {
-  color: var(--grass-600);
+  color: var(--grass-700);
+  font-weight: var(--font-weight-500);
+}
+
+/* File Input Styling */
+.lg-input[type="file"] {
+  padding: 8px 12px;
+}
+
+.lg-input[type="file"]::file-selector-button {
+  margin-right: var(--spacing-12);
+  padding: 4px 12px;
+  background: var(--color-bg-secondary);
+  color: var(--color-content-primary);
+  border: 1px solid var(--color-border-20);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-13);
+  font-weight: var(--font-weight-500);
+  cursor: pointer;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lg-input[type="file"]::file-selector-button:hover {
+  background: var(--color-bg-tertiary);
 }
 </style>

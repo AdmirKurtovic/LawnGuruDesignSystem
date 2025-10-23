@@ -10,25 +10,25 @@ import { ref } from 'vue'
 
 ## 🎨 Buttons
 
-### Primary Buttons
+### Button Sizes (shadcn-style)
 
 <ClientOnly>
 <div class="component-demo">
-  <LgButton variant="primary" size="sm">Small Button</LgButton>
-  <LgButton variant="primary" size="md">Medium Button</LgButton>
-  <LgButton variant="primary" size="lg">Large Button</LgButton>
+  <LgButton size="sm">Small</LgButton>
+  <LgButton size="default">Default</LgButton>
+  <LgButton size="lg">Large</LgButton>
 </div>
 </ClientOnly>
 
-### All Button Variants
+### All Button Variants (shadcn-style)
 
 <ClientOnly>
 <div class="component-demo">
-  <LgButton variant="primary">Primary</LgButton>
+  <LgButton variant="default">Default</LgButton>
   <LgButton variant="secondary">Secondary</LgButton>
   <LgButton variant="outline">Outline</LgButton>
   <LgButton variant="ghost">Ghost</LgButton>
-  <LgButton variant="danger">Danger</LgButton>
+  <LgButton variant="destructive">Destructive</LgButton>
   <LgButton variant="link">Link</LgButton>
 </div>
 </ClientOnly>
@@ -37,9 +37,9 @@ import { ref } from 'vue'
 
 <ClientOnly>
 <div class="component-demo">
-  <LgButton variant="primary">Normal</LgButton>
-  <LgButton variant="primary" disabled>Disabled</LgButton>
-  <LgButton variant="primary" loading>Loading</LgButton>
+  <LgButton variant="default">Normal</LgButton>
+  <LgButton variant="default" disabled>Disabled</LgButton>
+  <LgButton variant="default" loading>Loading</LgButton>
 </div>
 </ClientOnly>
 
@@ -47,7 +47,7 @@ import { ref } from 'vue'
 
 <ClientOnly>
 <div class="component-demo">
-  <LgButton variant="primary" fullWidth>Full Width Button</LgButton>
+  <LgButton variant="default" fullWidth>Full Width Button</LgButton>
 </div>
 </ClientOnly>
 
@@ -72,7 +72,7 @@ import { ref } from 'vue'
 <ClientOnly>
 <div class="component-demo">
   <LgInput size="sm" placeholder="Small input" />
-  <LgInput size="md" placeholder="Medium input (default)" />
+  <LgInput size="default" placeholder="Default input" />
   <LgInput size="lg" placeholder="Large input" />
 </div>
 </ClientOnly>
@@ -253,7 +253,7 @@ import { ref } from 'vue'
     placeholder="john@example.com"
     clearable
   />
-  <LgButton variant="primary" fullWidth>Submit</LgButton>
+  <LgButton variant="default" fullWidth>Submit</LgButton>
 </div>
 </ClientOnly>
 
@@ -271,7 +271,7 @@ import { ref } from 'vue'
       <LgBadge variant="soft" color="success">Active</LgBadge>
     </div>
     <div class="user-card__actions">
-      <LgButton variant="primary" size="sm">View Profile</LgButton>
+      <LgButton variant="default" size="sm">View Profile</LgButton>
       <LgButton variant="ghost" size="sm">Message</LgButton>
     </div>
   </div>
