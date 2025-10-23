@@ -33,6 +33,12 @@ export default defineConfig({
       ],
       '/components/': [
         {
+          text: 'Overview',
+          items: [
+            { text: '🎮 Interactive Showcase', link: '/components/showcase' },
+          ]
+        },
+        {
           text: 'Components',
           items: [
             { text: 'Buttons', link: '/components/buttons' },
@@ -41,6 +47,7 @@ export default defineConfig({
             { text: 'Navigation', link: '/components/navigation' },
             { text: 'Feedback', link: '/components/feedback' },
             { text: 'Data Display', link: '/components/data-display' },
+            { text: 'Menus', link: '/components/menus' },
             { text: 'Modals', link: '/components/modals' },
           ]
         }

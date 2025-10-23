@@ -1,0 +1,254 @@
+/**
+ * Design Tokens - LawnGuru Design System
+ * Generated from Figma design tokens
+ */
+
+:root {
+  /* ===== COLORS ===== */
+
+  /* Primary Green (Grass Theme) */
+  --grass-50: #F0FFEA;
+  --grass-100: #E4FFDB;
+  --grass-200: #BAFFA3;
+  --grass-300: #8DFC72;
+  --grass-400: #5DF53F;
+  --grass-600: #00A31B;
+  --grass-700: #008934;
+  --grass-800: #056535;
+  --grass-900: #024B33;
+  --grass-950: #003028;
+
+  /* Neutral Colors */
+  --neutral-00: #FFFFFF;
+  --neutral-50: #F6F6F6;
+  --neutral-100: #F1F1F1;
+  --neutral-900: #2A2A2A;
+  --neutral-950: #0B0B0B;
+  --neutral-1000: #000000;
+
+  /* Blue Colors */
+  --blue-100: #E0F3FE;
+  --blue-400: #52B1FF;
+  --blue-500: #2885FA;
+  --blue-600: #0B65E3;
+  --blue-900: #0A1D56;
+  --blue-950: #0C143B;
+
+  /* Red Colors */
+  --red-100: #FDEDEF;
+  --red-400: #FF7789;
+  --red-600: #E5132E;
+  --red-900: #790C1B;
+
+  /* Yellow Colors */
+  --yellow-100: #FDF6DB;
+  --yellow-200: #FFF1AD;
+  --yellow-500: #FFCC00;
+  --yellow-800: #6D4607;
+  --yellow-900: #4C3209;
+
+  /* ===== SEMANTIC COLORS ===== */
+
+  /* Content/Text Colors */
+  --color-content-primary: #0B0B0B;
+  --color-content-secondary: rgba(11, 11, 11, 0.74);
+  --color-content-tertiary: rgba(11, 11, 11, 0.60);
+  --color-content-placeholder: rgba(11, 11, 11, 0.48);
+  --color-content-disabled: rgba(11, 11, 11, 0.36);
+  --color-content-brand: #056535;
+  --color-content-brand-on: #008934;
+  --color-content-inverted-primary: #FFFFFF;
+  --color-content-success: #056535;
+  --color-content-warning: #6D4607;
+  --color-content-critical: #E5132E;
+  --color-content-interactive: #0B65E3;
+
+  /* Background Colors */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F6F6F6;
+  --color-bg-tertiary: #F1F1F1;
+  --color-bg-brand: #008934;
+  --color-bg-brand-subtle: rgba(0, 137, 52, 0.1);
+  --color-bg-success: #E4FFDB;
+  --color-bg-warning: #FDF6DB;
+  --color-bg-error: #FDEDEF;
+  --color-bg-info: #E0F3FE;
+
+  /* Border Colors */
+  --color-border-10: rgba(11, 11, 11, 0.10);
+  --color-border-15: rgba(11, 11, 11, 0.15);
+  --color-border-20: rgba(11, 11, 11, 0.20);
+  --color-border-30: rgba(11, 11, 11, 0.30);
+  --color-border-40: rgba(11, 11, 11, 0.40);
+  --color-border-success: #00A31B;
+  --color-border-warning: #FFCC00;
+  --color-border-critical: #E5132E;
+
+  /* State Colors */
+  --color-state-hover: rgba(0, 0, 0, 0.10);
+  --color-state-pressed: rgba(0, 0, 0, 0.20);
+
+  /* ===== SPACING ===== */
+  --spacing-0: 0px;
+  --spacing-2: 2px;
+  --spacing-4: 4px;
+  --spacing-6: 6px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-28: 28px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-56: 56px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-96: 96px;
+
+  /* ===== TYPOGRAPHY ===== */
+
+  /* Font Families */
+  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-heading: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-mono: 'Geist Mono', 'SF Mono', Monaco, 'Courier New', monospace;
+
+  /* Font Sizes */
+  --font-size-10: 10px;
+  --font-size-11: 11px;
+  --font-size-12: 12px;
+  --font-size-13: 13px;
+  --font-size-14: 14px;
+  --font-size-15: 15px;
+  --font-size-16: 16px;
+  --font-size-18: 18px;
+  --font-size-20: 20px;
+  --font-size-22: 22px;
+  --font-size-24: 24px;
+  --font-size-28: 28px;
+  --font-size-34: 34px;
+
+  /* Line Heights */
+  --font-height-12: 12px;
+  --font-height-14: 14px;
+  --font-height-15: 15px;
+  --font-height-16: 16px;
+  --font-height-17: 17px;
+  --font-height-18: 18px;
+  --font-height-20: 20px;
+  --font-height-21: 21px;
+  --font-height-22: 22px;
+  --font-height-24: 24px;
+  --font-height-25: 25px;
+  --font-height-26: 26px;
+  --font-height-28: 28px;
+  --font-height-32: 32px;
+  --font-height-38: 38px;
+  --font-height-46: 46px;
+
+  /* Font Weights */
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-600: 600;
+  --font-weight-700: 700;
+
+  /* ===== BORDER RADIUS ===== */
+  --radius-0: 0px;
+  --radius-2: 2px;
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-24: 24px;
+  --radius-32: 32px;
+  --radius-full: 9999px;
+
+  /* Semantic Radius Names */
+  --radius-none: 0px;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  --radius-4xl: 32px;
+
+  /* ===== BORDER WIDTH ===== */
+  --border-width-0: 0px;
+  --border-width-0-5: 0.5px;
+  --border-width-1: 1px;
+  --border-width-1-5: 1.5px;
+  --border-width-2: 2px;
+  --border-width-3: 3px;
+  --border-width-4: 4px;
+
+  /* Semantic Border Width */
+  --border-width-none: 0px;
+  --border-width-thin: 0.5px;
+  --border-width-regular: 1px;
+  --border-width-medium: 1.5px;
+  --border-width-semibold: 2px;
+  --border-width-bold: 3px;
+  --border-width-black: 4px;
+
+  /* ===== SHADOWS ===== */
+
+  /* Center Shadows */
+  --shadow-center-01: 0px 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-center-02: 0px 1px 3px rgba(0, 0, 0, 0.10);
+  --shadow-center-03: 0px 2px 4px rgba(0, 0, 0, 0.10);
+  --shadow-center-04: 0px 4px 6px rgba(0, 0, 0, 0.10);
+  --shadow-center-05: 0px 8px 12px rgba(0, 0, 0, 0.10);
+  --shadow-center-06: 0px 12px 16px rgba(0, 0, 0, 0.12);
+  --shadow-center-07: 0px 16px 24px rgba(0, 0, 0, 0.14);
+
+  /* Bottom Shadows */
+  --shadow-bottom-01: 0px 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-bottom-02: 0px 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-bottom-03: 0px 4px 6px rgba(0, 0, 0, 0.10);
+  --shadow-bottom-04: 0px 6px 8px rgba(0, 0, 0, 0.10);
+  --shadow-bottom-05: 0px 10px 15px rgba(0, 0, 0, 0.12);
+
+  /* Brand Shadows */
+  --shadow-center-brand: 0px 4px 12px rgba(34, 197, 94, 0.20);
+  --shadow-bottom-brand: 0px 8px 16px rgba(34, 197, 94, 0.25);
+
+  /* ===== TRANSITIONS ===== */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ===== Z-INDEX ===== */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-16);
+  line-height: var(--font-height-24);
+  color: var(--color-content-primary);
+  background: var(--color-bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus Visible */
+*:focus-visible {
+  outline: 2px solid var(--grass-600);
+  outline-offset: 2px;
+}
