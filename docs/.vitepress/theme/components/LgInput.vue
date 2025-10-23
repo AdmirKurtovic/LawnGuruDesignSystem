@@ -215,12 +215,12 @@ defineExpose({
   margin-top: var(--spacing-4);
 }
 
-/* Label - shadcn style */
+/* Label */
 .lg-input__label {
   font-size: var(--font-size-14);
   font-weight: var(--font-weight-500);
   color: var(--color-content-primary);
-  line-height: var(--font-height-20);
+  line-height: 1.5;
   margin-bottom: 0;
 }
 
@@ -236,7 +236,7 @@ defineExpose({
   align-items: center;
 }
 
-/* Base Input - shadcn inspired */
+/* Base Input - Clean and simple */
 .lg-input {
   flex: 1;
   width: 100%;
@@ -246,8 +246,8 @@ defineExpose({
   color: var(--color-content-primary);
   background: var(--color-bg-primary);
   border: 1px solid var(--color-border-20);
-  border-radius: var(--radius-md);
-  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: var(--radius-sm);
+  transition: border-color 150ms ease;
   outline: none;
 }
 
@@ -304,11 +304,10 @@ defineExpose({
   border-color: var(--color-border-30);
 }
 
-/* Focus State - shadcn style with ring */
+/* Focus State - Simple green border */
 .lg-input:focus,
 .lg-input--focused {
   border-color: var(--grass-600);
-  box-shadow: 0 0 0 1px var(--grass-600);
 }
 
 /* Error State */
@@ -318,7 +317,6 @@ defineExpose({
 
 .lg-input--error:focus {
   border-color: var(--red-600);
-  box-shadow: 0 0 0 1px var(--red-600);
 }
 
 /* Success State */
@@ -328,16 +326,15 @@ defineExpose({
 
 .lg-input--success:focus {
   border-color: var(--grass-600);
-  box-shadow: 0 0 0 1px var(--grass-600);
 }
 
-/* Disabled State - shadcn style */
+/* Disabled State */
 .lg-input--disabled,
 .lg-input:disabled {
   background: var(--color-bg-secondary);
   color: var(--color-content-disabled);
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 /* Readonly State */
