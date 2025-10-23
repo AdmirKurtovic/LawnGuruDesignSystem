@@ -2,20 +2,27 @@
 
 > Interactive demonstrations of LawnGuru UI components. Try them out!
 
+<script setup>
+import { ref } from 'vue'
+</script>
+
 ---
 
 ## 🎨 Buttons
 
 ### Primary Buttons
 
+<ClientOnly>
 <div class="component-demo">
   <LgButton variant="primary" size="sm">Small Button</LgButton>
   <LgButton variant="primary" size="md">Medium Button</LgButton>
   <LgButton variant="primary" size="lg">Large Button</LgButton>
 </div>
+</ClientOnly>
 
 ### All Button Variants
 
+<ClientOnly>
 <div class="component-demo">
   <LgButton variant="primary">Primary</LgButton>
   <LgButton variant="secondary">Secondary</LgButton>
@@ -24,20 +31,25 @@
   <LgButton variant="danger">Danger</LgButton>
   <LgButton variant="link">Link</LgButton>
 </div>
+</ClientOnly>
 
 ### Button States
 
+<ClientOnly>
 <div class="component-demo">
   <LgButton variant="primary">Normal</LgButton>
   <LgButton variant="primary" disabled>Disabled</LgButton>
   <LgButton variant="primary" loading>Loading</LgButton>
 </div>
+</ClientOnly>
 
 ### Full Width Button
 
+<ClientOnly>
 <div class="component-demo">
   <LgButton variant="primary" fullWidth>Full Width Button</LgButton>
 </div>
+</ClientOnly>
 
 ---
 
@@ -45,6 +57,7 @@
 
 ### Basic Input
 
+<ClientOnly>
 <div class="component-demo">
   <LgInput
     label="Email Address"
@@ -52,17 +65,21 @@
     helperText="We'll never share your email"
   />
 </div>
+</ClientOnly>
 
 ### Input Sizes
 
+<ClientOnly>
 <div class="component-demo">
   <LgInput size="sm" placeholder="Small input" />
   <LgInput size="md" placeholder="Medium input (default)" />
   <LgInput size="lg" placeholder="Large input" />
 </div>
+</ClientOnly>
 
 ### Input States
 
+<ClientOnly>
 <div class="component-demo">
   <LgInput
     label="Success State"
@@ -82,9 +99,11 @@
     disabled
   />
 </div>
+</ClientOnly>
 
 ### Clearable Input
 
+<ClientOnly>
 <div class="component-demo">
   <LgInput
     label="Search"
@@ -92,6 +111,7 @@
     clearable
   />
 </div>
+</ClientOnly>
 
 ---
 
@@ -99,6 +119,7 @@
 
 ### Badge Variants
 
+<ClientOnly>
 <div class="component-demo">
   <LgBadge variant="filled" color="success">Success</LgBadge>
   <LgBadge variant="filled" color="warning">Warning</LgBadge>
@@ -107,49 +128,60 @@
   <LgBadge variant="filled" color="neutral">Neutral</LgBadge>
   <LgBadge variant="filled" color="brand">Brand</LgBadge>
 </div>
+</ClientOnly>
 
 ### Outlined Badges
 
+<ClientOnly>
 <div class="component-demo">
   <LgBadge variant="outlined" color="success">Success</LgBadge>
   <LgBadge variant="outlined" color="warning">Warning</LgBadge>
   <LgBadge variant="outlined" color="error">Error</LgBadge>
   <LgBadge variant="outlined" color="info">Info</LgBadge>
 </div>
+</ClientOnly>
 
 ### Soft Badges
 
+<ClientOnly>
 <div class="component-demo">
   <LgBadge variant="soft" color="success">Success</LgBadge>
   <LgBadge variant="soft" color="warning">Warning</LgBadge>
   <LgBadge variant="soft" color="error">Error</LgBadge>
   <LgBadge variant="soft" color="info">Info</LgBadge>
 </div>
+</ClientOnly>
 
 ### Badge Sizes
 
+<ClientOnly>
 <div class="component-demo">
   <LgBadge size="sm" color="brand">Small</LgBadge>
   <LgBadge size="md" color="brand">Medium</LgBadge>
   <LgBadge size="lg" color="brand">Large</LgBadge>
 </div>
+</ClientOnly>
 
 ### Dot Badges
 
+<ClientOnly>
 <div class="component-demo">
   <LgBadge variant="dot" color="success"></LgBadge>
   <LgBadge variant="dot" color="warning"></LgBadge>
   <LgBadge variant="dot" color="error"></LgBadge>
   <LgBadge variant="dot" color="info"></LgBadge>
 </div>
+</ClientOnly>
 
 ### Count Badges
 
+<ClientOnly>
 <div class="component-demo">
   <LgBadge variant="filled" color="brand">5</LgBadge>
   <LgBadge variant="filled" color="error">99+</LgBadge>
   <LgBadge variant="filled" color="info">New</LgBadge>
 </div>
+</ClientOnly>
 
 ---
 
@@ -157,6 +189,7 @@
 
 ### Avatar Sizes
 
+<ClientOnly>
 <div class="component-demo">
   <LgAvatar size="xs" initials="XS" />
   <LgAvatar size="sm" initials="SM" />
@@ -166,9 +199,11 @@
   <LgAvatar size="2xl" initials="2X" />
   <LgAvatar size="3xl" initials="3X" />
 </div>
+</ClientOnly>
 
 ### Avatar with Initials
 
+<ClientOnly>
 <div class="component-demo">
   <LgAvatar initials="JD" color="brand" />
   <LgAvatar initials="AS" color="blue" />
@@ -176,23 +211,28 @@
   <LgAvatar initials="LG" color="yellow" />
   <LgAvatar initials="TP" color="neutral" />
 </div>
+</ClientOnly>
 
 ### Avatar with Status
 
+<ClientOnly>
 <div class="component-demo">
   <LgAvatar initials="JD" status="online" />
   <LgAvatar initials="AS" status="away" />
   <LgAvatar initials="MK" status="busy" />
   <LgAvatar initials="LG" status="offline" />
 </div>
+</ClientOnly>
 
 ### Avatar with Border
 
+<ClientOnly>
 <div class="component-demo" style="background: var(--color-bg-secondary); padding: 16px; border-radius: 8px;">
   <LgAvatar initials="JD" border />
   <LgAvatar initials="AS" border color="blue" />
   <LgAvatar initials="MK" border color="red" />
 </div>
+</ClientOnly>
 
 ---
 
@@ -200,6 +240,7 @@
 
 ### Form Example
 
+<ClientOnly>
 <div class="component-demo" style="max-width: 400px;">
   <LgInput
     label="Full Name"
@@ -214,9 +255,11 @@
   />
   <LgButton variant="primary" fullWidth>Submit</LgButton>
 </div>
+</ClientOnly>
 
 ### User Card Example
 
+<ClientOnly>
 <div class="component-demo">
   <div class="user-card">
     <div class="user-card__header">
@@ -233,9 +276,11 @@
     </div>
   </div>
 </div>
+</ClientOnly>
 
 ### Status List Example
 
+<ClientOnly>
 <div class="component-demo">
   <div class="status-list">
     <div class="status-item">
@@ -260,6 +305,7 @@
     </div>
   </div>
 </div>
+</ClientOnly>
 
 ---
 
