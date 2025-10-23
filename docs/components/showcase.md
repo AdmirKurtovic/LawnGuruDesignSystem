@@ -6,8 +6,6 @@
 import { ref } from 'vue'
 </script>
 
----
-
 ## 🎨 Buttons
 
 ### Button Sizes (shadcn-style)
@@ -55,7 +53,7 @@ import { ref } from 'vue'
 
 ## 📝 Inputs
 
-### Basic Input
+### Basic Input (shadcn-style)
 
 <ClientOnly>
 <div class="component-demo">
@@ -67,7 +65,7 @@ import { ref } from 'vue'
 </div>
 </ClientOnly>
 
-### Input Sizes
+### Input Sizes (shadcn-style)
 
 <ClientOnly>
 <div class="component-demo">
@@ -77,7 +75,7 @@ import { ref } from 'vue'
 </div>
 </ClientOnly>
 
-### Input States
+### Input States (shadcn-style)
 
 <ClientOnly>
 <div class="component-demo">
@@ -101,7 +99,7 @@ import { ref } from 'vue'
 </div>
 </ClientOnly>
 
-### Clearable Input
+### Clearable Input (shadcn-style)
 
 <ClientOnly>
 <div class="component-demo">
@@ -306,8 +304,6 @@ import { ref } from 'vue'
   </div>
 </div>
 </ClientOnly>
-
----
 
 <style scoped>
 .component-demo {
