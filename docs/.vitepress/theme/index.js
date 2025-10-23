@@ -6,6 +6,7 @@ import './tokens.css'
 // Import components
 import LgButton from './components/LgButton.vue'
 import LgInput from './components/LgInput.vue'
+import LgInputGroup from './components/LgInputGroup.vue'
 import LgBadge from './components/LgBadge.vue'
 import LgAvatar from './components/LgAvatar.vue'
 
@@ -15,6 +16,7 @@ export default {
     // Register components globally
     app.component('LgButton', LgButton)
     app.component('LgInput', LgInput)
+    app.component('LgInputGroup', LgInputGroup)
     app.component('LgBadge', LgBadge)
     app.component('LgAvatar', LgAvatar)
   }

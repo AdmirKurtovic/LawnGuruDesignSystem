@@ -111,6 +111,74 @@ import { ref } from 'vue'
 </div>
 </ClientOnly>
 
+### File Input (shadcn-style)
+
+<ClientOnly>
+<div class="component-demo">
+  <LgInput
+    label="Upload File"
+    type="file"
+    helperText="Supported formats: PDF, DOC, DOCX"
+  />
+</div>
+</ClientOnly>
+
+### Horizontal Layout (shadcn-style)
+
+<ClientOnly>
+<div class="component-demo" style="flex-direction: column; align-items: stretch;">
+  <LgInput
+    label="Full Name"
+    placeholder="John Doe"
+    horizontal
+  />
+  <LgInput
+    label="Email Address"
+    type="email"
+    placeholder="john@example.com"
+    horizontal
+  />
+  <LgInput
+    label="Phone Number"
+    placeholder="+1 (555) 123-4567"
+    horizontal
+  />
+</div>
+</ClientOnly>
+
+### Input + Button (shadcn-style)
+
+<ClientOnly>
+<div class="component-demo" style="flex-direction: column; align-items: stretch;">
+  <LgInputGroup size="default">
+    <template #input>
+      <LgInput placeholder="Enter your email..." />
+    </template>
+    <template #button>
+      <LgButton variant="default">Subscribe</LgButton>
+    </template>
+  </LgInputGroup>
+
+  <LgInputGroup size="sm">
+    <template #input>
+      <LgInput size="sm" placeholder="Search..." />
+    </template>
+    <template #button>
+      <LgButton variant="default" size="sm">Go</LgButton>
+    </template>
+  </LgInputGroup>
+
+  <LgInputGroup size="lg">
+    <template #input>
+      <LgInput size="lg" placeholder="Enter promo code..." />
+    </template>
+    <template #button>
+      <LgButton variant="outline" size="lg">Apply</LgButton>
+    </template>
+  </LgInputGroup>
+</div>
+</ClientOnly>
+
 ---
 
 ## 🏷️ Badges

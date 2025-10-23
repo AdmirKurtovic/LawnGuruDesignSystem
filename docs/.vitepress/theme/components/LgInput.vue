@@ -121,6 +121,10 @@ const props = defineProps({
     type: String,
     default: 'default',
     validator: (value) => ['sm', 'default', 'lg'].includes(value)
+  },
+  horizontal: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -132,7 +136,10 @@ const isFocused = ref(false)
 const inputId = computed(() => `lg-input-${Math.random().toString(36).substr(2, 9)}`)
 
 const wrapperClasses = computed(() => [
-  `lg-input-wrapper--${props.size}`
+  `lg-input-wrapper--${props.size}`,
+  {
+    'lg-input-wrapper--horizontal': props.horizontal
+  }
 ])
 
 const inputClasses = computed(() => [
@@ -185,6 +192,27 @@ defineExpose({
   flex-direction: column;
   gap: var(--spacing-8);
   width: 100%;
+}
+
+/* Horizontal Layout */
+.lg-input-wrapper--horizontal {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--spacing-16);
+}
+
+.lg-input-wrapper--horizontal .lg-input__label {
+  min-width: 120px;
+  padding-top: 10px;
+  flex-shrink: 0;
+}
+
+.lg-input-wrapper--horizontal .lg-input__container {
+  flex: 1;
+}
+
+.lg-input-wrapper--horizontal .lg-input__message {
+  margin-top: var(--spacing-4);
 }
 
 /* Label - shadcn style */
