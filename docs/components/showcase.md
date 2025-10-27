@@ -500,6 +500,35 @@ const showDialog = ref(false)
 </div>
 </ClientOnly>
 
+## 📅 Date & Time
+
+### Calendar
+
+<ClientOnly>
+<div class="component-demo">
+  <LgCalendar />
+</div>
+</ClientOnly>
+
+## 🎡 Media
+
+### Carousel
+
+<ClientOnly>
+<div class="component-demo input-demo">
+  <LgCarousel
+    :items="[1, 2, 3, 4, 5]"
+    :loop="true"
+  >
+    <template #item="{ item, index }">
+      <div style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--grass-600) 0%, var(--grass-800) 100%); border-radius: var(--radius-md); color: white; font-size: 24px; font-weight: 600;">
+        Slide {{ item }}
+      </div>
+    </template>
+  </LgCarousel>
+</div>
+</ClientOnly>
+
 <style scoped>
 .component-demo {
   display: flex;
