@@ -21,6 +21,20 @@ import LgCalendar from './components/LgCalendar.vue'
 import LgCarousel from './components/LgCarousel.vue'
 import LgCombobox from './components/LgCombobox.vue'
 import LgCommand from './components/LgCommand.vue'
+import LgTabs from './components/LgTabs.vue'
+import LgSwitch from './components/LgSwitch.vue'
+import LgTooltip from './components/LgTooltip.vue'
+import LgSlider from './components/LgSlider.vue'
+import LgTextarea from './components/LgTextarea.vue'
+import LgSeparator from './components/LgSeparator.vue'
+import LgProgress from './components/LgProgress.vue'
+import LgRadioGroup from './components/LgRadioGroup.vue'
+import LgSkeleton from './components/LgSkeleton.vue'
+import LgToggleGroup from './components/LgToggleGroup.vue'
+import LgToast from './components/LgToast.vue'
+import LgPopover from './components/LgPopover.vue'
+import LgHoverCard from './components/LgHoverCard.vue'
+import LgPagination from './components/LgPagination.vue'
 
 export default {
   extends: DefaultTheme,
@@ -43,5 +57,19 @@ export default {
     app.component('LgCarousel', LgCarousel)
     app.component('LgCombobox', LgCombobox)
     app.component('LgCommand', LgCommand)
+    app.component('LgTabs', LgTabs)
+    app.component('LgSwitch', LgSwitch)
+    app.component('LgTooltip', LgTooltip)
+    app.component('LgSlider', LgSlider)
+    app.component('LgTextarea', LgTextarea)
+    app.component('LgSeparator', LgSeparator)
+    app.component('LgProgress', LgProgress)
+    app.component('LgRadioGroup', LgRadioGroup)
+    app.component('LgSkeleton', LgSkeleton)
+    app.component('LgToggleGroup', LgToggleGroup)
+    app.component('LgToast', LgToast)
+    app.component('LgPopover', LgPopover)
+    app.component('LgHoverCard', LgHoverCard)
+    app.component('LgPagination', LgPagination)
   }
 }

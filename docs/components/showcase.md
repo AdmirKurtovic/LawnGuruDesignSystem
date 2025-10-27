@@ -6,6 +6,24 @@
 import { ref } from 'vue'
 
 const showDialog = ref(false)
+const activeTab = ref('account')
+const switchValue = ref(false)
+const sliderValue = ref(50)
+const textareaValue = ref('')
+const selectedRadio = ref('1')
+const selectedToggleGroup = ref('bold')
+const currentPage = ref(1)
+const toastRef = ref(null)
+
+const showToast = () => {
+  if (toastRef.value) {
+    toastRef.value.addToast({
+      title: 'Event has been created',
+      description: 'Sunday, December 03, 2023 at 9:00 AM',
+      variant: 'default'
+    })
+  }
+}
 </script>
 
 ## 🎨 Buttons
@@ -573,6 +591,214 @@ const showDialog = ref(false)
         ]
       }
     ]"
+  />
+</div>
+</ClientOnly>
+
+## 🎛️ Additional Form Controls
+
+### Tabs
+
+<ClientOnly>
+<div class="component-demo input-demo">
+  <LgTabs
+    v-model="activeTab"
+    :tabs="[
+      { value: 'account', label: 'Account' },
+      { value: 'password', label: 'Password' }
+    ]"
+  >
+    <template #account>
+      <LgInput label="Name" placeholder="Your name" />
+      <LgInput label="Email" type="email" placeholder="your@email.com" />
+    </template>
+    <template #password>
+      <LgInput label="Current Password" type="password" />
+      <LgInput label="New Password" type="password" />
+    </template>
+  </LgTabs>
+</div>
+</ClientOnly>
+
+### Switch/Toggle
+
+<ClientOnly>
+<div class="component-demo">
+  <LgSwitch v-model="switchValue" label="Enable notifications" />
+  <LgSwitch :model-value="true" label="Auto-save" />
+  <LgSwitch :model-value="false" disabled label="Disabled switch" />
+</div>
+</ClientOnly>
+
+### Textarea
+
+<ClientOnly>
+<div class="component-demo input-demo">
+  <LgTextarea
+    v-model="textareaValue"
+    label="Your message"
+    placeholder="Type your message here..."
+    helperText="Your message will be sent to the team"
+    :rows="4"
+  />
+  <LgTextarea
+    label="With character limit"
+    placeholder="Max 200 characters..."
+    :max-length="200"
+  />
+</div>
+</ClientOnly>
+
+### Slider
+
+<ClientOnly>
+<div class="component-demo input-demo">
+  <LgSlider v-model="sliderValue" label="Volume" :show-value="true" />
+  <LgSlider :model-value="75" label="Brightness" />
+</div>
+</ClientOnly>
+
+### Radio Group
+
+<ClientOnly>
+<div class="component-demo input-demo">
+  <LgRadioGroup
+    v-model="selectedRadio"
+    label="Select a plan"
+    :options="[
+      { value: '1', label: 'Free', description: 'Perfect for getting started' },
+      { value: '2', label: 'Pro', description: 'Best for professionals' },
+      { value: '3', label: 'Enterprise', description: 'For large organizations' }
+    ]"
+  />
+</div>
+</ClientOnly>
+
+### Toggle Group
+
+<ClientOnly>
+<div class="component-demo">
+  <LgToggleGroup
+    v-model="selectedToggleGroup"
+    :items="[
+      { value: 'bold', label: 'B' },
+      { value: 'italic', label: 'I' },
+      { value: 'underline', label: 'U' }
+    ]"
+  />
+</div>
+</ClientOnly>
+
+## 💬 Overlays
+
+### Tooltip
+
+<ClientOnly>
+<div class="component-demo">
+  <LgTooltip content="Add to library">
+    <LgButton variant="outline">Hover me</LgButton>
+  </LgTooltip>
+</div>
+</ClientOnly>
+
+### Popover
+
+<ClientOnly>
+<div class="component-demo">
+  <LgPopover>
+    <template #trigger>
+      <LgButton variant="outline">Open Popover</LgButton>
+    </template>
+    <template #content>
+      <div style="padding: 8px;">
+        <h3 style="margin: 0 0 8px 0; font-size: 14px;">Dimensions</h3>
+        <p style="margin: 0; font-size: 12px; color: var(--color-content-secondary);">Set the dimensions for the layer.</p>
+      </div>
+    </template>
+  </LgPopover>
+</div>
+</ClientOnly>
+
+### Hover Card
+
+<ClientOnly>
+<div class="component-demo">
+  <LgHoverCard>
+    <a href="#" style="color: var(--grass-700); text-decoration: underline;">@lawnguru</a>
+    <template #content>
+      <div style="display: flex; align-items: flex-start; gap: 12px;">
+        <LgAvatar initials="LG" color="brand" />
+        <div>
+          <h4 style="margin: 0 0 4px 0; font-size: 14px; font-weight: 600;">LawnGuru</h4>
+          <p style="margin: 0 0 8px 0; font-size: 12px; color: var(--color-content-secondary);">Professional lawn care services - created and maintained by experts.</p>
+          <p style="margin: 0; font-size: 12px; color: var(--color-content-tertiary);">Joined December 2024</p>
+        </div>
+      </div>
+    </template>
+  </LgHoverCard>
+</div>
+</ClientOnly>
+
+### Toast Notification
+
+<ClientOnly>
+<div class="component-demo">
+  <LgButton @click="showToast">Show Toast</LgButton>
+  <LgToast ref="toastRef" />
+</div>
+</ClientOnly>
+
+## 🎨 Visual Elements
+
+### Progress Bar
+
+<ClientOnly>
+<div class="component-demo input-demo">
+  <LgProgress :value="33" />
+  <LgProgress :value="66" />
+  <LgProgress :value="100" />
+</div>
+</ClientOnly>
+
+### Skeleton Loader
+
+<ClientOnly>
+<div class="component-demo input-demo">
+  <div style="display: flex; align-items: center; gap: 16px;">
+    <LgSkeleton variant="circle" />
+    <div style="flex: 1;">
+      <LgSkeleton :height="20" style="margin-bottom: 8px;" />
+      <LgSkeleton :height="16" :width="200" />
+    </div>
+  </div>
+</div>
+</ClientOnly>
+
+### Separator
+
+<ClientOnly>
+<div class="component-demo input-demo">
+  <div>
+    <h4 style="margin: 0 0 8px 0;">Section 1</h4>
+    <p style="margin: 0;">Content for section 1</p>
+  </div>
+  <LgSeparator />
+  <div>
+    <h4 style="margin: 0 0 8px 0;">Section 2</h4>
+    <p style="margin: 0;">Content for section 2</p>
+  </div>
+</div>
+</ClientOnly>
+
+## 🗂️ Navigation
+
+### Pagination
+
+<ClientOnly>
+<div class="component-demo">
+  <LgPagination
+    v-model:current-page="currentPage"
+    :total-pages="10"
   />
 </div>
 </ClientOnly>
