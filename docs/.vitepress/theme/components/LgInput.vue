@@ -58,7 +58,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, useSlots } from 'vue'
 
 const props = defineProps({
   modelValue: {
@@ -130,6 +130,7 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue', 'focus', 'blur', 'clear', 'keydown'])
 
+const slots = useSlots()
 const inputRef = ref(null)
 const isFocused = ref(false)
 
@@ -151,8 +152,8 @@ const inputClasses = computed(() => [
     'lg-input--disabled': props.disabled,
     'lg-input--readonly': props.readonly,
     'lg-input--focused': isFocused.value,
-    'lg-input--with-icon-left': !!props.$slots['icon-left'],
-    'lg-input--with-icon-right': !!props.$slots['icon-right'] || (props.clearable && props.modelValue)
+    'lg-input--with-icon-left': !!slots['icon-left'],
+    'lg-input--with-icon-right': !!slots['icon-right'] || (props.clearable && props.modelValue)
   }
 ])
 
