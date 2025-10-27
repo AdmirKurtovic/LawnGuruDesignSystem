@@ -326,101 +326,170 @@ Dropdown menu for selecting one or multiple options, similar to a native `<selec
 
 Combination of text input and dropdown menu, allowing both typing and selection.
 
+**Component: `LgCombobox`**
+
 **Features:**
-- Text input with autocomplete
-- Dropdown suggestions as you type
-- Can select from list or enter custom value
-- Keyboard navigation (Arrow keys, Enter, Escape)
+- Text input with autocomplete dropdown
+- Live search filtering across label and description
+- Keyboard navigation (ArrowDown, ArrowUp, Enter, Escape)
+- Click-outside handling to close dropdown
+- Highlighted and selected state tracking
+- Checkmark icon for selected options
+- Support for option descriptions
+
+**Props:**
+- `modelValue` (String|Number): Current selected value
+- `label` (String): Label text above combobox
+- `placeholder` (String): Placeholder text for trigger button (default: "Select option...")
+- `options` (Array): Array of option objects with `{ value, label, description? }`
+
+**Events:**
+- `update:modelValue`: Emitted when selection changes
 
 **Visual Design:**
-- Input field with dropdown icon
-- Dropdown menu appears below input
-- Matched text highlighted in suggestions
-- Shows "No results" message if no matches
+- Trigger button shows selected label or placeholder
+- Chevron icon rotates when open
+- Dropdown appears below trigger with shadow
+- Search input at top of dropdown
+- Selected option has checkmark icon (LawnGuru green)
+- Hover and keyboard highlight with `--color-bg-secondary`
+
+**Keyboard Navigation:**
+- **ArrowDown**: Highlight next option
+- **ArrowUp**: Highlight previous option
+- **Enter**: Select highlighted option and close
+- **Escape**: Close dropdown without selecting
 
 **Usage:**
-```tsx
-<Combobox
-  value={searchQuery}
-  onChange={(value) => setSearchQuery(value)}
-  onSelect={(value) => handleSelect(value)}
-  placeholder="Search or type..."
->
-  <ComboboxInput />
-  <ComboboxList>
-    <ComboboxOption value="seattle">Seattle, WA</ComboboxOption>
-    <ComboboxOption value="portland">Portland, OR</ComboboxOption>
-    <ComboboxOption value="vancouver">Vancouver, WA</ComboboxOption>
-  </ComboboxList>
-</Combobox>
+```vue
+<LgCombobox
+  v-model="selectedFramework"
+  label="Framework"
+  placeholder="Select framework..."
+  :options="[
+    {
+      value: 'next',
+      label: 'Next.js',
+      description: 'The React Framework'
+    },
+    {
+      value: 'sveltekit',
+      label: 'SvelteKit',
+      description: 'Web development, streamlined'
+    },
+    {
+      value: 'nuxt',
+      label: 'Nuxt.js',
+      description: 'The Intuitive Vue Framework'
+    }
+  ]"
+/>
 ```
+
+**Interactive Demo:**
+See the [Component Showcase](./showcase.md#advanced-selectors) for live examples.
 
 ---
 
 ### Command Menu / Command Palette
 
-Keyboard-first menu for quick actions and navigation, triggered by keyboard shortcut.
+Keyboard-first menu for quick actions and navigation, providing searchable grouped commands.
+
+**Component: `LgCommand`**
 
 **Features:**
-- Opens with keyboard shortcut (e.g., ⌘K or Ctrl+K)
-- Search/filter input at top
-- Categorized actions
-- Keyboard shortcuts displayed
-- Recently used actions
+- Search/filter input with live filtering
+- Grouped commands with section headings
+- Keyboard navigation across groups
+- Keyboard shortcuts display (`<kbd>` tags)
+- Icon support for commands
+- Empty state handling ("No results found")
+- Highlighted item tracking with hover/keyboard
+
+**Props:**
+- `placeholder` (String): Placeholder for search input (default: "Type a command or search...")
+- `groups` (Array): Array of group objects with `{ heading, items[] }`
+  - Each item: `{ label, value, icon?, shortcut? }`
+- `emptyMessage` (String): Message when no results (default: "No results found.")
+
+**Events:**
+- `select`: Emitted when item is selected, passes selected item object
 
 **Visual Design:**
-- Centered modal overlay
-- Width: 500-600px
-- Height: 400-500px max with scroll
-- Search input prominent at top
-- Results grouped by category
-- Keyboard shortcuts on right side
+- Max width: 640px
+- Border with shadow for depth
+- Search input at top with search icon
+- Scrollable groups area (max-height: 400px)
+- Group headings in uppercase, small font, tertiary color
+- Items have rounded corners on hover
+- Keyboard shortcuts displayed in monospace font with `<kbd>` styling
+- Background highlight for selected/hover state
 
-**Behavior:**
-- Opens with ⌘K or Ctrl+K
-- Closes with Escape or after selection
-- Fuzzy search through all commands
-- Up/Down arrows to navigate
-- Enter to execute command
+**Keyboard Navigation:**
+- **ArrowDown**: Highlight next item (wraps to first)
+- **ArrowUp**: Highlight previous item (wraps to last)
+- **Enter**: Select highlighted item
+- **Type**: Filter commands by label or value
 
 **Usage:**
-```tsx
-<CommandMenu
-  open={isOpen}
-  onOpenChange={setIsOpen}
-  trigger="⌘K"
->
-  <CommandInput placeholder="Search commands..." />
-
-  <CommandList>
-    <CommandGroup heading="Navigation">
-      <CommandItem onSelect={() => navigate('/dashboard')}>
-        <DashboardIcon />
-        Go to Dashboard
-        <CommandShortcut>⌘D</CommandShortcut>
-      </CommandItem>
-      <CommandItem onSelect={() => navigate('/services')}>
-        <ServicesIcon />
-        Go to Services
-        <CommandShortcut>⌘S</CommandShortcut>
-      </CommandItem>
-    </CommandGroup>
-
-    <CommandGroup heading="Actions">
-      <CommandItem onSelect={() => createNew()}>
-        <PlusIcon />
-        Create New Service
-        <CommandShortcut>⌘N</CommandShortcut>
-      </CommandItem>
-      <CommandItem onSelect={() => openSearch()}>
-        <SearchIcon />
-        Search
-        <CommandShortcut>⌘F</CommandShortcut>
-      </CommandItem>
-    </CommandGroup>
-  </CommandList>
-</CommandMenu>
+```vue
+<LgCommand
+  placeholder="Type a command or search..."
+  :groups="[
+    {
+      heading: 'Suggestions',
+      items: [
+        { label: 'Calendar', value: 'calendar' },
+        { label: 'Search Emoji', value: 'emoji' },
+        { label: 'Calculator', value: 'calculator' }
+      ]
+    },
+    {
+      heading: 'Settings',
+      items: [
+        { label: 'Profile', value: 'profile', shortcut: '⌘P' },
+        { label: 'Billing', value: 'billing', shortcut: '⌘B' },
+        { label: 'Settings', value: 'settings', shortcut: '⌘S' }
+      ]
+    }
+  ]"
+  @select="handleCommand"
+/>
 ```
+
+**With Icons:**
+```vue
+<script setup>
+import { IconCalendar, IconUser, IconSettings } from '@/icons'
+
+const commandGroups = [
+  {
+    heading: 'Navigation',
+    items: [
+      {
+        label: 'Go to Dashboard',
+        value: 'dashboard',
+        icon: IconCalendar,
+        shortcut: '⌘D'
+      },
+      {
+        label: 'Go to Profile',
+        value: 'profile',
+        icon: IconUser,
+        shortcut: '⌘P'
+      }
+    ]
+  }
+]
+</script>
+
+<template>
+  <LgCommand :groups="commandGroups" @select="navigate" />
+</template>
+```
+
+**Interactive Demo:**
+See the [Component Showcase](./showcase.md#advanced-selectors) for live examples.
 
 ---
 
