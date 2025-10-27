@@ -394,57 +394,120 @@ Richer contextual overlays that can contain more complex content like forms, lis
 
 ---
 
-### Dividers
+### Dividers / Separator
 
 Visual separators that organize content into distinct sections.
 
-**Types:**
-- **Horizontal Divider**: Separates content vertically stacked
-- **Vertical Divider**: Separates content horizontally arranged
-- **Text Divider**: Includes text label in the middle
+**Component: `LgSeparator`**
 
-**Variants:**
-- **Solid**: Solid line (default)
-- **Dashed**: Dashed line for subtle separation
-- **Dotted**: Dotted line for very subtle separation
+**Features:**
+- Simple visual separator for content organization
+- Horizontal and vertical orientations
+- Semantic HTML with proper ARIA attributes
+- Flexible and responsive
+- Minimal styling for maximum adaptability
+
+**Props:**
+- `orientation` (String): 'horizontal' | 'vertical' (default: 'horizontal')
 
 **Visual Design:**
-- Color: `color-border-10` or `color-border-15` for subtle
-- Color: `color-border-20` or `color-border-30` for prominent
-- Thickness: `border-width-regular` (1px) default
-- Thickness: `border-width-2` (2px) for emphasis
+- Background: `var(--color-border-15)` (subtle grey)
+- Thickness: 1px
+- Flex-shrink: 0 (maintains size)
 
-**Spacing:**
-- Margin: `spacing-16` to `spacing-24` vertical (horizontal dividers)
-- Margin: `spacing-12` to `spacing-16` horizontal (vertical dividers)
+**Orientation Styles:**
+- **Horizontal**: 100% width × 1px height
+- **Vertical**: 1px width × 100% height (min-height: 20px)
 
-**Text Dividers:**
-- Text size: `font-size-12` to `font-size-14`
-- Text color: `color-content-tertiary`
-- Text weight: `font-weight-500`
-- Spacing: `spacing-12` to `spacing-16` around text
+**Accessibility:**
+- Uses `role="separator"` attribute
+- Includes `aria-orientation` attribute
+- Semantic separator element
+
+**Common Use Cases:**
+- Separate sections in forms
+- Divide toolbar items
+- Create visual hierarchy in cards
+- Separate list items
+- Divide menu sections
+- Split panel layouts
 
 **Usage:**
-```tsx
-{/* Horizontal Divider */}
-<Divider />
-
-{/* Vertical Divider */}
-<div style={{ display: 'flex', gap: 16 }}>
-  <span>Item 1</span>
-  <Divider orientation="vertical" />
-  <span>Item 2</span>
-  <Divider orientation="vertical" />
-  <span>Item 3</span>
+```vue
+<!-- Horizontal separator (default) -->
+<div class="section">
+  <p>Content above</p>
+  <LgSeparator />
+  <p>Content below</p>
 </div>
 
-{/* Text Divider */}
-<Divider>or</Divider>
-<Divider>More Options</Divider>
+<!-- Vertical separator in toolbar -->
+<div style="display: flex; align-items: center; gap: 16px;">
+  <LgButton>Cut</LgButton>
+  <LgButton>Copy</LgButton>
+  <LgSeparator orientation="vertical" />
+  <LgButton>Bold</LgButton>
+  <LgButton>Italic</LgButton>
+</div>
 
-{/* Custom Styling */}
-<Divider variant="dashed" />
-<Divider color="brand" thickness={2} />
+<!-- In a card layout -->
+<div class="card">
+  <div class="card-header">
+    <h3>Card Title</h3>
+  </div>
+  <LgSeparator />
+  <div class="card-body">
+    <p>Card content goes here...</p>
+  </div>
+  <LgSeparator />
+  <div class="card-footer">
+    <LgButton>Action</LgButton>
+  </div>
+</div>
+
+<!-- In a menu -->
+<div class="menu">
+  <div class="menu-item">Profile</div>
+  <div class="menu-item">Settings</div>
+  <LgSeparator />
+  <div class="menu-item">Help</div>
+  <div class="menu-item">Logout</div>
+</div>
+
+<!-- Vertical separator in split layout -->
+<div style="display: flex; height: 400px;">
+  <div style="flex: 1; padding: 16px;">
+    Left panel content
+  </div>
+  <LgSeparator orientation="vertical" />
+  <div style="flex: 1; padding: 16px;">
+    Right panel content
+  </div>
+</div>
+```
+
+**Interactive Demo:**
+See the [Component Showcase](./showcase.md#separator) for live examples.
+
+**Styling Tips:**
+- Add margin to create spacing around separators
+- Use within flex containers for proper vertical sizing
+- Combine with other layout components
+- Keep it subtle - separators should organize, not dominate
+
+**CSS Example:**
+```css
+/* Add spacing around horizontal separator */
+.separator-spacing {
+  margin: 24px 0;
+}
+
+/* Vertical separator in flex container */
+.flex-container {
+  display: flex;
+  align-items: stretch; /* Ensures separator fills height */
+  gap: 16px;
+}
 ```
 
 ---

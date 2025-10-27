@@ -38,37 +38,54 @@ Dropdown component for selecting one option from a list.
 
 ---
 
-### Toggle Switch
+### Toggle Switch / Switch
 
 Binary on/off switch for settings and preferences.
 
-**States:**
-- **Off (unchecked)**: Grey/neutral state
-- **On (checked)**: Green/brand color state
-- **Disabled Off**: Non-interactive unchecked
-- **Disabled On**: Non-interactive checked
-- **With Label**: Includes "Name me" text label
+**Component: `LgSwitch`**
 
-**Sizes:**
-- Default: Standard toggle size
-- With label: Same size with text label on left/right
+**Features:**
+- Animated sliding thumb on toggle
+- Label and description support
+- Disabled state
+- Keyboard accessible (Space to toggle)
+- LawnGuru green for active state
+
+**Props:**
+- `modelValue` (Boolean): Current switch state (default: false)
+- `label` (String): Label text displayed next to switch
+- `description` (String): Helper text below switch
+- `disabled` (Boolean): Disable interaction
+
+**Events:**
+- `update:modelValue`: Emitted when switch is toggled
 
 **Visual Design:**
-- Rounded pill shape
-- Animated sliding indicator
+- Width: 44px, Height: 24px
+- Rounded pill shape with sliding thumb
 - Green color (`#008934`) for on state
 - Grey color for off state
-- Reduced opacity for disabled states
+- Reduced opacity (0.5) for disabled states
+- Smooth 200ms transition animation
 
 **Usage:**
-```tsx
-<Toggle
-  label="Name me"
-  checked={false}
-  disabled={false}
-  onChange={(checked) => console.log(checked)}
+```vue
+<LgSwitch
+  v-model="notificationsEnabled"
+  label="Enable notifications"
+  description="Receive email notifications for updates"
+/>
+
+<!-- Disabled switch -->
+<LgSwitch
+  :model-value="true"
+  disabled
+  label="Auto-save (Premium feature)"
 />
 ```
+
+**Interactive Demo:**
+See the [Component Showcase](./showcase.md#switchtoggle) for live examples.
 
 ---
 
@@ -106,36 +123,66 @@ Multi-select option component for forms and lists.
 
 ---
 
-### Radio Button
+### Radio Button / Radio Group
 
 Single-select option component for mutually exclusive choices.
 
-**States:**
-- **Unselected**: Empty circle
-- **Selected**: Filled circle with inner dot
-- **Disabled Unselected**: Non-interactive empty
-- **Disabled Selected**: Non-interactive selected
-- **Error**: Invalid state with red styling
-- **Success**: Valid state with green styling
+**Component: `LgRadioGroup`**
+
+**Features:**
+- Group multiple radio options together
+- Support for labels and descriptions per option
+- Individual option disable state
+- Accessible with proper ARIA attributes
+- Hidden native radio inputs for accessibility
+- Custom styled indicators
+
+**Props:**
+- `modelValue` (String|Number): Currently selected value
+- `label` (String): Group label
+- `options` (Array): Array of option objects
+  - Each option: `{ value, label, description?, disabled? }`
+- `disabled` (Boolean): Disable entire group
+
+**Events:**
+- `update:modelValue`: Emitted when selection changes
 
 **Visual Design:**
-- Circular shape
-- Green fill (`#008934`) for selected state
-- Inner circle for selected indicator
-- Red border for error state
-- Green border for success state
+- Circular indicators (20px)
+- Green border (`#008934`) when selected
+- Inner dot (10px) scales in on selection
+- Supports rich descriptions per option
+- 2px border width
+- Smooth scale transition (150ms)
 
 **Usage:**
-```tsx
-<Radio
-  name="option-group"
-  value="option1"
-  label="Name me"
-  checked={false}
-  disabled={false}
-  onChange={(value) => console.log(value)}
+```vue
+<LgRadioGroup
+  v-model="selectedPlan"
+  label="Select a plan"
+  :options="[
+    {
+      value: 'free',
+      label: 'Free',
+      description: 'Perfect for getting started'
+    },
+    {
+      value: 'pro',
+      label: 'Pro',
+      description: 'Best for professionals'
+    },
+    {
+      value: 'enterprise',
+      label: 'Enterprise',
+      description: 'For large organizations',
+      disabled: true
+    }
+  ]"
 />
 ```
+
+**Interactive Demo:**
+See the [Component Showcase](./showcase.md#radio-group) for live examples.
 
 ---
 
@@ -220,15 +267,64 @@ Specialized input field for search functionality.
 
 Multi-line text input for longer content.
 
+**Component: `LgTextarea`**
+
 **Features:**
 - Resizable (vertical only)
-- Character counter (optional)
-- Auto-expanding height
-- Minimum height: 3 rows
-- Maximum height: configurable
+- Character counter with max length enforcement
+- Label and helper text support
+- Error and success states with messages
+- Disabled and read-only states
+- Configurable row height
 
-**States:**
-- Same as text input (default, focus, error, success, disabled)
+**Props:**
+- `modelValue` (String): Current textarea value
+- `label` (String): Label text above textarea
+- `placeholder` (String): Placeholder text
+- `helperText` (String): Helper text below textarea
+- `error` (Boolean): Error state
+- `errorMessage` (String): Error message text
+- `success` (Boolean): Success state
+- `successMessage` (String): Success message text
+- `disabled` (Boolean): Disable textarea
+- `rows` (Number): Number of visible rows (default: 4)
+- `maxLength` (Number): Maximum character count
+
+**Events:**
+- `update:modelValue`: Emitted on input change
+- `focus`: Emitted when textarea receives focus
+- `blur`: Emitted when textarea loses focus
+
+**Visual Design:**
+- Min height: 80px (resizable)
+- Border: 1px solid, changes on states
+- Border radius: 8px
+- Padding: 12px vertical, 16px horizontal
+- Green border on focus
+- Character counter appears bottom-right when maxLength set
+
+**Usage:**
+```vue
+<LgTextarea
+  v-model="message"
+  label="Your message"
+  placeholder="Type your message here..."
+  helperText="Your message will be sent to the team"
+  :rows="6"
+  :max-length="500"
+/>
+
+<!-- With error state -->
+<LgTextarea
+  v-model="feedback"
+  label="Feedback"
+  error
+  errorMessage="Feedback must be at least 20 characters"
+/>
+```
+
+**Interactive Demo:**
+See the [Component Showcase](./showcase.md#textarea) for live examples.
 
 ---
 
@@ -271,6 +367,175 @@ Component for file selection and upload.
 - Uploading (with progress)
 - Completed
 - Error (file too large, wrong type)
+
+---
+
+### Slider / Range Input
+
+Input for selecting a value from within a given range.
+
+**Component: `LgSlider`**
+
+**Features:**
+- Horizontal range slider
+- Custom min/max/step values
+- Optional value display
+- Label support
+- Disabled state
+- Visual thumb and track
+
+**Props:**
+- `modelValue` (Number): Current slider value (default: 50)
+- `label` (String): Label text above slider
+- `min` (Number): Minimum value (default: 0)
+- `max` (Number): Maximum value (default: 100)
+- `step` (Number): Step increment (default: 1)
+- `disabled` (Boolean): Disable slider
+- `showValue` (Boolean): Display current value below slider
+
+**Events:**
+- `update:modelValue`: Emitted when value changes
+
+**Visual Design:**
+- Track height: 6px
+- Thumb size: 20px circle
+- Green fill (`#008934`) for selected range
+- White thumb with green border
+- Smooth transitions (150ms)
+- Focus ring on keyboard focus
+
+**Usage:**
+```vue
+<LgSlider
+  v-model="volume"
+  label="Volume"
+  :min="0"
+  :max="100"
+  :step="1"
+  :show-value="true"
+/>
+
+<!-- Custom range -->
+<LgSlider
+  v-model="price"
+  label="Price Range"
+  :min="0"
+  :max="1000"
+  :step="10"
+/>
+```
+
+**Interactive Demo:**
+See the [Component Showcase](./showcase.md#slider) for live examples.
+
+---
+
+### Tabs
+
+Tabbed interface for organizing content into separate views.
+
+**Component: `LgTabs`**
+
+**Features:**
+- Multiple tab support
+- Named slots for tab content
+- Active tab highlighting
+- Keyboard navigation
+- Responsive design
+
+**Props:**
+- `modelValue` (String): Currently active tab value (required)
+- `tabs` (Array): Array of tab objects (required)
+  - Each tab: `{ value, label }`
+
+**Events:**
+- `update:modelValue`: Emitted when tab changes
+
+**Slots:**
+- Dynamic named slots based on tab values
+- Slot name matches tab value
+
+**Visual Design:**
+- Pills-style tabs with rounded background
+- Active tab: white background with shadow
+- Inactive tabs: transparent with hover effect
+- 4px padding around tab list
+- Smooth transitions
+
+**Usage:**
+```vue
+<LgTabs
+  v-model="activeTab"
+  :tabs="[
+    { value: 'account', label: 'Account' },
+    { value: 'password', label: 'Password' },
+    { value: 'notifications', label: 'Notifications' }
+  ]"
+>
+  <template #account>
+    <div>Account settings content...</div>
+  </template>
+  <template #password>
+    <div>Password change form...</div>
+  </template>
+  <template #notifications>
+    <div>Notification preferences...</div>
+  </template>
+</LgTabs>
+```
+
+**Interactive Demo:**
+See the [Component Showcase](./showcase.md#tabs) for live examples.
+
+---
+
+### Toggle Group
+
+Group of toggle buttons for multi-select or single-select options.
+
+**Component: `LgToggleGroup`**
+
+**Features:**
+- Single or multiple selection modes
+- Icon support for items
+- Active state styling
+- Keyboard accessible
+
+**Props:**
+- `modelValue` (String|Array): Selected value(s)
+- `items` (Array): Array of item objects (required)
+  - Each item: `{ value, label, icon? }`
+- `type` (String): 'single' or 'multiple' (default: 'single')
+
+**Events:**
+- `update:modelValue`: Emitted when selection changes
+
+**Usage:**
+```vue
+<!-- Single select (like text formatting) -->
+<LgToggleGroup
+  v-model="textFormat"
+  :items="[
+    { value: 'bold', label: 'B' },
+    { value: 'italic', label: 'I' },
+    { value: 'underline', label: 'U' }
+  ]"
+/>
+
+<!-- Multiple select -->
+<LgToggleGroup
+  v-model="selectedFilters"
+  type="multiple"
+  :items="[
+    { value: 'all', label: 'All' },
+    { value: 'active', label: 'Active' },
+    { value: 'archived', label: 'Archived' }
+  ]"
+/>
+```
+
+**Interactive Demo:**
+See the [Component Showcase](./showcase.md#toggle-group) for live examples.
 
 ---
 

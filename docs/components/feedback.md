@@ -109,54 +109,113 @@ Brief, temporary messages that appear at the bottom of the screen to provide fee
 
 Small notification cards that appear temporarily in the corner of the screen for status updates.
 
-**Variants:**
-- **Info**: Blue border and icon (`#0B65E3`)
-- **Success**: Green border and icon (`#008934`)
-- **Warning**: Yellow border and icon (`#FFCC00`)
-- **Error**: Red border and icon (`#E5132E`)
+**Component: `LgToast`**
 
-**States:**
-- **Appearing**: Slides in from top-right or top-center
-- **Visible**: Fully displayed
-- **Disappearing**: Fades out or slides away
-- **With Progress**: Shows auto-dismiss timer progress bar
+**Features:**
+- Toast notification system with auto-dismiss
+- Multiple variant styles (default, destructive, success, warning)
+- Supports action buttons
+- Manual dismiss with close button
+- Stacks multiple toasts vertically
+- Slide-in animation from right
+- Teleported to body for proper z-index
+
+**Methods:**
+- `addToast({ title, description, variant, action, duration })`: Add a new toast notification
+  - Returns toast ID for manual removal
+  - `title` (String, required): Toast title text
+  - `description` (String, optional): Additional description text
+  - `variant` (String): 'default' | 'destructive' | 'success' | 'warning' (default: 'default')
+  - `action` (Object, optional): `{ label, onClick }` for action button
+  - `duration` (Number): Auto-dismiss time in ms (default: 5000, set to 0 to disable)
+- `removeToast(id)`: Manually remove a toast by ID
 
 **Visual Design:**
-- Background: `#FFFFFF` (white) for light mode
-- Border left: `border-width-bold` (3px) with semantic color
-- Border radius: `radius-md` (10px)
-- Padding: `spacing-16`
-- Shadow: `shadow-center-04` or `shadow-center-05`
-- Icon: 20x20px, semantic color, top-left
+- Container: Fixed position, bottom-right (24px from edges)
+- Max width: 420px
+- Background: `var(--color-bg-primary)` (white)
+- Border: 1px solid with 3px left border for variant color
+- Border radius: `var(--radius-md)` (10px)
+- Padding: `var(--spacing-16)`
+- Shadow: Elevated shadow for depth
+- Gap between toasts: `var(--spacing-12)`
+
+**Variant Styles:**
+- **default**: Green left border (`var(--grass-700)`)
+- **destructive**: Red left border (`var(--red-600)`)
+- **success**: Green left border (`var(--grass-600)`)
+- **warning**: Orange left border (`#F59E0B`)
+
+**Typography:**
 - Title: `font-size-14`, `font-weight-600`
-- Message: `font-size-14`, `font-weight-400`, `color-content-secondary`
-- Close button: Small X icon, top-right
-- Progress bar: Thin bar at bottom showing time remaining
+- Description: `font-size-12`, `color-content-secondary`
 
-**Positioning:**
-- Top-right corner (most common)
-- Top-center
-- Bottom-right
-- Stack vertically with `spacing-12` gap
-
-**Behavior:**
-- Auto-dismiss after 5-7 seconds
-- Can be manually dismissed
-- Multiple can stack
-- Hover pauses auto-dismiss timer
+**Animation:**
+- Slides in from right (translateX 100%)
+- 300ms transition with fade
+- TransitionGroup for stacked toasts
 
 **Usage:**
-```tsx
-<Toast
-  title="Service Completed"
-  message="Your lawn has been mowed successfully"
-  variant="success"
-  duration={5000}
-  position="top-right"
-  showProgress={true}
-  onClose={() => console.log("Toast closed")}
-/>
+```vue
+<template>
+  <div>
+    <LgButton @click="showSuccessToast">Show Toast</LgButton>
+    <LgToast ref="toastRef" />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const toastRef = ref(null)
+
+const showSuccessToast = () => {
+  toastRef.value.addToast({
+    title: 'Service Completed',
+    description: 'Your lawn has been mowed successfully',
+    variant: 'success',
+    duration: 5000
+  })
+}
+
+// With action button
+const showActionToast = () => {
+  toastRef.value.addToast({
+    title: 'Update Available',
+    description: 'A new version is ready to install',
+    variant: 'default',
+    action: {
+      label: 'Update',
+      onClick: () => console.log('Update clicked')
+    },
+    duration: 10000
+  })
+}
+
+// Persistent toast (no auto-dismiss)
+const showPersistentToast = () => {
+  const id = toastRef.value.addToast({
+    title: 'Important Notice',
+    description: 'Please review your settings',
+    variant: 'warning',
+    duration: 0 // Won't auto-dismiss
+  })
+
+  // Manually remove later
+  setTimeout(() => {
+    toastRef.value.removeToast(id)
+  }, 15000)
+}
+</script>
 ```
+
+**Interactive Demo:**
+See the [Component Showcase](./showcase.md#toast-notification) for live examples.
+
+**Accessibility:**
+- Close button includes `aria-label="Close"`
+- Keyboard accessible
+- Uses Teleport for proper stacking context
 
 ---
 
@@ -222,40 +281,185 @@ Visual feedback during data loading or processing.
 - Usage: Inline loading, button loading states
 
 #### Progress Bar
-- Linear progress indicator
-- Determinate (shows percentage) or indeterminate (continuous animation)
-- Height: 4px (slim) or 8px (standard)
-- Colors: Brand green or semantic colors
-- Usage: Page loads, file uploads, multi-step processes
 
-#### Skeleton Loader
-- Placeholder content that mimics layout
-- Subtle shimmer animation
-- Matches content structure (text lines, cards, images)
-- Usage: Initial page load, lazy loading content
+Linear progress indicator showing task completion.
+
+**Component: `LgProgress`**
+
+**Features:**
+- Horizontal progress bar with percentage display
+- Smooth animated transitions
+- Determinate progress (0-100%)
+- Full-width responsive design
+- LawnGuru green branding
+
+**Props:**
+- `value` (Number): Progress percentage from 0 to 100 (default: 0)
 
 **Visual Design:**
-- Spinner: `#008934` (brand green) or `color-content-tertiary`
-- Progress bar background: `color-border-10`
-- Progress bar fill: `#008934` (brand green)
-- Border radius: `radius-full` for spinner, `radius-sm` for progress bar
-- Skeleton: `color-border-10` background with subtle shimmer
+- Track height: 8px
+- Track background: `var(--color-bg-secondary)` (light grey)
+- Indicator background: `var(--grass-700)` (LawnGuru green)
+- Border radius: `var(--radius-full)` (fully rounded)
+- Transition: 300ms ease for smooth updates
+- Full width of container
+
+**Common Use Cases:**
+- File upload progress
+- Form completion steps
+- Task completion percentage
+- Loading progress
+- Multi-step process tracking
 
 **Usage:**
-```tsx
-{/* Spinner */}
-<Spinner size="md" color="brand" />
+```vue
+<template>
+  <div>
+    <LgProgress :value="uploadProgress" />
+    <p>{{ uploadProgress }}% Complete</p>
 
-{/* Progress Bar */}
-<ProgressBar value={65} max={100} />
+    <!-- With label -->
+    <div class="progress-container">
+      <label>Installation Progress</label>
+      <LgProgress :value="progress" />
+    </div>
 
-{/* Skeleton */}
-<Skeleton>
-  <SkeletonText lines={3} />
-  <SkeletonCircle size="48px" />
-  <SkeletonRect height="200px" />
-</Skeleton>
+    <!-- Multiple progress bars -->
+    <div class="stats">
+      <div>
+        <span>Project Completion</span>
+        <LgProgress :value="75" />
+      </div>
+      <div>
+        <span>Tasks Complete</span>
+        <LgProgress :value="45" />
+      </div>
+      <div>
+        <span>Budget Used</span>
+        <LgProgress :value="92" />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const uploadProgress = ref(0)
+
+// Simulate progress
+onMounted(() => {
+  const interval = setInterval(() => {
+    if (uploadProgress.value < 100) {
+      uploadProgress.value += 10
+    } else {
+      clearInterval(interval)
+    }
+  }, 500)
+})
+</script>
 ```
+
+**Interactive Demo:**
+See the [Component Showcase](./showcase.md#progress-bar) for live examples.
+
+---
+
+#### Skeleton Loader
+
+Placeholder content that mimics layout during loading.
+
+**Component: `LgSkeleton`**
+
+**Features:**
+- Loading placeholder with pulse animation
+- Three variants (default, circle, text)
+- Custom width and height support
+- 2-second pulse animation
+- Matches content structure before it loads
+
+**Props:**
+- `variant` (String): 'default' | 'circle' | 'text' (default: 'default')
+- `width` (String|Number): Custom width (e.g., '200px' or 200)
+- `height` (String|Number): Custom height (e.g., '40px' or 40)
+
+**Variants:**
+- **default**: Rectangular skeleton (100% width × 20px height)
+- **circle**: Circular skeleton (40px × 40px)
+- **text**: Text line skeleton (100% width × 16px height)
+
+**Visual Design:**
+- Background: `var(--color-bg-secondary)` (light grey)
+- Border radius: `var(--radius-sm)` (8px) for default/text, `var(--radius-full)` for circle
+- Animation: 2s pulse (opacity 1 → 0.5 → 1)
+- Cubic-bezier easing for smooth animation
+
+**Animation Details:**
+```css
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+```
+
+**Common Use Cases:**
+- Initial page load
+- Lazy loading content
+- Infinite scroll placeholders
+- Card/list item loading states
+- Profile page loading
+- Image placeholders
+
+**Usage:**
+```vue
+<!-- Default rectangular skeleton -->
+<LgSkeleton />
+<LgSkeleton width="300px" height="100px" />
+
+<!-- Circle avatar placeholder -->
+<LgSkeleton variant="circle" width="64px" height="64px" />
+
+<!-- Text line placeholders -->
+<LgSkeleton variant="text" width="100%" />
+<LgSkeleton variant="text" width="80%" />
+<LgSkeleton variant="text" width="60%" />
+
+<!-- Card loading skeleton -->
+<div class="card-skeleton">
+  <LgSkeleton variant="circle" width="48px" height="48px" />
+  <div class="content">
+    <LgSkeleton variant="text" width="150px" />
+    <LgSkeleton variant="text" width="200px" />
+  </div>
+</div>
+
+<!-- Profile loading skeleton -->
+<div class="profile-skeleton">
+  <LgSkeleton variant="circle" width="96px" height="96px" />
+  <LgSkeleton variant="text" width="200px" height="24px" />
+  <LgSkeleton variant="text" width="300px" />
+  <LgSkeleton width="100%" height="120px" />
+</div>
+
+<!-- List loading skeleton -->
+<div v-for="i in 5" :key="i" class="list-item-skeleton">
+  <LgSkeleton variant="circle" width="40px" height="40px" />
+  <div class="text">
+    <LgSkeleton variant="text" width="150px" />
+    <LgSkeleton variant="text" width="100px" />
+  </div>
+</div>
+```
+
+**Interactive Demo:**
+See the [Component Showcase](./showcase.md#skeleton-loader) for live examples.
+
+**Best Practices:**
+- Match skeleton structure to actual content layout
+- Use appropriate variants for different content types
+- Combine multiple skeletons to create complex layouts
+- Keep skeleton visible for minimum 300ms (avoid flash)
+- Replace with actual content smoothly (use transitions)
 
 ---
 

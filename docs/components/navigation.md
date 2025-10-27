@@ -433,62 +433,172 @@ Site footer with links, contact information, and legal content.
 
 Navigate through multi-page content or data tables.
 
-**Variants:**
-- **Numbered**: Shows page numbers with prev/next
-- **Simple**: Just prev/next arrows
-- **Load More**: Button to append more content
-- **Infinite Scroll**: Automatic loading on scroll
+**Component: `LgPagination`**
+
+**Features:**
+- Numbered pagination with Previous/Next buttons
+- Smart page number display with ellipsis
+- Configurable sibling count for visible pages
+- Automatic edge case handling
+- Disabled states for boundary pages
+- Accessible with ARIA labels
+- LawnGuru green for active page
+
+**Props:**
+- `currentPage` (Number, required): Current active page (1-indexed)
+- `totalPages` (Number, required): Total number of pages
+- `siblingCount` (Number): Number of pages to show on each side of current page (default: 1)
+
+**Events:**
+- `update:currentPage`: Emitted when page changes with new page number
 
 **Visual Design:**
+- Page buttons: 36px × 36px square
+- Active page: `var(--grass-700)` background with white text
+- Inactive pages: White background with border
+- Border: 1px solid `var(--color-border-20)`
+- Border radius: `var(--radius-sm)` (8px)
+- Font size: `var(--font-size-14)`
+- Font weight: `var(--font-weight-500)`
+- Gap: `var(--spacing-4)` between page buttons, `var(--spacing-8)` for prev/next
 
-**Numbered Pagination:**
-- Button size: 32-40px square
-- Active page: `color-bg-brand` background with white text
-- Inactive: `color-content-secondary`
-- Hover: `color-state-hover` background
-- Border radius: `radius-sm` (8px)
-- Gap: `spacing-8` between buttons
-- Ellipsis (...) for skipped pages
+**Previous/Next Buttons:**
+- Inline text with chevron icons
+- Padding: 8px vertical, 12px horizontal
+- Disabled when on first/last page
+- Hover: `var(--color-bg-secondary)` background
+- Includes SVG chevron icons (15×15px)
 
-**Controls:**
-- Previous/Next buttons with arrows
-- First/Last page buttons (optional)
-- Page numbers (show 5-7 around current)
-- Items per page selector (optional)
+**Page Number Display Logic:**
+- Always show first and last page
+- Show ellipsis (...) for gaps
+- Show current page and siblings
+- Adjusts display based on current position
+- Examples:
+  - [1] [2] [3] [4] [...] [10] (at start)
+  - [1] [...] [5] [6] [7] [...] [10] (in middle)
+  - [1] [...] [7] [8] [9] [10] (at end)
 
-**Behavior:**
-- Disable prev on first page, next on last page
-- Maintain scroll position or scroll to top
-- Update URL with page number
-- Keyboard accessible (Tab, Enter, Arrow keys)
+**Accessibility:**
+- Navigation landmark with `role="navigation"`
+- `aria-label="Pagination"` on container
+- `aria-label` on Previous/Next buttons
+- Disabled state prevents interaction
+- Keyboard accessible (Tab, Enter)
+
+**Common Use Cases:**
+- Data table pagination
+- Blog post archives
+- Search results
+- Product listings
+- Gallery navigation
+- Documentation pages
 
 **Usage:**
-```tsx
-<Pagination
-  currentPage={3}
-  totalPages={10}
-  onPageChange={(page) => setCurrentPage(page)}
-  itemsPerPage={20}
-  totalItems={200}
-/>
+```vue
+<template>
+  <div>
+    <!-- Simple pagination -->
+    <LgPagination
+      :current-page="currentPage"
+      :total-pages="10"
+      @update:currentPage="currentPage = $event"
+    />
 
-{/* Simple Pagination */}
-<SimplePagination
-  hasPrevious={true}
-  hasNext={true}
-  onPrevious={() => prevPage()}
-  onNext={() => nextPage()}
-/>
+    <!-- With custom sibling count -->
+    <LgPagination
+      :current-page="page"
+      :total-pages="totalPages"
+      :siblingCount="2"
+      @update:currentPage="handlePageChange"
+    />
 
-{/* Load More */}
-<LoadMoreButton
-  onClick={() => loadMore()}
-  loading={isLoading}
-  hasMore={hasMore}
->
-  Load More Results
-</LoadMoreButton>
+    <!-- With data table -->
+    <div class="data-container">
+      <table>
+        <!-- Table content -->
+        <tbody>
+          <tr v-for="item in paginatedItems" :key="item.id">
+            <td>{{ item.name }}</td>
+            <td>{{ item.email }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="pagination-footer">
+        <span>Showing {{ startItem }}-{{ endItem }} of {{ totalItems }}</span>
+        <LgPagination
+          :current-page="currentPage"
+          :total-pages="totalPages"
+          @update:currentPage="currentPage = $event"
+        />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref, computed } from 'vue'
+
+const currentPage = ref(1)
+const itemsPerPage = 10
+const allItems = ref([/* your data */])
+
+const totalPages = computed(() =>
+  Math.ceil(allItems.value.length / itemsPerPage)
+)
+
+const paginatedItems = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage
+  const end = start + itemsPerPage
+  return allItems.value.slice(start, end)
+})
+
+const startItem = computed(() =>
+  (currentPage.value - 1) * itemsPerPage + 1
+)
+
+const endItem = computed(() =>
+  Math.min(currentPage.value * itemsPerPage, allItems.value.length)
+)
+
+const totalItems = computed(() => allItems.value.length)
+
+const handlePageChange = (page) => {
+  currentPage.value = page
+  // Optional: scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+</script>
+
+<style scoped>
+.data-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.pagination-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-16);
+  border-top: 1px solid var(--color-border-15);
+}
+</style>
 ```
+
+**Interactive Demo:**
+See the [Component Showcase](./showcase.md#pagination) for live examples.
+
+**Best Practices:**
+- Show 5-7 page numbers maximum at once
+- Always display first and last page numbers
+- Use ellipsis for large gaps
+- Maintain page state in URL (use query params)
+- Scroll to top on page change (optional)
+- Show total count and current range
+- Consider load more or infinite scroll for mobile
 
 ---
 
