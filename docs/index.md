@@ -57,17 +57,6 @@ features:
     linkText: Learn Automation
 ---
 
-<style>
-:root {
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-}
-
-.VPHome {
-  margin-bottom: 3rem;
-}
-</style>
-
 ## 🚀 Quick Start
 
 Get up and running in minutes:

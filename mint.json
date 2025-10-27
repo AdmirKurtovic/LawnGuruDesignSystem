@@ -1,0 +1,120 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "LawnGuru Design System",
+  "logo": {
+    "dark": "/logo.svg",
+    "light": "/logo.svg"
+  },
+  "favicon": "/logo.svg",
+  "colors": {
+    "primary": "#008934",
+    "light": "#00B047",
+    "dark": "#006B28",
+    "anchors": {
+      "from": "#008934",
+      "to": "#00B047"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/AdmirKurtovic/LawnGuruDesignSystem"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Get Started",
+    "url": "https://lawnguru.mintlify.app/getting-started"
+  },
+  "tabs": [
+    {
+      "name": "Components",
+      "url": "components"
+    },
+    {
+      "name": "Foundations",
+      "url": "foundations"
+    },
+    {
+      "name": "Patterns",
+      "url": "patterns"
+    },
+    {
+      "name": "Guidelines",
+      "url": "guidelines"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "Live Component Demos",
+      "icon": "palette",
+      "url": "https://lawnguru-design-system.vercel.app/components/showcase.html"
+    },
+    {
+      "name": "Design Tokens",
+      "icon": "swatchbook",
+      "url": "docs/foundations/tokens"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "docs/index",
+        "docs/getting-started",
+        "docs/DEPLOYMENT",
+        "docs/AUTOMATION_GUIDE"
+      ]
+    },
+    {
+      "group": "Components",
+      "pages": [
+        "docs/components/buttons",
+        "docs/components/forms",
+        "docs/components/cards",
+        "docs/components/navigation",
+        "docs/components/menus",
+        "docs/components/modals",
+        "docs/components/data-display",
+        "docs/components/feedback"
+      ]
+    },
+    {
+      "group": "Foundations",
+      "pages": [
+        "docs/foundations/tokens",
+        "docs/foundations/colors",
+        "docs/foundations/typography",
+        "docs/foundations/spacing",
+        "docs/foundations/icons",
+        "docs/foundations/effects-and-borders"
+      ]
+    },
+    {
+      "group": "Patterns",
+      "pages": [
+        "docs/patterns/forms",
+        "docs/patterns/layouts",
+        "docs/patterns/navigation",
+        "docs/patterns/responsive"
+      ]
+    },
+    {
+      "group": "Guidelines",
+      "pages": [
+        "docs/guidelines/design-principles",
+        "docs/guidelines/accessibility",
+        "docs/guidelines/writing",
+        "docs/guidelines/motion",
+        "docs/guidelines/contributing"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "github": "https://github.com/AdmirKurtovic/LawnGuruDesignSystem"
+  },
+  "analytics": {
+    "ga4": {
+      "measurementId": "G-XXXXXXXXXX"
+    }
+  }
+}
