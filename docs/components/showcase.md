@@ -4,6 +4,8 @@
 
 <script setup>
 import { ref } from 'vue'
+
+const showDialog = ref(false)
 </script>
 
 ## 🎨 Buttons
@@ -415,6 +417,85 @@ import { ref } from 'vue'
       { value: 'angular', label: 'Angular' },
       { value: 'svelte', label: 'Svelte' }
     ]"
+  />
+</div>
+</ClientOnly>
+
+## 🚨 Alerts & Dialogs
+
+### Alert Variants
+
+<ClientOnly>
+<div class="component-demo input-demo">
+  <LgAlert
+    variant="default"
+    title="Heads up!"
+    description="You can add components to your app using the cli."
+  />
+  <LgAlert
+    variant="error"
+    title="Error"
+    description="Your session has expired. Please log in again."
+  />
+  <LgAlert
+    variant="warning"
+    title="Warning"
+    description="This action will permanently delete your account."
+  />
+  <LgAlert
+    variant="success"
+    title="Success"
+    description="Your profile has been updated successfully."
+  />
+</div>
+</ClientOnly>
+
+### Alert Dialog
+
+<ClientOnly>
+<div class="component-demo input-demo">
+  <LgButton @click="showDialog = true">Show Dialog</LgButton>
+  <LgAlertDialog v-model="showDialog" />
+</div>
+</ClientOnly>
+
+## 📦 Containers
+
+### Card
+
+<ClientOnly>
+<div class="component-demo input-demo">
+  <LgCard
+    title="Create project"
+    description="Deploy your new project in one-click."
+  >
+    <LgInput
+      label="Name"
+      placeholder="Name of your project"
+    />
+    <LgSelect
+      label="Framework"
+      :options="[
+        { value: 'next', label: 'Next.js' },
+        { value: 'vue', label: 'Vue' },
+        { value: 'react', label: 'React' }
+      ]"
+    />
+    <template #footer>
+      <LgButton variant="outline">Cancel</LgButton>
+      <LgButton>Deploy</LgButton>
+    </template>
+  </LgCard>
+</div>
+</ClientOnly>
+
+### Collapsible
+
+<ClientOnly>
+<div class="component-demo input-demo">
+  <LgCollapsible
+    trigger="Why there is no component in here?"
+    content="This component is not available in Figma because it's a React specific component."
   />
 </div>
 </ClientOnly>

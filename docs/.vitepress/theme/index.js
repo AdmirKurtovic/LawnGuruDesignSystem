@@ -13,6 +13,10 @@ import LgAccordion from './components/LgAccordion.vue'
 import LgAccordionItem from './components/LgAccordionItem.vue'
 import LgCheckbox from './components/LgCheckbox.vue'
 import LgSelect from './components/LgSelect.vue'
+import LgAlert from './components/LgAlert.vue'
+import LgAlertDialog from './components/LgAlertDialog.vue'
+import LgCard from './components/LgCard.vue'
+import LgCollapsible from './components/LgCollapsible.vue'
 
 export default {
   extends: DefaultTheme,
@@ -27,5 +31,9 @@ export default {
     app.component('LgAccordionItem', LgAccordionItem)
     app.component('LgCheckbox', LgCheckbox)
     app.component('LgSelect', LgSelect)
+    app.component('LgAlert', LgAlert)
+    app.component('LgAlertDialog', LgAlertDialog)
+    app.component('LgCard', LgCard)
+    app.component('LgCollapsible', LgCollapsible)
   }
 }
