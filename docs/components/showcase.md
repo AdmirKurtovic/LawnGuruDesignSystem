@@ -365,6 +365,60 @@ import { ref } from 'vue'
 </div>
 </ClientOnly>
 
+## 🎛️ Form Controls
+
+### Accordion
+
+<ClientOnly>
+<div class="component-demo input-demo">
+  <LgAccordion>
+    <LgAccordionItem
+      value="item-1"
+      trigger="Is it accessible?"
+      content="Yes. It adheres to the WAI-ARIA design pattern."
+    />
+    <LgAccordionItem
+      value="item-2"
+      trigger="Is it styled?"
+      content="Yes. It comes with default styles that matches the LawnGuru design."
+    />
+    <LgAccordionItem
+      value="item-3"
+      trigger="Is it animated?"
+      content="Yes. It's animated by default, but you can disable it if you prefer."
+    />
+  </LgAccordion>
+</div>
+</ClientOnly>
+
+### Checkbox
+
+<ClientOnly>
+<div class="component-demo">
+  <LgCheckbox label="Checkbox Text" />
+  <LgCheckbox label="Checkbox Text" description="This is a checkbox description." />
+  <LgCheckbox :model-value="true" label="Checkbox Text" />
+  <LgCheckbox disabled label="Checkbox Text (Disabled)" />
+</div>
+</ClientOnly>
+
+### Select
+
+<ClientOnly>
+<div class="component-demo input-demo">
+  <LgSelect
+    label="Framework"
+    placeholder="Select a framework"
+    :options="[
+      { value: 'vue', label: 'Vue' },
+      { value: 'react', label: 'React' },
+      { value: 'angular', label: 'Angular' },
+      { value: 'svelte', label: 'Svelte' }
+    ]"
+  />
+</div>
+</ClientOnly>
+
 <style scoped>
 .component-demo {
   display: flex;
