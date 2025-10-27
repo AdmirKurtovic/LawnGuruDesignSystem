@@ -19,6 +19,8 @@ import LgCard from './components/LgCard.vue'
 import LgCollapsible from './components/LgCollapsible.vue'
 import LgCalendar from './components/LgCalendar.vue'
 import LgCarousel from './components/LgCarousel.vue'
+import LgCombobox from './components/LgCombobox.vue'
+import LgCommand from './components/LgCommand.vue'
 
 export default {
   extends: DefaultTheme,
@@ -39,5 +41,7 @@ export default {
     app.component('LgCollapsible', LgCollapsible)
     app.component('LgCalendar', LgCalendar)
     app.component('LgCarousel', LgCarousel)
+    app.component('LgCombobox', LgCombobox)
+    app.component('LgCommand', LgCommand)
   }
 }

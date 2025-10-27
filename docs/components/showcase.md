@@ -529,6 +529,54 @@ const showDialog = ref(false)
 </div>
 </ClientOnly>
 
+## 🔍 Advanced Selectors
+
+### Combobox
+
+<ClientOnly>
+<div class="component-demo input-demo">
+  <LgCombobox
+    label="Framework"
+    placeholder="Select framework..."
+    :options="[
+      { value: 'next', label: 'Next.js', description: 'The React Framework' },
+      { value: 'sveltekit', label: 'SvelteKit', description: 'Web development, streamlined' },
+      { value: 'nuxt', label: 'Nuxt.js', description: 'The Intuitive Vue Framework' },
+      { value: 'remix', label: 'Remix', description: 'Full stack web framework' },
+      { value: 'astro', label: 'Astro', description: 'Build faster websites' }
+    ]"
+  />
+</div>
+</ClientOnly>
+
+### Command Palette
+
+<ClientOnly>
+<div class="component-demo input-demo">
+  <LgCommand
+    placeholder="Type a command or search..."
+    :groups="[
+      {
+        heading: 'Suggestions',
+        items: [
+          { label: 'Calendar', value: 'calendar' },
+          { label: 'Search Emoji', value: 'emoji' },
+          { label: 'Calculator', value: 'calculator' }
+        ]
+      },
+      {
+        heading: 'Settings',
+        items: [
+          { label: 'Profile', value: 'profile', shortcut: '⌘P' },
+          { label: 'Billing', value: 'billing', shortcut: '⌘B' },
+          { label: 'Settings', value: 'settings', shortcut: '⌘S' }
+        ]
+      }
+    ]"
+  />
+</div>
+</ClientOnly>
+
 <style scoped>
 .component-demo {
   display: flex;
