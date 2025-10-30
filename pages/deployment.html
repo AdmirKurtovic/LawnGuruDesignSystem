@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment Guide - LawnGuru Design System</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        .deployment-option {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-12);
+            padding: var(--spacing-24);
+            margin: var(--spacing-24) 0;
+            transition: var(--transition-fast);
+        }
+        
+        .deployment-option:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-center-03);
+        }
+        
+        .deployment-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-16);
+        }
+        
+        .deployment-icon {
+            font-size: var(--font-size-24);
+            margin-right: var(--spacing-12);
+        }
+        
+        .deployment-title {
+            font-size: var(--font-size-20);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-gray-900);
+            margin: 0;
+        }
+        
+        .deployment-subtitle {
+            color: var(--color-gray-600);
+            font-size: var(--font-size-14);
+            margin: var(--spacing-4) 0 var(--spacing-16) 0;
+        }
+        
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-16);
+            margin: var(--spacing-16) 0;
+        }
+        
+        .pros, .cons {
+            padding: var(--spacing-16);
+            border-radius: var(--radius-8);
+        }
+        
+        .pros {
+            background-color: var(--color-success-light);
+            border: 1px solid var(--color-success);
+        }
+        
+        .cons {
+            background-color: var(--color-error-light);
+            border: 1px solid var(--color-error);
+        }
+        
+        .pros h4, .cons h4 {
+            margin: 0 0 var(--spacing-8) 0;
+            font-size: var(--font-size-14);
+            font-weight: var(--font-weight-semibold);
+        }
+        
+        .pros h4 {
+            color: var(--color-success-dark);
+        }
+        
+        .cons h4 {
+            color: var(--color-error-dark);
+        }
+        
+        .pros ul, .cons ul {
+            margin: 0;
+            padding-left: var(--spacing-16);
+        }
+        
+        .pros li, .cons li {
+            font-size: var(--font-size-12);
+            margin-bottom: var(--spacing-4);
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+        }
+        
+        .step-item {
+            counter-increment: step-counter;
+            margin: var(--spacing-16) 0;
+            padding-left: var(--spacing-40);
+            position: relative;
+        }
+        
+        .step-item::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            background-color: var(--color-primary-600);
+            color: var(--color-white);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-12);
+            font-weight: var(--font-weight-semibold);
+        }
+        
+        .code-block {
+            background-color: var(--color-gray-900);
+            color: var(--color-gray-100);
+            padding: var(--spacing-16);
+            border-radius: var(--radius-8);
+            overflow-x: auto;
+            margin: var(--spacing-16) 0;
+        }
+        
+        .code-block pre {
+            margin: 0;
+            background: none;
+        }
+        
+        .checklist {
+            background-color: var(--color-gray-50);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-8);
+            padding: var(--spacing-16);
+            margin: var(--spacing-16) 0;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin: var(--spacing-8) 0;
+        }
+        
+        .checklist-item input[type="checkbox"] {
+            margin-right: var(--spacing-8);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-16);
+            margin: var(--spacing-24) 0;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: var(--spacing-16);
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-8);
+        }
+        
+        .feature-icon {
+            font-size: var(--font-size-24);
+            margin-bottom: var(--spacing-8);
+        }
+        
+        .feature-title {
+            font-size: var(--font-size-14);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-4);
+        }
+        
+        .feature-description {
+            font-size: var(--font-size-12);
+            color: var(--color-gray-600);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="../index.html" class="brand-link">
+                    <span class="brand-icon">🌱</span>
+                    <span class="brand-text">LawnGuru Design System</span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Foundations</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="colors.html">Colors</a></li>
+                            <li><a href="typography.html">Typography</a></li>
+                            <li><a href="spacing.html">Spacing</a></li>
+                            <li><a href="effects-borders.html">Effects & Borders</a></li>
+                            <li><a href="tokens.html">Tokens</a></li>
+                            <li><a href="icons.html">Icons</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Components</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="buttons.html">Buttons</a></li>
+                            <li><a href="forms.html">Forms</a></li>
+                            <li><a href="cards.html">Cards</a></li>
+                            <li><a href="navigation.html">Navigation</a></li>
+                            <li><a href="feedback.html">Feedback</a></li>
+                            <li><a href="data-display.html">Data Display</a></li>
+                            <li><a href="modals.html">Modals</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Patterns</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="layouts.html">Layouts</a></li>
+                            <li><a href="responsive.html">Responsive</a></li>
+                            <li><a href="form-patterns.html">Form Patterns</a></li>
+                            <li><a href="nav-patterns.html">Navigation Patterns</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Guidelines</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="accessibility.html">Accessibility</a></li>
+                            <li><a href="writing.html">Writing</a></li>
+                            <li><a href="motion.html">Motion</a></li>
+                            <li><a href="design-principles.html">Design Principles</a></li>
+                            <li><a href="contributing.html">Contributing</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Getting Started</h3>
+                <ul class="sidebar-list">
+                    <li><a href="getting-started.html">Getting Started Guide</a></li>
+                    <li><a href="design-principles.html">Design Principles</a></li>
+                    <li><a href="contributing.html">Contributing</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Foundations</h3>
+                <ul class="sidebar-list">
+                    <li><a href="colors.html">Color Palette</a></li>
+                    <li><a href="typography.html">Typography</a></li>
+                    <li><a href="spacing.html">Spacing</a></li>
+                    <li><a href="effects-borders.html">Effects & Borders</a></li>
+                    <li><a href="tokens.html">Tokens</a></li>
+                    <li><a href="icons.html">Icons</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Components</h3>
+                <ul class="sidebar-list">
+                    <li><a href="buttons.html">Buttons</a></li>
+                    <li><a href="forms.html">Forms</a></li>
+                    <li><a href="cards.html">Cards</a></li>
+                    <li><a href="navigation.html">Navigation</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="data-display.html">Data Display</a></li>
+                    <li><a href="modals.html">Modals</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Patterns</h3>
+                <ul class="sidebar-list">
+                    <li><a href="layouts.html">Page Layouts</a></li>
+                    <li><a href="responsive.html">Responsive Patterns</a></li>
+                    <li><a href="form-patterns.html">Forms Patterns</a></li>
+                    <li><a href="nav-patterns.html">Navigation Patterns</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Guidelines</h3>
+                <ul class="sidebar-list">
+                    <li><a href="accessibility.html">Accessibility</a></li>
+                    <li><a href="writing.html">Writing Style</a></li>
+                    <li><a href="motion.html">Motion</a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Deployment Guide</h1>
+                <p class="page-description">How to deploy the LawnGuru Design System documentation website</p>
+            </div>
+            
+            <div class="page-content">
+                <!-- Overview -->
+                <section>
+                    <h2>🚀 Deployment Options</h2>
+                    <p>The documentation site is a static website that can be deployed to various platforms.</p>
+                </section>
+
+                <!-- Vercel -->
+                <section>
+                    <div class="deployment-option">
+                        <div class="deployment-header">
+                            <div class="deployment-icon">▲</div>
+                            <div>
+                                <h3 class="deployment-title">Option 1: Vercel (Recommended)</h3>
+                                <p class="deployment-subtitle">Free for open source, automatic deployments, custom domains</p>
+                            </div>
+                        </div>
+                        
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <h4>✅ Pros</h4>
+                                <ul>
+                                    <li>Free for open source</li>
+                                    <li>Automatic deployments from GitHub</li>
+                                    <li>Custom domains</li>
+                                    <li>Great performance</li>
+                                    <li>Zero configuration</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <h4>❌ Cons</h4>
+                                <ul>
+                                    <li>Vendor lock-in</li>
+                                    <li>Limited customization</li>
+                                    <li>Requires GitHub</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <h4>Steps</h4>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <strong>Push to GitHub</strong>
+                                <div class="code-block">
+                                    <pre><code class="language-bash">git init
+git add .
+git commit -m "Initial commit"
+git remote add origin [your-repo-url]
+git push -u origin main</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <strong>Connect to Vercel</strong>
+                                <p>Go to <a href="https://vercel.com" target="_blank">vercel.com</a>, click "Import Project", select your GitHub repository. Vercel auto-detects VitePress.</p>
+                            </div>
+                            
+                            <div class="step-item">
+                                <strong>Configure Build Settings</strong>
+                                <p>Usually auto-detected, but verify:</p>
+                                <ul>
+                                    <li>Build Command: <code>npm run docs:build</code></li>
+                                    <li>Output Directory: <code>docs/.vitepress/dist</code></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="step-item">
+                                <strong>Deploy</strong>
+                                <p>Click "Deploy" and your site is live!</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Netlify -->
+                <section>
+                    <div class="deployment-option">
+                        <div class="deployment-header">
+                            <div class="deployment-icon">🌐</div>
+                            <div>
+                                <h3 class="deployment-title">Option 2: Netlify</h3>
+                                <p class="deployment-subtitle">Great alternative with form handling and edge functions</p>
+                            </div>
+                        </div>
+                        
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <h4>✅ Pros</h4>
+                                <ul>
+                                    <li>Free tier available</li>
+                                    <li>Form handling</li>
+                                    <li>Edge functions</li>
+                                    <li>Branch previews</li>
+                                    <li>Easy setup</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <h4>❌ Cons</h4>
+                                <ul>
+                                    <li>Slower than Vercel</li>
+                                    <li>Less developer-focused</li>
+                                    <li>Limited build minutes</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <h4>Steps</h4>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <strong>Connect to Netlify</strong>
+                                <p>Go to <a href="https://netlify.com" target="_blank">netlify.com</a>, click "Add new site" → "Import an existing project", choose GitHub and select your repository.</p>
+                            </div>
+                            
+                            <div class="step-item">
+                                <strong>Configure Build Settings</strong>
+                                <ul>
+                                    <li>Build command: <code>npm run docs:build</code></li>
+                                    <li>Publish directory: <code>docs/.vitepress/dist</code></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="step-item">
+                                <strong>Create netlify.toml</strong>
+                                <div class="code-block">
+                                    <pre><code class="language-toml">[build]
+  command = "npm run docs:build"
+  publish = "docs/.vitepress/dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- GitHub Pages -->
+                <section>
+                    <div class="deployment-option">
+                        <div class="deployment-header">
+                            <div class="deployment-icon">🐙</div>
+                            <div>
+                                <h3 class="deployment-title">Option 3: GitHub Pages</h3>
+                                <p class="deployment-subtitle">Free hosting directly from your GitHub repository</p>
+                            </div>
+                        </div>
+                        
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <h4>✅ Pros</h4>
+                                <ul>
+                                    <li>Completely free</li>
+                                    <li>Integrated with GitHub</li>
+                                    <li>Custom domains</li>
+                                    <li>No vendor lock-in</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <h4>❌ Cons</h4>
+                                <ul>
+                                    <li>Requires GitHub Actions</li>
+                                    <li>More complex setup</li>
+                                    <li>Slower deployments</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <h4>Steps</h4>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <strong>Create GitHub Action</strong>
+                                <p>Create <code>.github/workflows/deploy.yml</code>:</p>
+                                <div class="code-block">
+                                    <pre><code class="language-yaml">name: Deploy Documentation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run docs:build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/.vitepress/dist</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <strong>Enable GitHub Pages</strong>
+                                <p>Go to repository Settings → Pages, Source: Deploy from a branch, Branch: <code>gh-pages</code> / <code>root</code></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Self-Hosted -->
+                <section>
+                    <div class="deployment-option">
+                        <div class="deployment-header">
+                            <div class="deployment-icon">🖥️</div>
+                            <div>
+                                <h3 class="deployment-title">Option 4: Self-Hosted (VPS/Server)</h3>
+                                <p class="deployment-subtitle">Full control with your own server infrastructure</p>
+                            </div>
+                        </div>
+                        
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <h4>✅ Pros</h4>
+                                <ul>
+                                    <li>Complete control</li>
+                                    <li>Custom server config</li>
+                                    <li>No vendor lock-in</li>
+                                    <li>Custom analytics</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <h4>❌ Cons</h4>
+                                <ul>
+                                    <li>Requires server management</li>
+                                    <li>SSL setup needed</li>
+                                    <li>Backup responsibility</li>
+                                    <li>Higher complexity</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <h4>Steps</h4>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <strong>Build the Site</strong>
+                                <div class="code-block">
+                                    <pre><code class="language-bash">npm run docs:build</code></pre>
+                                </div>
+                                <p>This creates a <code>docs/.vitepress/dist</code> folder with static files.</p>
+                            </div>
+                            
+                            <div class="step-item">
+                                <strong>Deploy to Server</strong>
+                                <div class="code-block">
+                                    <pre><code class="language-bash"># Copy files to server
+scp -r docs/.vitepress/dist/* user@server:/var/www/design-system/</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <strong>Configure Nginx</strong>
+                                <div class="code-block">
+                                    <pre><code class="language-nginx">server {
+    listen 80;
+    server_name design-system.yourdomain.com;
+
+    root /var/www/design-system;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # Gzip compression
+    gzip on;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml text/javascript;
+
+    # Cache static assets
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Performance Optimization -->
+                <section>
+                    <h2>⚡ Performance Optimization</h2>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">🗜️</div>
+                            <div class="feature-title">Compression</div>
+                            <div class="feature-description">Gzip/Brotli compression for faster loading</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🌍</div>
+                            <div class="feature-title">CDN</div>
+                            <div class="feature-description">Global content delivery for better performance</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🖼️</div>
+                            <div class="feature-title">Image Optimization</div>
+                            <div class="feature-description">WebP format and lazy loading</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">📦</div>
+                            <div class="feature-title">Bundle Optimization</div>
+                            <div class="feature-description">Code splitting and tree shaking</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Monitoring -->
+                <section>
+                    <h2>📊 Monitoring</h2>
+                    
+                    <h3>Analytics Setup</h3>
+                    <p>Add analytics to track usage and performance:</p>
+                    
+                    <div class="code-block">
+                        <pre><code class="language-html">&lt;!-- Google Analytics --&gt;
+&lt;script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+&lt;/script&gt;</code></pre>
+                    </div>
+                    
+                    <h3>Performance Monitoring</h3>
+                    <ul>
+                        <li>Use Google PageSpeed Insights</li>
+                        <li>Monitor Core Web Vitals</li>
+                        <li>Set up uptime monitoring</li>
+                        <li>Track build times and errors</li>
+                    </ul>
+                </section>
+
+                <!-- Deployment Checklist -->
+                <section>
+                    <h2>✅ Deployment Checklist</h2>
+                    
+                    <div class="checklist">
+                        <h4>Before Deploying:</h4>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check1">
+                            <label for="check1">All markdown files reviewed</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check2">
+                            <label for="check2">Images and assets added</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check3">
+                            <label for="check3">Links tested</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check4">
+                            <label for="check4">Build succeeds locally</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check5">
+                            <label for="check5">Base path configured (if needed)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check6">
+                            <label for="check6">Custom domain configured</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check7">
+                            <label for="check7">SSL certificate active</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check8">
+                            <label for="check8">Analytics added (optional)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check9">
+                            <label for="check9">README updated</label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Troubleshooting -->
+                <section>
+                    <h2>🔧 Troubleshooting</h2>
+                    
+                    <h3>Common Issues</h3>
+                    
+                    <h4>Build Fails</h4>
+                    <div class="code-block">
+                        <pre><code class="language-bash"># Clear cache
+rm -rf node_modules
+rm -rf docs/.vitepress/cache
+npm install
+npm run docs:build</code></pre>
+                    </div>
+                    
+                    <h4>404 Errors</h4>
+                    <ul>
+                        <li>Ensure base path is correct in config</li>
+                        <li>Check redirect rules</li>
+                        <li>Verify output directory</li>
+                    </ul>
+                    
+                    <h4>Styles Not Loading</h4>
+                    <ul>
+                        <li>Check base path configuration</li>
+                        <li>Clear browser cache</li>
+                        <li>Rebuild and redeploy</li>
+                    </ul>
+                </section>
+
+                <!-- Support -->
+                <section>
+                    <h2>📞 Support</h2>
+                    <p>Deployment issues?</p>
+                    <ul>
+                        <li>Check <a href="https://vitepress.dev/guide/deploy" target="_blank">VitePress Deployment Docs</a></li>
+                        <li>Open GitHub issue</li>
+                        <li>Contact DevOps team</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-icon">🌱</span>
+                    <span class="brand-text">LawnGuru Design System</span>
+                </div>
+                <div class="footer-text">
+                    <p>Built with 🌱 by the LawnGuru team</p>
+                    <p class="footer-license">Proprietary - LawnGuru © 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        // Add interactive functionality for code tabs
+        document.addEventListener('DOMContentLoaded', function() {
+            // Code tab functionality
+            const codeTabs = document.querySelectorAll('.code-tab');
+            const codeBlocks = document.querySelectorAll('.code-block');
+            
+            codeTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and blocks
+                    codeTabs.forEach(t => t.classList.remove('active'));
+                    codeBlocks.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding block
+                    this.classList.add('active');
+                    const targetBlock = document.getElementById(targetTab);
+                    if (targetBlock) {
+                        targetBlock.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

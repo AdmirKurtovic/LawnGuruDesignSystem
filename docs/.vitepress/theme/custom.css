@@ -43,13 +43,68 @@
 
 /* Dark Mode Adjustments */
 .dark {
+  /* Primary colors for dark mode */
   --vp-c-brand-1: #8DFC72;  /* green-300 - Lighter for dark mode */
   --vp-c-brand-2: #5DF53F;  /* green-400 - Medium-light */
   --vp-c-brand-3: #BAFFA3;  /* green-200 - Very light */
+  --vp-c-brand-soft: rgba(141, 252, 114, 0.16);
 
-  --vp-button-brand-bg: #008934;    /* green-700 - Keep primary strong */
+  /* Button colors for dark mode */
+  --vp-button-brand-bg: #00A31B;    /* green-600 - Brighter for dark bg */
   --vp-button-brand-hover-bg: #8DFC72;  /* green-300 - Bright on hover */
-  --vp-button-brand-active-bg: #056535; /* green-800 - Darker on active */
+  --vp-button-brand-active-bg: #008934; /* green-700 - Medium on active */
+  --vp-button-brand-text: #000000; /* Black text on bright green buttons */
+
+  /* Link colors for dark mode */
+  --vp-c-brand: #8DFC72;       /* green-300 - Bright readable links */
+  --vp-c-brand-dark: #5DF53F;  /* green-400 */
+  --vp-c-brand-darker: #00A31B; /* green-600 */
+  --vp-c-brand-light: #BAFFA3;  /* green-200 */
+  --vp-c-brand-lighter: #D4FFCC; /* green-100 */
+
+  /* Backgrounds for dark mode */
+  --vp-c-bg-soft: #1a1a1a;
+  --vp-c-bg-mute: #242424;
+
+  /* Hero gradient for dark mode */
+  --vp-home-hero-name-background: linear-gradient(135deg, #8DFC72 0%, #5DF53F 100%);
+
+  /* Custom component colors for dark mode */
+  --vp-custom-block-tip-bg: rgba(141, 252, 114, 0.1);
+  --vp-custom-block-tip-border: #8DFC72;
+}
+
+/* Dark mode specific overrides */
+.dark .VPNavBar {
+  border-bottom-color: rgba(141, 252, 114, 0.1);
+}
+
+.dark .VPButton.brand:hover {
+  box-shadow: 0 8px 16px rgba(141, 252, 114, 0.3);
+}
+
+.dark .status-badge.active {
+  background: rgba(141, 252, 114, 0.2);
+  color: #8DFC72;
+}
+
+.dark .status-badge.deprecated {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+}
+
+.dark .status-badge.beta {
+  background: rgba(96, 165, 250, 0.2);
+  color: #93c5fd;
+}
+
+.dark .color-swatch {
+  border-color: #374151;
+}
+
+.dark .spacing-example {
+  background: rgba(141, 252, 114, 0.1);
+  border-color: #8DFC72;
 }
 
 /* ============================================

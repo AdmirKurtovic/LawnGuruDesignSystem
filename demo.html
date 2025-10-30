@@ -164,6 +164,93 @@
         .progress-75 { width: 75%; }
         .progress-50 { width: 50%; }
         .progress-25 { width: 25%; }
+        
+        .menu-demo {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-12);
+            padding: var(--spacing-24);
+            margin: var(--spacing-24) 0;
+            position: relative;
+        }
+        
+        .menu-trigger {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-8);
+            padding: var(--spacing-8) var(--spacing-12);
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-8);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        
+        .menu-trigger:hover {
+            background-color: var(--color-gray-50);
+            border-color: var(--color-gray-400);
+        }
+        
+        .menu-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-10);
+            box-shadow: var(--shadow-center-05);
+            min-width: 200px;
+            padding: var(--spacing-8);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all var(--transition-fast);
+        }
+        
+        .menu-content.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-12);
+            padding: var(--spacing-8) var(--spacing-12);
+            border-radius: var(--radius-8);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            font-size: var(--font-size-14);
+            color: var(--color-gray-700);
+        }
+        
+        .menu-item:hover {
+            background-color: var(--color-gray-50);
+        }
+        
+        .menu-item.danger {
+            color: var(--color-error);
+        }
+        
+        .menu-item.danger:hover {
+            background-color: var(--color-error-light);
+        }
+        
+        .menu-divider {
+            height: 1px;
+            background-color: var(--color-gray-200);
+            margin: var(--spacing-4) 0;
+        }
+        
+        .menu-icon {
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
@@ -506,6 +593,38 @@
                     </div>
                 </section>
 
+                <!-- Effects & Borders Demo -->
+                <section class="demo-section">
+                    <h2 class="demo-title">🎨 Effects & Borders</h2>
+                    <p>Comprehensive shadow system, blur effects, and border styling.</p>
+                    
+                    <div class="interactive-demo">
+                        <h3>Shadow System</h3>
+                        <div class="button-group">
+                            <div style="background: white; padding: var(--spacing-16); border-radius: var(--radius-8); box-shadow: var(--shadow-center-01); margin: var(--spacing-8); display: inline-block;">Center 01</div>
+                            <div style="background: white; padding: var(--spacing-16); border-radius: var(--radius-8); box-shadow: var(--shadow-center-03); margin: var(--spacing-8); display: inline-block;">Center 03</div>
+                            <div style="background: white; padding: var(--spacing-16); border-radius: var(--radius-8); box-shadow: var(--shadow-center-05); margin: var(--spacing-8); display: inline-block;">Center 05</div>
+                            <div style="background: white; padding: var(--spacing-16); border-radius: var(--radius-8); box-shadow: var(--shadow-center-brand); margin: var(--spacing-8); display: inline-block;">Brand Shadow</div>
+                        </div>
+                        
+                        <h3>Border Radius Scale</h3>
+                        <div class="button-group">
+                            <div style="width: 40px; height: 40px; background: var(--color-primary-500); border-radius: var(--radius-0); margin: var(--spacing-4); display: inline-flex; align-items: center; justify-content: center; color: white; font-size: 10px;">0</div>
+                            <div style="width: 40px; height: 40px; background: var(--color-primary-500); border-radius: var(--radius-4); margin: var(--spacing-4); display: inline-flex; align-items: center; justify-content: center; color: white; font-size: 10px;">4</div>
+                            <div style="width: 40px; height: 40px; background: var(--color-primary-500); border-radius: var(--radius-8); margin: var(--spacing-4); display: inline-flex; align-items: center; justify-content: center; color: white; font-size: 10px;">8</div>
+                            <div style="width: 40px; height: 40px; background: var(--color-primary-500); border-radius: var(--radius-12); margin: var(--spacing-4); display: inline-flex; align-items: center; justify-content: center; color: white; font-size: 10px;">12</div>
+                            <div style="width: 40px; height: 40px; background: var(--color-primary-500); border-radius: var(--radius-9999); margin: var(--spacing-4); display: inline-flex; align-items: center; justify-content: center; color: white; font-size: 10px;">∞</div>
+                        </div>
+                        
+                        <h3>Glass Effect</h3>
+                        <div style="position: relative; height: 120px; background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-700)); border-radius: var(--radius-12); margin: var(--spacing-16) 0; overflow: hidden;">
+                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(255, 255, 255, 0.7); backdrop-filter: var(--bg-blur-02); -webkit-backdrop-filter: var(--bg-blur-02); padding: var(--spacing-16); border-radius: var(--radius-8); text-align: center; color: var(--color-gray-900); font-weight: var(--font-weight-semibold);">
+                                Glass Effect
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- Interactive Features -->
                 <section class="demo-section">
                     <h2 class="demo-title">⚡ Interactive Features</h2>
@@ -517,6 +636,52 @@
                             <button class="btn btn-primary btn-demo" onclick="showDemoToast('success')">Success Toast</button>
                             <button class="btn btn-secondary btn-demo" onclick="showDemoToast('error')">Error Toast</button>
                             <button class="btn btn-link btn-demo" onclick="showDemoToast('info')">Info Toast</button>
+                        </div>
+                    </div>
+                    
+                    <div class="interactive-demo">
+                        <h3>Menu Components</h3>
+                        <div class="menu-demo">
+                            <div class="menu-trigger" onclick="toggleMenu('demo-dropdown')">
+                                Options
+                                <span>▼</span>
+                            </div>
+                            <div class="menu-content" id="demo-dropdown">
+                                <div class="menu-item">
+                                    <span class="menu-icon">✏️</span>
+                                    Edit
+                                </div>
+                                <div class="menu-item">
+                                    <span class="menu-icon">📋</span>
+                                    Duplicate
+                                </div>
+                                <div class="menu-divider"></div>
+                                <div class="menu-item danger">
+                                    <span class="menu-icon">🗑️</span>
+                                    Delete
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3>Code Tabs</h3>
+                        <div class="code-examples">
+                            <div class="code-tabs">
+                                <button class="code-tab active" data-tab="npm-demo">npm</button>
+                                <button class="code-tab" data-tab="yarn-demo">yarn</button>
+                                <button class="code-tab" data-tab="pnpm-demo">pnpm</button>
+                            </div>
+                            
+                            <div class="code-content">
+                                <div class="code-block active" id="npm-demo">
+                                    <pre><code class="language-bash">npm install @lawnguru/ui</code></pre>
+                                </div>
+                                <div class="code-block" id="yarn-demo">
+                                    <pre><code class="language-bash">yarn add @lawnguru/ui</code></pre>
+                                </div>
+                                <div class="code-block" id="pnpm-demo">
+                                    <pre><code class="language-bash">pnpm add @lawnguru/ui</code></pre>
+                                </div>
+                            </div>
                         </div>
                         
                         <h3>Mobile Menu Toggle</h3>
@@ -576,6 +741,32 @@
                 });
             });
         });
+        
+        // Menu functionality
+        function toggleMenu(menuId) {
+            const menu = document.getElementById(menuId);
+            const isOpen = menu.classList.contains('open');
+            
+            // Close all other menus
+            document.querySelectorAll('.menu-content').forEach(m => {
+                m.classList.remove('open');
+            });
+            
+            // Toggle current menu
+            if (!isOpen) {
+                menu.classList.add('open');
+            }
+        }
+        
+        // Close menus when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.menu-demo')) {
+                document.querySelectorAll('.menu-content').forEach(menu => {
+                    menu.classList.remove('open');
+                });
+            }
+        });
     </script>
 </body>
 </html>
+

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LawnGuru Onboarding Flow - Interactive Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .mobile-frame {
+      width: 393px;
+      height: 852px;
+      background: white;
+      border-radius: 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Status Bar */
+    .status-bar {
+      height: 44px;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    /* Content */
+    .content {
+      height: calc(100% - 44px);
+      overflow-y: auto;
+      padding: 20px 24px 32px;
+    }
+
+    .screen {
+      display: none;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    /* Buttons */
+    .back-button {
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: #f5f5f5;
+      border-radius: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 16px;
+      transition: all 0.2s;
+    }
+
+    .back-button:hover {
+      background: #e8e8e8;
+    }
+
+    .btn {
+      width: 100%;
+      height: 54px;
+      background: #008934;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: #007229;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 16px rgba(0, 137, 52, 0.3);
+    }
+
+    .btn-outline {
+      background: white;
+      border: 1.5px solid #e0e0e0;
+      color: #1a1a1a;
+    }
+
+    .btn-outline:hover {
+      border-color: #008934;
+      background: #f9f9f9;
+    }
+
+    /* Headers */
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 32px;
+    }
+
+    /* Input */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 50px;
+      padding: 0 48px;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 12px;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #008934;
+      box-shadow: 0 0 0 3px rgba(0, 137, 52, 0.1);
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+    }
+
+    /* Splash Screen */
+    .splash-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+    }
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 60px;
+      background: #008934;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 32px;
+      box-shadow: 0 8px 24px rgba(0, 137, 52, 0.3);
+    }
+
+    .tagline {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    /* Social Buttons */
+    .social-btn {
+      width: 100%;
+      height: 50px;
+      border: 1.5px solid #e0e0e0;
+      background: white;
+      border-radius: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+      transition: all 0.2s;
+    }
+
+    .social-btn:hover {
+      border-color: #008934;
+      background: #f9f9f9;
+    }
+
+    /* Divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 24px 0;
+      color: #999;
+      font-size: 13px;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e0e0e0;
+    }
+
+    .divider::before {
+      margin-right: 16px;
+    }
+
+    .divider::after {
+      margin-left: 16px;
+    }
+
+    /* Links */
+    .link {
+      color: #008934;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .link:hover {
+      text-decoration: underline;
+    }
+
+    .text-center {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* Password Strength */
+    .strength-bar {
+      height: 4px;
+      background: #e0e0e0;
+      border-radius: 2px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+
+    .strength-fill {
+      height: 100%;
+      width: 0%;
+      transition: all 0.3s;
+      background: #dc2626;
+    }
+
+    .strength-fill.medium {
+      width: 66%;
+      background: #f59e0b;
+    }
+
+    .strength-fill.strong {
+      width: 100%;
+      background: #008934;
+    }
+
+    .requirements {
+      margin-top: 12px;
+      padding: 12px;
+      background: #f9fafb;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+
+    .requirement {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+      color: #666;
+    }
+
+    .requirement.met {
+      color: #008934;
+    }
+
+    /* Code Input */
+    .code-container {
+      display: flex;
+      gap: 8px;
+      margin: 32px 0;
+    }
+
+    .code-input {
+      flex: 1;
+      height: 56px;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 12px;
+      font-size: 24px;
+      font-weight: 600;
+      text-align: center;
+      color: #1a1a1a;
+    }
+
+    .code-input:focus {
+      outline: none;
+      border-color: #008934;
+    }
+
+    /* Success Icon */
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 40px;
+      background: #f0fdf4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      margin: 0 auto 24px;
+    }
+
+    /* Info Box */
+    .info-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 24px 0;
+      display: flex;
+      gap: 12px;
+      font-size: 13px;
+      color: #166534;
+    }
+
+    .phone-wrapper {
+      display: flex;
+      gap: 8px;
+    }
+
+    .country-code {
+      width: 90px;
+      height: 50px;
+      padding: 0 12px;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 12px;
+      font-size: 15px;
+    }
+
+    .forgot-link {
+      display: block;
+      text-align: right;
+      margin-top: -8px;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="mobile-frame">
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <div>10:15</div>
+      <div>📶 🔋</div>
+    </div>
+
+    <!-- Content Container -->
+    <div class="content">
+      <!-- Screen 1: Splash -->
+      <div class="screen active" id="splash">
+        <div class="splash-content">
+          <div class="logo">LawnGuru</div>
+          <div class="tagline">Hire The Best Lawn<br>& Landscape Pros</div>
+          <p class="subtitle">Working in Your Neighborhood</p>
+        </div>
+      </div>
+
+      <!-- Screen 2: Sign In -->
+      <div class="screen" id="signin">
+        <button class="back-button" onclick="showScreen('splash')">←</button>
+        <h1>Sign in</h1>
+        <p class="subtitle">Welcome back! Please enter your details.</p>
+
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <div class="input-wrapper">
+            <span class="input-icon">✉️</span>
+            <input type="email" class="form-input" placeholder="Enter your email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <div class="input-wrapper">
+            <span class="input-icon">🔒</span>
+            <input type="password" class="form-input" placeholder="Enter your password">
+          </div>
+        </div>
+
+        <a href="#" class="link forgot-link" onclick="showScreen('forgot'); return false;">Forgot password?</a>
+
+        <button class="btn" onclick="alert('Signing in...')">Login</button>
+
+        <div class="divider">Or continue with</div>
+
+        <button class="social-btn">
+          <span>🔵</span>
+          <span>Google</span>
+        </button>
+
+        <button class="social-btn">
+          <span>🍎</span>
+          <span>Apple</span>
+        </button>
+
+        <div class="text-center">
+          Don't have an account? <a href="#" class="link" onclick="showScreen('create'); return false;">Sign up</a>
+        </div>
+      </div>
+
+      <!-- Screen 3: Create Account -->
+      <div class="screen" id="create">
+        <button class="back-button" onclick="showScreen('signin')">←</button>
+        <h1>Create Account</h1>
+        <p class="subtitle">Join thousands of happy homeowners</p>
+
+        <div class="form-group">
+          <label class="form-label">First name</label>
+          <input type="text" class="form-input" placeholder="Enter your first name">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Last name</label>
+          <input type="text" class="form-input" placeholder="Enter your last name">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" placeholder="Enter your email">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Phone number <span style="color: #999; font-weight: 400;">(Optional)</span></label>
+          <div class="phone-wrapper">
+            <select class="country-code">
+              <option>🇺🇸 +1</option>
+              <option>🇬🇧 +44</option>
+            </select>
+            <input type="tel" class="form-input" placeholder="Enter mobile number" style="padding: 0 16px;">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-input" placeholder="Create a password">
+        </div>
+
+        <button class="btn" onclick="showScreen('password')" style="margin-top: 16px;">Continue →</button>
+
+        <div class="text-center">
+          Already have an account? <a href="#" class="link" onclick="showScreen('signin'); return false;">Sign in</a>
+        </div>
+      </div>
+
+      <!-- Screen 4: Password -->
+      <div class="screen" id="password">
+        <button class="back-button" onclick="showScreen('create')">←</button>
+        <h1>Create Password</h1>
+        <p class="subtitle">Your password must meet all requirements below</p>
+
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-input" placeholder="Create a password" id="pwd">
+          <div class="strength-bar">
+            <div class="strength-fill strong"></div>
+          </div>
+        </div>
+
+        <div class="requirements">
+          <div class="requirement met">
+            <span>✓</span>
+            <span>At least 8 characters</span>
+          </div>
+          <div class="requirement met">
+            <span>✓</span>
+            <span>One uppercase letter</span>
+          </div>
+          <div class="requirement met">
+            <span>✓</span>
+            <span>One number</span>
+          </div>
+          <div class="requirement met">
+            <span>✓</span>
+            <span>One special character</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Confirm Password</label>
+          <input type="password" class="form-input" placeholder="Re-enter your password">
+        </div>
+
+        <button class="btn" onclick="alert('✅ Account created successfully!')" style="margin-top: 16px;">Create Account</button>
+      </div>
+
+      <!-- Screen 5: Forgot Password -->
+      <div class="screen" id="forgot">
+        <button class="back-button" onclick="showScreen('signin')">←</button>
+        <h1>Forgot password?</h1>
+        <p class="subtitle">No worries, we'll send you reset instructions.</p>
+
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <div class="input-wrapper">
+            <span class="input-icon">✉️</span>
+            <input type="email" class="form-input" placeholder="Enter your email">
+          </div>
+        </div>
+
+        <button class="btn" onclick="showScreen('recovery')" style="margin-top: 16px;">Send Reset Link</button>
+
+        <div class="text-center">
+          <a href="#" class="link" onclick="showScreen('signin'); return false;">← Back to Sign In</a>
+        </div>
+      </div>
+
+      <!-- Screen 6: Recovery -->
+      <div class="screen" id="recovery">
+        <button class="back-button" onclick="showScreen('forgot')">←</button>
+
+        <div class="success-icon">🔐</div>
+
+        <h1 style="text-align: center;">Verify your email</h1>
+        <p class="subtitle" style="text-align: center;">Enter the 6-digit code we sent to<br><strong>your@email.com</strong></p>
+
+        <div class="code-container">
+          <input type="text" class="code-input" maxlength="1">
+          <input type="text" class="code-input" maxlength="1">
+          <input type="text" class="code-input" maxlength="1">
+          <input type="text" class="code-input" maxlength="1">
+          <input type="text" class="code-input" maxlength="1">
+          <input type="text" class="code-input" maxlength="1">
+        </div>
+
+        <button class="btn" onclick="alert('✅ Code verified! Redirecting...')">Verify Code</button>
+
+        <div class="text-center">
+          Didn't receive a code? <a href="#" class="link" onclick="alert('New code sent!'); return false;">Resend</a>
+        </div>
+
+        <div class="info-box" style="margin-top: 24px;">
+          <span>💡</span>
+          <span>The code will expire in 10 minutes. Check your spam folder if you don't see it.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Auto-navigate from splash to sign in after 2 seconds
+    setTimeout(() => {
+      showScreen('signin');
+    }, 2000);
+
+    function showScreen(screenId) {
+      // Hide all screens
+      document.querySelectorAll('.screen').forEach(screen => {
+        screen.classList.remove('active');
+      });
+
+      // Show the requested screen
+      document.getElementById(screenId).classList.add('active');
+    }
+
+    // Auto-focus next code input
+    const codeInputs = document.querySelectorAll('.code-input');
+    codeInputs.forEach((input, index) => {
+      input.addEventListener('input', (e) => {
+        if (e.target.value && index < codeInputs.length - 1) {
+          codeInputs[index + 1].focus();
+        }
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !e.target.value && index > 0) {
+          codeInputs[index - 1].focus();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

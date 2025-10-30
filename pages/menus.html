@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Components - LawnGuru Design System</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        .menu-demo {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-12);
+            padding: var(--spacing-24);
+            margin: var(--spacing-24) 0;
+            position: relative;
+        }
+        
+        .menu-trigger {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-8);
+            padding: var(--spacing-8) var(--spacing-12);
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-8);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        
+        .menu-trigger:hover {
+            background-color: var(--color-gray-50);
+            border-color: var(--color-gray-400);
+        }
+        
+        .menu-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-10);
+            box-shadow: var(--shadow-center-05);
+            min-width: 200px;
+            padding: var(--spacing-8);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all var(--transition-fast);
+        }
+        
+        .menu-content.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-12);
+            padding: var(--spacing-8) var(--spacing-12);
+            border-radius: var(--radius-8);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            font-size: var(--font-size-14);
+            color: var(--color-gray-700);
+        }
+        
+        .menu-item:hover {
+            background-color: var(--color-gray-50);
+        }
+        
+        .menu-item.danger {
+            color: var(--color-error);
+        }
+        
+        .menu-item.danger:hover {
+            background-color: var(--color-error-light);
+        }
+        
+        .menu-divider {
+            height: 1px;
+            background-color: var(--color-gray-200);
+            margin: var(--spacing-4) 0;
+        }
+        
+        .menu-section {
+            margin-bottom: var(--spacing-8);
+        }
+        
+        .menu-section-header {
+            font-size: var(--font-size-11);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: var(--spacing-8) var(--spacing-12);
+            margin-bottom: var(--spacing-4);
+        }
+        
+        .menu-shortcut {
+            margin-left: auto;
+            font-size: var(--font-size-12);
+            color: var(--color-gray-500);
+        }
+        
+        .menu-icon {
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .select-demo {
+            position: relative;
+            display: inline-block;
+            min-width: 200px;
+        }
+        
+        .select-trigger {
+            width: 100%;
+            padding: var(--spacing-12);
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-8);
+            background-color: var(--color-white);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .select-trigger:hover {
+            border-color: var(--color-gray-400);
+        }
+        
+        .select-trigger:focus {
+            outline: none;
+            border-color: var(--color-primary-500);
+            box-shadow: 0 0 0 3px var(--color-primary-100);
+        }
+        
+        .select-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-8);
+            box-shadow: var(--shadow-center-05);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all var(--transition-fast);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .select-content.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .select-option {
+            padding: var(--spacing-8) var(--spacing-12);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-8);
+        }
+        
+        .select-option:hover {
+            background-color: var(--color-gray-50);
+        }
+        
+        .select-option.selected {
+            background-color: var(--color-primary-50);
+            color: var(--color-primary-700);
+        }
+        
+        .select-option.selected::before {
+            content: "✓";
+            color: var(--color-primary-600);
+            font-weight: var(--font-weight-semibold);
+        }
+        
+        .command-demo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-fast);
+        }
+        
+        .command-demo.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .command-content {
+            background-color: var(--color-white);
+            border-radius: var(--radius-12);
+            box-shadow: var(--shadow-center-07);
+            width: 90%;
+            max-width: 500px;
+            max-height: 400px;
+            overflow: hidden;
+        }
+        
+        .command-input {
+            width: 100%;
+            padding: var(--spacing-16);
+            border: none;
+            border-bottom: 1px solid var(--color-gray-200);
+            font-size: var(--font-size-16);
+            outline: none;
+        }
+        
+        .command-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .command-group {
+            padding: var(--spacing-8) 0;
+        }
+        
+        .command-group-header {
+            font-size: var(--font-size-12);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: var(--spacing-8) var(--spacing-16);
+        }
+        
+        .command-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-12);
+            padding: var(--spacing-8) var(--spacing-16);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        
+        .command-item:hover {
+            background-color: var(--color-gray-50);
+        }
+        
+        .command-shortcut {
+            margin-left: auto;
+            font-size: var(--font-size-12);
+            color: var(--color-gray-500);
+            background-color: var(--color-gray-100);
+            padding: var(--spacing-2) var(--spacing-6);
+            border-radius: var(--radius-4);
+        }
+        
+        .mega-menu-demo {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .mega-menu-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-12);
+            box-shadow: var(--shadow-center-06);
+            padding: var(--spacing-24);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all var(--transition-fast);
+            min-width: 600px;
+        }
+        
+        .mega-menu-content.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .mega-menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-24);
+        }
+        
+        .mega-menu-column {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-8);
+        }
+        
+        .mega-menu-header {
+            font-size: var(--font-size-14);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-8);
+        }
+        
+        .mega-menu-link {
+            color: var(--color-gray-700);
+            text-decoration: none;
+            padding: var(--spacing-4) 0;
+            transition: var(--transition-fast);
+        }
+        
+        .mega-menu-link:hover {
+            color: var(--color-primary-600);
+        }
+        
+        .mega-menu-card {
+            background-color: var(--color-gray-50);
+            border-radius: var(--radius-8);
+            padding: var(--spacing-16);
+            margin-top: var(--spacing-8);
+        }
+        
+        .mega-menu-card-title {
+            font-size: var(--font-size-14);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-4);
+        }
+        
+        .mega-menu-card-description {
+            font-size: var(--font-size-12);
+            color: var(--color-gray-600);
+            margin-bottom: var(--spacing-8);
+        }
+        
+        .mega-menu-card-button {
+            background-color: var(--color-primary-600);
+            color: var(--color-white);
+            border: none;
+            border-radius: var(--radius-6);
+            padding: var(--spacing-6) var(--spacing-12);
+            font-size: var(--font-size-12);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        
+        .mega-menu-card-button:hover {
+            background-color: var(--color-primary-700);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="../index.html" class="brand-link">
+                    <span class="brand-icon">🌱</span>
+                    <span class="brand-text">LawnGuru Design System</span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Foundations</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="colors.html">Colors</a></li>
+                            <li><a href="typography.html">Typography</a></li>
+                            <li><a href="spacing.html">Spacing</a></li>
+                            <li><a href="effects-borders.html">Effects & Borders</a></li>
+                            <li><a href="tokens.html">Tokens</a></li>
+                            <li><a href="icons.html">Icons</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Components</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="buttons.html">Buttons</a></li>
+                            <li><a href="forms.html">Forms</a></li>
+                            <li><a href="cards.html">Cards</a></li>
+                            <li><a href="navigation.html">Navigation</a></li>
+                            <li><a href="menus.html" class="active">Menus</a></li>
+                            <li><a href="feedback.html">Feedback</a></li>
+                            <li><a href="data-display.html">Data Display</a></li>
+                            <li><a href="modals.html">Modals</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Patterns</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="layouts.html">Layouts</a></li>
+                            <li><a href="responsive.html">Responsive</a></li>
+                            <li><a href="form-patterns.html">Form Patterns</a></li>
+                            <li><a href="nav-patterns.html">Navigation Patterns</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Guidelines</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="accessibility.html">Accessibility</a></li>
+                            <li><a href="writing.html">Writing</a></li>
+                            <li><a href="motion.html">Motion</a></li>
+                            <li><a href="design-principles.html">Design Principles</a></li>
+                            <li><a href="contributing.html">Contributing</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Getting Started</h3>
+                <ul class="sidebar-list">
+                    <li><a href="getting-started.html">Getting Started Guide</a></li>
+                    <li><a href="design-principles.html">Design Principles</a></li>
+                    <li><a href="contributing.html">Contributing</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Foundations</h3>
+                <ul class="sidebar-list">
+                    <li><a href="colors.html">Color Palette</a></li>
+                    <li><a href="typography.html">Typography</a></li>
+                    <li><a href="spacing.html">Spacing</a></li>
+                    <li><a href="effects-borders.html">Effects & Borders</a></li>
+                    <li><a href="tokens.html">Tokens</a></li>
+                    <li><a href="icons.html">Icons</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Components</h3>
+                <ul class="sidebar-list">
+                    <li><a href="buttons.html">Buttons</a></li>
+                    <li><a href="forms.html">Forms</a></li>
+                    <li><a href="cards.html">Cards</a></li>
+                    <li><a href="navigation.html">Navigation</a></li>
+                    <li><a href="menus.html" class="active">Menus</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="data-display.html">Data Display</a></li>
+                    <li><a href="modals.html">Modals</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Patterns</h3>
+                <ul class="sidebar-list">
+                    <li><a href="layouts.html">Page Layouts</a></li>
+                    <li><a href="responsive.html">Responsive Patterns</a></li>
+                    <li><a href="form-patterns.html">Forms Patterns</a></li>
+                    <li><a href="nav-patterns.html">Navigation Patterns</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Guidelines</h3>
+                <ul class="sidebar-list">
+                    <li><a href="accessibility.html">Accessibility</a></li>
+                    <li><a href="writing.html">Writing Style</a></li>
+                    <li><a href="motion.html">Motion</a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Menu Components</h1>
+                <p class="page-description">Contextual menu overlays for actions, navigation, and options.</p>
+            </div>
+            
+            <div class="page-content">
+                <!-- Dropdown Menu -->
+                <section>
+                    <h2>🎯 Dropdown Menu</h2>
+                    <p>Overlay menu that appears when triggered, containing a list of actions or options.</p>
+                    
+                    <div class="menu-demo">
+                        <div class="menu-trigger" onclick="toggleMenu('dropdown-menu')">
+                            Options
+                            <span>▼</span>
+                        </div>
+                        <div class="menu-content" id="dropdown-menu">
+                            <div class="menu-item">
+                                <span class="menu-icon">✏️</span>
+                                Edit
+                            </div>
+                            <div class="menu-item">
+                                <span class="menu-icon">📋</span>
+                                Duplicate
+                            </div>
+                            <div class="menu-divider"></div>
+                            <div class="menu-item danger">
+                                <span class="menu-icon">🗑️</span>
+                                Delete
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="code-block">
+                        <pre><code class="language-tsx">&lt;DropdownMenu&gt;
+  &lt;DropdownTrigger&gt;
+    &lt;Button&gt;
+      Options
+      &lt;ChevronDownIcon /&gt;
+    &lt;/Button&gt;
+  &lt;/DropdownTrigger&gt;
+
+  &lt;DropdownContent&gt;
+    &lt;MenuItem icon={&lt;EditIcon /&gt;}&gt;Edit&lt;/MenuItem&gt;
+    &lt;MenuItem icon={&lt;DuplicateIcon /&gt;}&gt;Duplicate&lt;/MenuItem&gt;
+    &lt;MenuDivider /&gt;
+    &lt;MenuItem icon={&lt;DeleteIcon /&gt;} variant="danger"&gt;
+      Delete
+    &lt;/MenuItem&gt;
+  &lt;/DropdownContent&gt;
+&lt;/DropdownMenu&gt;</code></pre>
+                    </div>
+                </section>
+
+                <!-- Menu with Sections -->
+                <section>
+                    <h2>📋 Menu with Sections</h2>
+                    <p>Logical grouping of related menu items with optional headers.</p>
+                    
+                    <div class="menu-demo">
+                        <div class="menu-trigger" onclick="toggleMenu('section-menu')">
+                            Account
+                            <span>▼</span>
+                        </div>
+                        <div class="menu-content" id="section-menu">
+                            <div class="menu-section">
+                                <div class="menu-section-header">Account</div>
+                                <div class="menu-item">
+                                    <span class="menu-icon">👤</span>
+                                    Profile
+                                </div>
+                                <div class="menu-item">
+                                    <span class="menu-icon">⚙️</span>
+                                    Settings
+                                </div>
+                                <div class="menu-item">
+                                    <span class="menu-icon">💳</span>
+                                    Billing
+                                </div>
+                            </div>
+                            <div class="menu-divider"></div>
+                            <div class="menu-section">
+                                <div class="menu-section-header">Support</div>
+                                <div class="menu-item">
+                                    <span class="menu-icon">❓</span>
+                                    Help Center
+                                </div>
+                                <div class="menu-item">
+                                    <span class="menu-icon">💬</span>
+                                    Contact Us
+                                </div>
+                            </div>
+                            <div class="menu-divider"></div>
+                            <div class="menu-section">
+                                <div class="menu-item">
+                                    <span class="menu-icon">🚪</span>
+                                    Sign Out
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Select Menu -->
+                <section>
+                    <h2>📝 Select Menu</h2>
+                    <p>Dropdown menu for selecting one or multiple options, similar to a native select element.</p>
+                    
+                    <div class="menu-demo">
+                        <div class="select-demo">
+                            <div class="select-trigger" onclick="toggleMenu('select-menu')">
+                                <span>Select a service</span>
+                                <span>▼</span>
+                            </div>
+                            <div class="select-content" id="select-menu">
+                                <div class="select-option selected">
+                                    <span>Lawn Mowing</span>
+                                </div>
+                                <div class="select-option">
+                                    <span>Fertilization</span>
+                                </div>
+                                <div class="select-option">
+                                    <span>Weed Control</span>
+                                </div>
+                                <div class="select-option">
+                                    <span>Aeration</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="code-block">
+                        <pre><code class="language-tsx">&lt;SelectMenu
+  value={selectedValue}
+  onChange={(value) =&gt; setSelectedValue(value)}
+  placeholder="Select a service"
+&gt;
+  &lt;SelectOption value="mowing"&gt;Lawn Mowing&lt;/SelectOption&gt;
+  &lt;SelectOption value="fertilization"&gt;Fertilization&lt;/SelectOption&gt;
+  &lt;SelectOption value="weed-control"&gt;Weed Control&lt;/SelectOption&gt;
+  &lt;SelectOption value="aeration"&gt;Aeration&lt;/SelectOption&gt;
+&lt;/SelectMenu&gt;</code></pre>
+                    </div>
+                </section>
+
+                <!-- Command Menu -->
+                <section>
+                    <h2>⌨️ Command Menu</h2>
+                    <p>Keyboard-first menu for quick actions and navigation, triggered by keyboard shortcut.</p>
+                    
+                    <div class="menu-demo">
+                        <button class="btn btn-primary" onclick="toggleMenu('command-menu')">
+                            Open Command Menu (⌘K)
+                        </button>
+                    </div>
+                    
+                    <div class="command-demo" id="command-menu">
+                        <div class="command-content">
+                            <input class="command-input" placeholder="Search commands..." />
+                            <div class="command-list">
+                                <div class="command-group">
+                                    <div class="command-group-header">Navigation</div>
+                                    <div class="command-item">
+                                        <span class="menu-icon">🏠</span>
+                                        <span>Go to Dashboard</span>
+                                        <span class="command-shortcut">⌘D</span>
+                                    </div>
+                                    <div class="command-item">
+                                        <span class="menu-icon">🔧</span>
+                                        <span>Go to Services</span>
+                                        <span class="command-shortcut">⌘S</span>
+                                    </div>
+                                </div>
+                                <div class="command-group">
+                                    <div class="command-group-header">Actions</div>
+                                    <div class="command-item">
+                                        <span class="menu-icon">➕</span>
+                                        <span>Create New Service</span>
+                                        <span class="command-shortcut">⌘N</span>
+                                    </div>
+                                    <div class="command-item">
+                                        <span class="menu-icon">🔍</span>
+                                        <span>Search</span>
+                                        <span class="command-shortcut">⌘F</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Mega Menu -->
+                <section>
+                    <h2>🌐 Mega Menu</h2>
+                    <p>Large dropdown menu with multi-column layout, rich content, and navigation options.</p>
+                    
+                    <div class="menu-demo">
+                        <div class="mega-menu-demo">
+                            <div class="menu-trigger" onclick="toggleMenu('mega-menu')">
+                                Services
+                                <span>▼</span>
+                            </div>
+                            <div class="mega-menu-content" id="mega-menu">
+                                <div class="mega-menu-grid">
+                                    <div class="mega-menu-column">
+                                        <div class="mega-menu-header">Lawn Care</div>
+                                        <a href="#" class="mega-menu-link">Mowing</a>
+                                        <a href="#" class="mega-menu-link">Edging</a>
+                                        <a href="#" class="mega-menu-link">Trimming</a>
+                                    </div>
+                                    <div class="mega-menu-column">
+                                        <div class="mega-menu-header">Treatment</div>
+                                        <a href="#" class="mega-menu-link">Fertilization</a>
+                                        <a href="#" class="mega-menu-link">Weed Control</a>
+                                        <a href="#" class="mega-menu-link">Pest Control</a>
+                                    </div>
+                                    <div class="mega-menu-column">
+                                        <div class="mega-menu-header">Featured</div>
+                                        <div class="mega-menu-card">
+                                            <div class="mega-menu-card-title">Seasonal Package</div>
+                                            <div class="mega-menu-card-description">Save 20% on our complete seasonal care</div>
+                                            <button class="mega-menu-card-button">Learn More</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Usage Guidelines -->
+                <section>
+                    <h2>📋 Usage Guidelines</h2>
+                    
+                    <h3>When to Use Each Type</h3>
+                    <ul>
+                        <li><strong>Dropdown Menu:</strong> Action lists (Edit, Delete, Share), user account menus, settings and options</li>
+                        <li><strong>Context Menu:</strong> Right-click actions, table row actions, file/folder operations</li>
+                        <li><strong>Select Menu:</strong> Form inputs requiring selection, filters and sorting, settings with predefined options</li>
+                        <li><strong>Combobox:</strong> Location/address search, tag selection, search with suggestions</li>
+                        <li><strong>Command Menu:</strong> Power user shortcuts, quick navigation, search across app</li>
+                        <li><strong>Mega Menu:</strong> Complex navigation hierarchies, e-commerce categories, feature discovery</li>
+                    </ul>
+                    
+                    <h3>Best Practices</h3>
+                    <ul>
+                        <li>Keep menu item labels concise and action-oriented</li>
+                        <li>Group related items together</li>
+                        <li>Use clear, descriptive section headers</li>
+                        <li>Show keyboard shortcuts for common actions</li>
+                        <li>Limit menu depth (avoid deep nesting)</li>
+                        <li>Maintain consistent spacing and sizing</li>
+                        <li>Use icons to aid recognition</li>
+                        <li>Separate dangerous actions with dividers</li>
+                    </ul>
+                </section>
+
+                <!-- Accessibility -->
+                <section>
+                    <h2>♿ Accessibility</h2>
+                    
+                    <h3>Keyboard Navigation</h3>
+                    <ul>
+                        <li><strong>Tab:</strong> Focus trigger</li>
+                        <li><strong>Enter/Space:</strong> Open menu</li>
+                        <li><strong>Arrow Up/Down:</strong> Navigate items</li>
+                        <li><strong>Arrow Left/Right:</strong> Navigate submenus</li>
+                        <li><strong>Escape:</strong> Close menu</li>
+                        <li><strong>Home/End:</strong> First/last item</li>
+                    </ul>
+                    
+                    <h3>ARIA Attributes</h3>
+                    <div class="code-block">
+                        <pre><code class="language-html">&lt;button
+  aria-haspopup="menu"
+  aria-expanded="false"
+  aria-controls="menu-1"
+&gt;
+  Menu
+&lt;/button&gt;
+
+&lt;ul
+  role="menu"
+  id="menu-1"
+  aria-labelledby="menu-button"
+&gt;
+  &lt;li role="menuitem"&gt;Item 1&lt;/li&gt;
+  &lt;li role="menuitem"&gt;Item 2&lt;/li&gt;
+  &lt;li role="separator" /&gt;
+  &lt;li role="menuitem"&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-icon">🌱</span>
+                    <span class="brand-text">LawnGuru Design System</span>
+                </div>
+                <div class="footer-text">
+                    <p>Built with 🌱 by the LawnGuru team</p>
+                    <p class="footer-license">Proprietary - LawnGuru © 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        // Menu functionality
+        function toggleMenu(menuId) {
+            const menu = document.getElementById(menuId);
+            const isOpen = menu.classList.contains('open');
+            
+            // Close all other menus
+            document.querySelectorAll('.menu-content, .select-content, .command-demo, .mega-menu-content').forEach(m => {
+                m.classList.remove('open');
+            });
+            
+            // Toggle current menu
+            if (!isOpen) {
+                menu.classList.add('open');
+            }
+        }
+        
+        // Close menus when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.menu-demo, .select-demo, .mega-menu-demo')) {
+                document.querySelectorAll('.menu-content, .select-content, .command-demo, .mega-menu-content').forEach(menu => {
+                    menu.classList.remove('open');
+                });
+            }
+        });
+        
+        // Close command menu with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                document.querySelectorAll('.command-demo').forEach(menu => {
+                    menu.classList.remove('open');
+                });
+            }
+        });
+        
+        // Select option functionality
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('select-option')) {
+                // Remove selected class from all options
+                event.target.parentElement.querySelectorAll('.select-option').forEach(option => {
+                    option.classList.remove('selected');
+                });
+                // Add selected class to clicked option
+                event.target.classList.add('selected');
+                // Update trigger text
+                const trigger = event.target.closest('.select-demo').querySelector('.select-trigger span');
+                trigger.textContent = event.target.textContent.trim();
+                // Close menu
+                event.target.closest('.select-content').classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>
+

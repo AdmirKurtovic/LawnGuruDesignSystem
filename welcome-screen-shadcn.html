@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LawnGuru Welcome - ShadCN UI Style</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            border: "hsl(var(--border))",
+            input: "hsl(var(--input))",
+            ring: "hsl(var(--ring))",
+            background: "hsl(var(--background))",
+            foreground: "hsl(var(--foreground))",
+            primary: {
+              DEFAULT: "#008934",
+              foreground: "#ffffff",
+            },
+            secondary: {
+              DEFAULT: "hsl(var(--secondary))",
+              foreground: "hsl(var(--secondary-foreground))",
+            },
+            destructive: {
+              DEFAULT: "hsl(var(--destructive))",
+              foreground: "hsl(var(--destructive-foreground))",
+            },
+            muted: {
+              DEFAULT: "hsl(var(--muted))",
+              foreground: "hsl(var(--muted-foreground))",
+            },
+            accent: {
+              DEFAULT: "hsl(var(--accent))",
+              foreground: "hsl(var(--accent-foreground))",
+            },
+          },
+          borderRadius: {
+            lg: "var(--radius)",
+            md: "calc(var(--radius) - 2px)",
+            sm: "calc(var(--radius) - 4px)",
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    @layer base {
+      :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+        --primary: 142 76% 27%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 142 76% 27%;
+        --radius: 0.5rem;
+      }
+    }
+
+    @keyframes subtle-zoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+
+    @keyframes logo-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-image {
+      animation: subtle-zoom 20s ease-in-out infinite alternate;
+    }
+
+    .logo {
+      filter: drop-shadow(0 4px 16px rgba(0, 137, 52, 0.5));
+      animation: logo-float 3s ease-in-out infinite;
+    }
+
+    .content-container {
+      animation: fade-in-up 0.8s ease-out;
+    }
+
+    /* ShadCN UI Button Styles */
+    .btn {
+      @apply inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+    }
+
+    .btn-primary {
+      @apply bg-primary text-primary-foreground hover:bg-primary/90;
+    }
+
+    .btn-secondary {
+      @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-input backdrop-blur-md;
+    }
+
+    .btn-ghost {
+      @apply hover:bg-accent hover:text-accent-foreground;
+    }
+
+    .btn-link {
+      @apply text-primary underline-offset-4 hover:underline;
+    }
+
+    .btn-lg {
+      @apply h-11 rounded-md px-8;
+    }
+
+    /* ShadCN UI Card */
+    .card {
+      @apply rounded-lg border bg-card text-card-foreground shadow-sm;
+    }
+
+    /* Glass morphism */
+    .glass-card {
+      @apply bg-white/10 backdrop-blur-md border-white/20;
+    }
+
+    /* ShadCN UI Alert */
+    .alert {
+      @apply relative w-full rounded-lg border p-4;
+    }
+
+    .alert-destructive {
+      @apply border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive;
+    }
+
+    /* ShadCN UI Badge */
+    .badge {
+      @apply inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+    }
+
+    .badge-outline {
+      @apply border-current text-foreground;
+    }
+
+    /* Loading spinner */
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .animate-spin {
+      animation: spin 1s linear infinite;
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <div class="min-h-screen relative overflow-hidden">
+    <!-- Hero Section -->
+    <div class="relative min-h-screen flex items-center justify-center">
+      <!-- Background Image with Overlay -->
+      <div class="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1200&q=80"
+          alt="Beautiful suburban neighborhood"
+          class="w-full h-full object-cover hero-image"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/75"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 w-full px-4 py-12">
+        <div class="max-w-md mx-auto content-container">
+          <!-- Logo -->
+          <div class="flex justify-center mb-10">
+            <div class="w-20 h-20 logo">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="48" fill="#008934" opacity="0.9"/>
+                <path d="M30 50 Q35 40, 40 50 T50 50 T60 50 T70 50" stroke="white" stroke-width="3" fill="none"/>
+                <path d="M30 55 Q35 45, 40 55 T50 55 T60 55 T70 55" stroke="white" stroke-width="3" fill="none"/>
+                <path d="M30 60 Q35 50, 40 60 T50 60 T60 60 T70 60" stroke="white" stroke-width="3" fill="none"/>
+                <path d="M30 65 Q35 55, 40 65 T50 65 T60 65 T70 65" stroke="white" stroke-width="3" fill="none"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Headline -->
+          <div class="text-center space-y-3 mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight">
+              Get Your Lawn Done Right
+            </h1>
+            <p class="text-lg text-white/90">
+              Book vetted local pros in
+              <span class="text-primary font-semibold" id="location">Seattle</span>
+              <span class="text-white/70"> • </span>
+              Instant confirmation
+            </p>
+          </div>
+
+          <!-- Social Proof Card -->
+          <div class="card glass-card mb-8">
+            <div class="p-5 flex items-center justify-center divide-x divide-white/20">
+              <div class="flex flex-col items-center px-6 py-3">
+                <div class="text-2xl font-bold text-primary mb-1">50K+</div>
+                <div class="text-xs text-white/90">Happy Customers</div>
+              </div>
+              <div class="flex flex-col items-center px-6 py-3">
+                <div class="text-2xl font-bold text-primary mb-1">4.8★</div>
+                <div class="text-xs text-white/90">Average Rating</div>
+              </div>
+              <div class="flex flex-col items-center px-6 py-3">
+                <div class="text-2xl font-bold text-primary mb-1">1000+</div>
+                <div class="text-xs text-white/90">Pro Providers</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Error Alert -->
+          <div id="errorAlert" class="alert alert-destructive bg-red-500/20 border-red-500/50 mb-4 hidden">
+            <div class="flex gap-3">
+              <svg class="h-4 w-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+              </svg>
+              <div>
+                <div class="font-medium text-red-200">Authentication Error</div>
+                <div class="text-sm text-red-300" id="errorMessage"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Auth Buttons -->
+          <div class="space-y-3 mb-6">
+            <!-- Google Button -->
+            <button class="btn btn-primary btn-lg w-full" onclick="handleAuth('google', this)">
+              <svg class="h-5 w-5" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              </svg>
+              <span class="btn-text">Continue with Google</span>
+            </button>
+
+            <!-- Apple Button -->
+            <button class="btn btn-primary btn-lg w-full" onclick="handleAuth('apple', this)">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+              </svg>
+              <span class="btn-text">Continue with Apple</span>
+            </button>
+
+            <!-- Email Button -->
+            <button class="btn btn-secondary btn-lg w-full bg-white/15 border-white/25 text-white hover:bg-white/20" onclick="handleEmailAuth()">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <span>Continue with Email</span>
+            </button>
+          </div>
+
+          <!-- Separator -->
+          <div class="relative my-6">
+            <div class="absolute inset-0 flex items-center">
+              <div class="w-full border-t border-white/20"></div>
+            </div>
+            <div class="relative flex justify-center text-sm">
+              <span class="px-4 bg-black/40 backdrop-blur-sm text-white/70">or</span>
+            </div>
+          </div>
+
+          <!-- Login Link -->
+          <button class="btn btn-ghost btn-lg w-full mb-3 text-white hover:bg-white/10" onclick="handleLogin()">
+            Already have an account? <span class="font-semibold ml-1">Login</span>
+          </button>
+
+          <!-- Guest Browse -->
+          <button class="btn btn-link w-full text-primary hover:text-primary/80" onclick="handleGuest()">
+            Browse without signing up
+          </button>
+
+          <!-- Trust Badges -->
+          <div class="flex items-center justify-center gap-6 my-8">
+            <div class="flex flex-col items-center gap-2">
+              <div class="badge badge-outline rounded-full p-2 bg-primary/20 border-primary/30 text-primary">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+              </div>
+              <span class="text-xs text-white/90">Insured</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="badge badge-outline rounded-full p-2 bg-primary/20 border-primary/30 text-primary">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                </svg>
+              </div>
+              <span class="text-xs text-white/90">Verified</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="badge badge-outline rounded-full p-2 bg-primary/20 border-primary/30 text-primary">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <span class="text-xs text-white/90">Guaranteed</span>
+            </div>
+          </div>
+
+          <!-- Provider CTA -->
+          <div class="card border-white/20 bg-transparent backdrop-blur-sm">
+            <div class="p-6 text-center space-y-3">
+              <p class="text-sm text-white/90">
+                Are you a lawn care professional?
+              </p>
+              <button class="btn btn-ghost border border-white/30 text-white hover:bg-white/10" onclick="handleProviderSignup()">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                Become a Provider
+              </button>
+            </div>
+          </div>
+
+          <!-- Legal Footer -->
+          <div class="text-center space-y-3 mt-6">
+            <div class="flex items-center justify-center gap-2 text-xs text-white/80">
+              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+              </svg>
+              <span>Your data is encrypted and secure</span>
+            </div>
+            <p class="text-xs text-white/70">
+              By continuing, you agree to our
+              <a href="#terms" class="text-primary hover:underline">Terms of Service</a>
+              and
+              <a href="#privacy" class="text-primary hover:underline">Privacy Policy</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Get user location
+    const locations = ['Seattle', 'Portland', 'San Francisco', 'Los Angeles', 'Austin'];
+    document.getElementById('location').textContent = locations[Math.floor(Math.random() * locations.length)];
+
+    // Auth handler
+    function handleAuth(provider, btnElement) {
+      const textElement = btnElement.querySelector('.btn-text');
+      const originalText = textElement.textContent;
+      const iconElement = btnElement.querySelector('svg');
+
+      // Show loading state
+      textElement.textContent = 'Signing in...';
+      btnElement.disabled = true;
+      btnElement.classList.add('opacity-50', 'cursor-not-allowed');
+
+      // Replace icon with spinner
+      iconElement.outerHTML = `
+        <svg class="h-5 w-5 animate-spin" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+      `;
+
+      // Simulate authentication
+      setTimeout(() => {
+        btnElement.disabled = false;
+        btnElement.classList.remove('opacity-50', 'cursor-not-allowed');
+
+        // Random success/failure
+        if (Math.random() > 0.3) {
+          alert(`✅ Successfully signed in with ${provider}!`);
+          // Restore original state
+          const newIcon = provider === 'google'
+            ? `<svg class="h-5 w-5" viewBox="0 0 24 24"><path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>`
+            : `<svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>`;
+          btnElement.innerHTML = newIcon + `<span class="btn-text">${originalText}</span>`;
+        } else {
+          showError('Authentication failed. Please try again.');
+          const newIcon = provider === 'google'
+            ? `<svg class="h-5 w-5" viewBox="0 0 24 24"><path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>`
+            : `<svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>`;
+          btnElement.innerHTML = newIcon + `<span class="btn-text">${originalText}</span>`;
+        }
+      }, 2000);
+    }
+
+    function handleEmailAuth() {
+      alert('📧 Opening email signup...');
+    }
+
+    function handleLogin() {
+      alert('🔑 Opening login...');
+    }
+
+    function handleGuest() {
+      alert('👀 Browsing as guest...');
+    }
+
+    function handleProviderSignup() {
+      alert('💼 Opening provider signup...');
+    }
+
+    function showError(message) {
+      const errorAlert = document.getElementById('errorAlert');
+      const errorMessage = document.getElementById('errorMessage');
+      errorMessage.textContent = message;
+      errorAlert.classList.remove('hidden');
+
+      setTimeout(() => {
+        errorAlert.classList.add('hidden');
+      }, 5000);
+    }
+  </script>
+</body>
+</html>

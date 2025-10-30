@@ -4,6 +4,9 @@ export default defineConfig({
   title: 'LawnGuru Design System',
   description: 'A comprehensive design system for building consistent, accessible, and beautiful lawn care experiences.',
 
+  // Enable dark mode with toggle
+  appearance: true, // true = enable dark mode toggle, 'dark' = always dark, false = disable
+
   // Theme configuration
   themeConfig: {
     logo: '/logo.svg',

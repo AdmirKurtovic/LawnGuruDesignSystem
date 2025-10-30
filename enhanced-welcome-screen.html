@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced LawnGuru Welcome Screen</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .auth-screen {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+    }
+
+    .hero-section {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: zoomIn 20s ease infinite alternate;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.75) 100%
+      );
+      z-index: 1;
+    }
+
+    .content-container {
+      position: relative;
+      z-index: 2;
+      max-width: 440px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 48px 24px;
+      color: white;
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto 40px;
+      width: 80px;
+      height: 80px;
+      filter: drop-shadow(0 4px 16px rgba(0, 137, 52, 0.5));
+      animation: logoFloat 3s ease-in-out infinite, fadeInScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.8) translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .headline {
+      font-size: 40px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      line-height: 1.2;
+      animation: fadeInUp 0.6s ease 0.2s both;
+    }
+
+    .subheadline {
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 32px;
+      opacity: 0.95;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+      line-height: 1.5;
+      animation: fadeInUp 0.6s ease 0.3s both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .social-proof {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 32px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      animation: fadeInUp 0.6s ease 0.4s both;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stat-number {
+      font-size: 24px;
+      font-weight: 700;
+      color: #4ade80;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .separator-vertical {
+      width: 1px;
+      height: 30px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .auth-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+      animation: fadeInUp 0.6s ease 0.5s both;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 200ms ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateX(-100%);
+      transition: transform 300ms ease;
+    }
+
+    .btn:hover::before {
+      transform: translateX(0);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-primary {
+      background: #008934;
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 137, 52, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: #00a03f;
+      box-shadow: 0 8px 20px rgba(0, 137, 52, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .btn-link {
+      background: transparent;
+      color: #4ade80;
+      border: none;
+      padding: 8px;
+      font-size: 14px;
+      text-decoration: underline;
+    }
+
+    .btn-link:hover {
+      color: #86efac;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .separator-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 24px 0;
+      animation: fadeInUp 0.6s ease 0.6s both;
+    }
+
+    .separator-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .separator-text {
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin: 32px 0;
+      animation: fadeInUp 0.6s ease 0.7s both;
+    }
+
+    .badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .badge-icon {
+      width: 32px;
+      height: 32px;
+      padding: 6px;
+      background: rgba(74, 222, 128, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .provider-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 24px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      margin: 24px 0;
+      animation: fadeInUp 0.6s ease 0.8s both;
+    }
+
+    .provider-cta-text {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .legal-footer {
+      text-align: center;
+      margin-top: 24px;
+      animation: fadeInUp 0.6s ease 0.9s both;
+    }
+
+    .privacy-notice {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 12px;
+      opacity: 0.8;
+      margin-bottom: 12px;
+    }
+
+    .legal-text {
+      font-size: 12px;
+      opacity: 0.7;
+      line-height: 1.5;
+    }
+
+    .legal-text a {
+      color: #4ade80;
+      text-decoration: none;
+    }
+
+    .legal-text a:hover {
+      text-decoration: underline;
+    }
+
+    .alert {
+      padding: 12px 16px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .alert-error {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #fecaca;
+    }
+
+    .spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 768px) {
+      .headline {
+        font-size: 32px;
+      }
+
+      .content-container {
+        padding: 32px 20px;
+      }
+
+      .social-proof {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .separator-vertical {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-screen">
+    <div class="hero-section">
+      <!-- Hero Image -->
+      <img
+        src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1200&q=80"
+        alt="Beautiful suburban neighborhood with green lawns"
+        class="hero-image"
+      >
+
+      <!-- Gradient Overlay -->
+      <div class="hero-overlay"></div>
+
+      <!-- Content Container -->
+      <div class="content-container">
+        <!-- Logo -->
+        <svg class="logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Hand with lawn stripes -->
+          <circle cx="50" cy="50" r="48" fill="#008934" opacity="0.9"/>
+          <path d="M30 50 Q35 40, 40 50 T50 50 T60 50 T70 50" stroke="white" stroke-width="3" fill="none"/>
+          <path d="M30 55 Q35 45, 40 55 T50 55 T60 55 T70 55" stroke="white" stroke-width="3" fill="none"/>
+          <path d="M30 60 Q35 50, 40 60 T50 60 T60 60 T70 60" stroke="white" stroke-width="3" fill="none"/>
+          <path d="M30 65 Q35 55, 40 65 T50 65 T60 65 T70 65" stroke="white" stroke-width="3" fill="none"/>
+        </svg>
+
+        <!-- Headline -->
+        <h1 class="headline">Get Your Lawn Done Right</h1>
+        <p class="subheadline">
+          Book vetted local pros in <span style="color: #4ade80; font-weight: 600;">Seattle</span> • Instant confirmation
+        </p>
+
+        <!-- Social Proof -->
+        <div class="social-proof">
+          <div class="stat">
+            <div class="stat-number">50K+</div>
+            <div class="stat-label">Happy Customers</div>
+          </div>
+          <div class="separator-vertical"></div>
+          <div class="stat">
+            <div class="stat-number">4.8★</div>
+            <div class="stat-label">Average Rating</div>
+          </div>
+          <div class="separator-vertical"></div>
+          <div class="stat">
+            <div class="stat-number">1000+</div>
+            <div class="stat-label">Pro Providers</div>
+          </div>
+        </div>
+
+        <!-- Error Alert (hidden by default) -->
+        <div id="errorAlert" class="alert alert-error" style="display: none;">
+          <svg class="icon" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+          </svg>
+          <span id="errorMessage">Something went wrong. Please try again.</span>
+        </div>
+
+        <!-- Auth Buttons -->
+        <div class="auth-buttons">
+          <!-- Google Button -->
+          <button class="btn btn-primary" onclick="handleAuth('google')">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+              <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+            <span id="googleText">Continue with Google</span>
+          </button>
+
+          <!-- Apple Button -->
+          <button class="btn btn-primary" onclick="handleAuth('apple')">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+            </svg>
+            <span id="appleText">Continue with Apple</span>
+          </button>
+
+          <!-- Email Button -->
+          <button class="btn btn-secondary" onclick="handleAuth('email')">
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <span>Continue with Email</span>
+          </button>
+        </div>
+
+        <!-- Separator -->
+        <div class="separator-container">
+          <div class="separator-line"></div>
+          <span class="separator-text">or</span>
+          <div class="separator-line"></div>
+        </div>
+
+        <!-- Login Button -->
+        <button class="btn btn-ghost" onclick="handleLogin()" style="margin-bottom: 12px;">
+          Already have an account? <strong>Login</strong>
+        </button>
+
+        <!-- Browse without signup -->
+        <button class="btn btn-link" onclick="handleGuest()">
+          Browse without signing up
+        </button>
+
+        <!-- Trust Badges -->
+        <div class="trust-badges">
+          <div class="badge">
+            <div class="badge-icon">
+              <svg fill="currentColor" viewBox="0 0 20 20" style="color: #4ade80;">
+                <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <div>Insured</div>
+          </div>
+          <div class="badge">
+            <div class="badge-icon">
+              <svg fill="currentColor" viewBox="0 0 20 20" style="color: #4ade80;">
+                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <div>Verified</div>
+          </div>
+          <div class="badge">
+            <div class="badge-icon">
+              <svg fill="currentColor" viewBox="0 0 20 20" style="color: #4ade80;">
+                <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <div>Guaranteed</div>
+          </div>
+        </div>
+
+        <!-- Provider CTA -->
+        <div class="provider-cta">
+          <span class="provider-cta-text">Are you a lawn care professional?</span>
+          <button class="btn btn-ghost" onclick="handleProviderSignup()" style="width: auto; padding: 10px 24px;">
+            Become a Provider
+          </button>
+        </div>
+
+        <!-- Legal Footer -->
+        <div class="legal-footer">
+          <div class="privacy-notice">
+            <svg class="icon" style="width: 16px; height: 16px;" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+            </svg>
+            <span>Your data is encrypted and secure</span>
+          </div>
+          <p class="legal-text">
+            By continuing, you agree to our
+            <a href="#terms">Terms of Service</a>
+            and
+            <a href="#privacy">Privacy Policy</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handleAuth(method) {
+      const btn = event.currentTarget;
+      const textElement = btn.querySelector('span');
+      const originalText = textElement.textContent;
+
+      // Show loading state
+      textElement.textContent = 'Signing in...';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+      btn.style.cursor = 'not-allowed';
+
+      // Add spinner
+      const spinner = document.createElement('div');
+      spinner.className = 'spinner';
+      btn.insertBefore(spinner, textElement);
+
+      // Simulate authentication
+      setTimeout(() => {
+        // Remove spinner
+        spinner.remove();
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        btn.style.cursor = 'pointer';
+        textElement.textContent = originalText;
+
+        // Show success or error
+        if (Math.random() > 0.3) {
+          alert(`✅ Successfully signed in with ${method}!`);
+        } else {
+          showError('Authentication failed. Please try again.');
+        }
+      }, 2000);
+    }
+
+    function handleLogin() {
+      alert('🔑 Navigating to login page...');
+    }
+
+    function handleGuest() {
+      alert('👀 Browsing as guest...');
+    }
+
+    function handleProviderSignup() {
+      alert('💼 Opening provider signup...');
+    }
+
+    function showError(message) {
+      const errorAlert = document.getElementById('errorAlert');
+      const errorMessage = document.getElementById('errorMessage');
+      errorMessage.textContent = message;
+      errorAlert.style.display = 'flex';
+
+      setTimeout(() => {
+        errorAlert.style.display = 'none';
+      }, 5000);
+    }
+
+    // Add some interactivity on load
+    window.addEventListener('load', () => {
+      console.log('✨ Enhanced LawnGuru Welcome Screen loaded!');
+    });
+  </script>
+</body>
+</html>

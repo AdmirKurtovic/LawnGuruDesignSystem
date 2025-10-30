@@ -141,6 +141,27 @@ function initializeComponentExamples() {
         });
     });
 
+    // Code tab functionality
+    const codeTabs = document.querySelectorAll('.code-tab');
+    const codeBlocks = document.querySelectorAll('.code-block');
+    
+    codeTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const targetTab = this.getAttribute('data-tab');
+            
+            // Remove active class from all tabs and blocks
+            codeTabs.forEach(t => t.classList.remove('active'));
+            codeBlocks.forEach(b => b.classList.remove('active'));
+            
+            // Add active class to clicked tab and corresponding block
+            this.classList.add('active');
+            const targetBlock = document.getElementById(targetTab);
+            if (targetBlock) {
+                targetBlock.classList.add('active');
+            }
+        });
+    });
+
     // Form examples
     const formExamples = document.querySelectorAll('.form-example');
     formExamples.forEach(form => {
@@ -382,3 +403,4 @@ window.LawnGuruDS = {
     debounce,
     throttle
 };
+
