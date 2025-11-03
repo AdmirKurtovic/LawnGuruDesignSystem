@@ -131,8 +131,8 @@ We welcome contributions! Help us make the design system better:
 
 ---
 
-<div style="text-align: center; margin-top: 4rem; padding: 2rem; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-radius: 12px;">
-  <h3 style="margin-top: 0;">Ready to build something amazing?</h3>
+<div class="cta-section">
+  <h3>Ready to build something amazing?</h3>
   <p>Join hundreds of designers and developers using the LawnGuru Design System.</p>
-  <a href="/getting-started" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 2rem; background: #10b981; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">Get Started →</a>
+  <a href="/getting-started" class="cta-button">Get Started →</a>
 </div>

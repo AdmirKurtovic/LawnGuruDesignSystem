@@ -252,6 +252,70 @@
 }
 
 /* ============================================
+   Custom Homepage Sections
+   ============================================ */
+
+/* Call-to-action section */
+.cta-section {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-radius: 12px;
+}
+
+.cta-section h3 {
+  margin-top: 0;
+  color: var(--vp-c-text-1);
+}
+
+.cta-section p {
+  color: var(--vp-c-text-2);
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  background: #008934;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.cta-button:hover {
+  background: #00A31B;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 137, 52, 0.3);
+}
+
+/* Dark mode adjustments for CTA section */
+.dark .cta-section {
+  background: linear-gradient(135deg, rgba(141, 252, 114, 0.1) 0%, rgba(93, 245, 63, 0.1) 100%);
+  border: 1px solid rgba(141, 252, 114, 0.2);
+}
+
+.dark .cta-section h3 {
+  color: var(--vp-c-text-1);
+}
+
+.dark .cta-section p {
+  color: var(--vp-c-text-2);
+}
+
+.dark .cta-button {
+  background: #00A31B;
+  color: #000000;
+}
+
+.dark .cta-button:hover {
+  background: #8DFC72;
+  box-shadow: 0 8px 16px rgba(141, 252, 114, 0.3);
+}
+
+/* ============================================
    Animations
    ============================================ */
 
