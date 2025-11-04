@@ -2,7 +2,6 @@
 
 > Consistent spacing creates visual rhythm and hierarchy throughout LawnGuru interfaces.
 
----
 
 ## 📐 Spacing Scale
 
@@ -34,7 +33,6 @@ LawnGuru uses a flexible spacing system based on multiples of 4px and 8px for co
 - Makes it easy to understand and calculate spacing
 - Consistent with industry standards (Tailwind, etc.)
 
----
 
 ## 🎯 Semantic Spacing
 
@@ -76,7 +74,6 @@ LawnGuru uses a flexible spacing system based on multiples of 4px and 8px for co
 ```
 **Usage:** Hero sections, major page divisions
 
----
 
 ## 📦 Layout Spacing
 
@@ -94,7 +91,6 @@ LawnGuru uses a flexible spacing system based on multiples of 4px and 8px for co
 --section-gap-desktop: var(--space-16) /* 64px */
 ```
 
----
 
 ## 🧩 Component-Specific Spacing
 
@@ -124,7 +120,6 @@ LawnGuru uses a flexible spacing system based on multiples of 4px and 8px for co
 --form-label-gap: var(--space-2)      /* 8px */
 ```
 
----
 
 ## 📋 Usage Guidelines
 
@@ -140,7 +135,6 @@ LawnGuru uses a flexible spacing system based on multiples of 4px and 8px for co
 - Don't use too little spacing (causes cramped UI)
 - Avoid using the same spacing for different hierarchy levels
 
----
 
 ## 📱 Responsive Spacing
 
@@ -165,7 +159,6 @@ Spacing can be reduced on mobile devices for space efficiency:
 }
 ```
 
----
 
 ## 🎨 Visual Examples
 
@@ -191,7 +184,6 @@ Spacing can be reduced on mobile devices for space efficiency:
 - Hero sections
 - Major layout divisions
 
----
 
 ## 📊 Complete Spacing Token Reference
 
@@ -237,7 +229,6 @@ Spacing can be reduced on mobile devices for space efficiency:
 
 > **Last Updated:** Extracted from Figma Spacing.json tokens (2025-10-22)
 
----
 
 **Next Steps:**
 - [Tokens →](./tokens.md)

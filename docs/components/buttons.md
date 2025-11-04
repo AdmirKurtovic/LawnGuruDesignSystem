@@ -2,12 +2,10 @@
 
 > Buttons are interactive elements that trigger actions or navigate users through the application.
 
----
 
 ## Overview
 LawnGuru's button system consists of two main button types: **CTA Button** (Call-to-Action) and **Link Button**, each with multiple variants and states.
 
----
 
 ## 🟢 CTA Button (Primary Action Button)
 
@@ -88,7 +86,6 @@ font-weight: var(--font-weight-semibold);
 background: var(--color-error-dark);
 ```
 
----
 
 ### Size Options
 
@@ -113,7 +110,6 @@ font-size: 14px;
 min-height: 32px;
 ```
 
----
 
 ## 🔗 Link Button (Text Button)
 
@@ -170,7 +166,6 @@ text-decoration: underline;
 color: var(--color-error-dark);
 ```
 
----
 
 ## 📋 Usage Guidelines
 
@@ -192,7 +187,6 @@ color: var(--color-error-dark);
 3. **Use link buttons for low-priority actions** - Reduce visual noise
 4. **Destructive actions should always be confirmed** - Prevent accidental deletions
 
----
 
 ## 💻 Implementation
 
@@ -256,7 +250,6 @@ import { Button } from '@lawnguru/ui';
 </button>
 ```
 
----
 
 ## ♿ Accessibility Requirements
 
@@ -293,7 +286,6 @@ import { Button } from '@lawnguru/ui';
 </button>
 ```
 
----
 
 ## 📱 Responsive Behavior
 
@@ -313,7 +305,6 @@ import { Button } from '@lawnguru/ui';
 - Inline button groups work well
 - Hover states fully visible
 
----
 
 ## 🔄 State Transitions
 
@@ -332,7 +323,6 @@ Default → Hover → Active → Default
 transition: all 150ms ease-out;
 ```
 
----
 
 ## 📊 Component Anatomy
 
@@ -351,7 +341,6 @@ Spacing:
 - Vertical padding: varies by size
 ```
 
----
 
 ## 🎨 Design Tokens Used
 
@@ -384,7 +373,6 @@ Spacing:
 --animation-easing-ease-out
 ```
 
----
 
 ## 🔄 Auto-generated Section
 
@@ -392,7 +380,6 @@ Spacing:
 > **Last updated:** 2025-10-22
 > **Source:** Design library → CTA Button & Link Button components
 
----
 
 **Related Components:**
 - [Forms →](./forms.md)

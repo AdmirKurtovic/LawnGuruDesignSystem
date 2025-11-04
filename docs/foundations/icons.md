@@ -2,7 +2,6 @@
 
 > A comprehensive icon library that supports LawnGuru's visual language.
 
----
 
 ## 🎨 Icon System
 
@@ -14,7 +13,6 @@ LawnGuru's icon system provides a consistent set of symbols for navigation, acti
 - **Grid:** 24x24px base grid
 - **Stroke:** [1px/1.5px/2px - To be documented]
 
----
 
 ## 📏 Icon Sizes
 
@@ -28,7 +26,6 @@ LawnGuru's icon system provides a consistent set of symbols for navigation, acti
 --icon-2xl: 48px  /* 2X large - feature highlights */
 ```
 
----
 
 ## 📦 Icon Categories
 
@@ -95,7 +92,6 @@ Custom icons for lawn care features.
 - Seasons
 - Property / Yard
 
----
 
 ## 🎯 Usage Guidelines
 
@@ -113,7 +109,6 @@ Custom icons for lawn care features.
 - Avoid decorative icons that add no meaning
 - Don't use too many icons in one view
 
----
 
 ## ♿ Accessibility
 
@@ -141,7 +136,6 @@ Custom icons for lawn care features.
 <Icon name="decorative-element" aria-hidden="true" />
 ```
 
----
 
 ## 💻 Implementation
 
@@ -179,7 +173,6 @@ import { Icon } from '@lawnguru/ui';
 </svg>
 ```
 
----
 
 ## 📤 Exporting Icons
 
@@ -200,7 +193,6 @@ npm install @lawnguru/icons
 import { LawnMowerIcon, SearchIcon } from '@lawnguru/icons';
 ```
 
----
 
 ## 🎨 Icon Colors
 
@@ -238,7 +230,6 @@ Icons can be rendered in different colors for different contexts:
 }
 ```
 
----
 
 ## 📊 Icon Inventory
 
@@ -251,7 +242,6 @@ Icons can be rendered in different colors for different contexts:
 - Content: [Count]
 - LawnGuru-specific: [Count]
 
----
 
 ## 🔄 Auto-generated Section
 
@@ -260,7 +250,6 @@ Icons can be rendered in different colors for different contexts:
 > 2. Run `npm run docs:update-icons`
 > 3. Icon catalog will be automatically generated with visual examples
 
----
 
 **Next Steps:**
 - [Colors →](./colors.md)

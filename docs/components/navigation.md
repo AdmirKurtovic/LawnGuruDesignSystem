@@ -2,7 +2,6 @@
 
 > Components that help users navigate through the application.
 
----
 
 ## 🧭 Components
 
@@ -60,7 +59,6 @@ Main site header providing branding, primary navigation, and user actions.
 </Header>
 ```
 
----
 
 ### Mobile Navigation / Hamburger Menu
 
@@ -115,7 +113,6 @@ Responsive navigation drawer for mobile and tablet viewports.
 </MobileMenu>
 ```
 
----
 
 ### Bottom Navigation / Bottom Sheet
 
@@ -201,7 +198,6 @@ Bottom-anchored navigation bar for mobile apps, providing quick access to primar
 </BottomSheet>
 ```
 
----
 
 ### Breadcrumbs
 
@@ -236,7 +232,6 @@ Shows user's location in the site hierarchy and provides quick navigation to par
 </Breadcrumbs>
 ```
 
----
 
 ### Tabs
 
@@ -291,7 +286,6 @@ Organize content into separate views within the same page or context.
 </Tabs>
 ```
 
----
 
 ### Sidebar Navigation
 
@@ -361,7 +355,6 @@ Vertical navigation for dashboard, admin, or complex application interfaces.
 </Sidebar>
 ```
 
----
 
 ### Footer
 
@@ -427,7 +420,6 @@ Site footer with links, contact information, and legal content.
 </Footer>
 ```
 
----
 
 ### Pagination
 
@@ -600,7 +592,6 @@ See the [Component Showcase](./showcase.md#pagination) for live examples.
 - Show total count and current range
 - Consider load more or infinite scroll for mobile
 
----
 
 ## 📋 Usage Guidelines
 
@@ -642,7 +633,6 @@ See the [Component Showcase](./showcase.md#pagination) for live examples.
 - Bottom nav for mobile apps
 - Touch-friendly tap targets (min 44x44px)
 
----
 
 ## ♿ Accessibility
 
@@ -664,7 +654,6 @@ See the [Component Showcase](./showcase.md#pagination) for live examples.
 - Focus trap in mobile menus
 - Return focus on close
 
----
 
 ## 🔄 Auto-generated Section
 
@@ -673,7 +662,6 @@ See the [Component Showcase](./showcase.md#pagination) for live examples.
 > 2. Run `npm run docs:update-navigation`
 > 3. Full documentation will be generated
 
----
 
 **Related:**
 - [Buttons →](./buttons.md)

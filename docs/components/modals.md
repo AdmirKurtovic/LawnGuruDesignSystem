@@ -2,7 +2,6 @@
 
 > Overlays that focus user attention on specific tasks or information.
 
----
 
 ## 🪟 Modal Types
 
@@ -24,7 +23,6 @@ Slide-in panel from the side of the screen.
 ### Bottom Sheet
 Slide-up panel from bottom (primarily mobile).
 
----
 
 ## 📋 Structure
 
@@ -40,7 +38,6 @@ Modal
 │       └── Action buttons
 ```
 
----
 
 ## 💬 Overlay Components
 
@@ -97,7 +94,6 @@ See the [Component Showcase](./showcase.md#tooltip) for live examples.
 - Non-interactive overlay (keyboard users won't be blocked)
 - Keep content brief and descriptive
 
----
 
 ### Popover
 
@@ -179,7 +175,6 @@ See the [Component Showcase](./showcase.md#popover) for live examples.
 - Focus management on open/close
 - Escape key to close (implement if needed)
 
----
 
 ### Hover Card
 
@@ -265,7 +260,6 @@ See the [Component Showcase](./showcase.md#hover-card) for live examples.
 - Use ARIA labels on trigger elements
 - Ensure hover delay isn't too long
 
----
 
 ## 📋 Usage Guidelines
 
@@ -282,7 +276,6 @@ See the [Component Showcase](./showcase.md#hover-card) for live examples.
 - Don't open modals automatically without user action
 - Avoid modals for non-critical information
 
----
 
 ## ♿ Accessibility
 
@@ -305,7 +298,6 @@ See the [Component Showcase](./showcase.md#hover-card) for live examples.
 </div>
 ```
 
----
 
 ## 🔄 Auto-generated Section
 

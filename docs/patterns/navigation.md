@@ -2,7 +2,6 @@
 
 > Common navigation structures and user flows.
 
----
 
 ## 🧭 Navigation Structures
 
@@ -36,7 +35,6 @@ Responsive navigation patterns for mobile devices.
 - Bottom navigation bar
 - Tab bar
 
----
 
 ## 📱 Responsive Navigation Patterns
 
@@ -58,7 +56,6 @@ Desktop:    [Logo] [Nav Items...] [Actions]
 └─────────────────────────┘
 ```
 
----
 
 ## 🎯 Navigation States
 
@@ -93,7 +90,6 @@ Keyboard navigation indicator.
 }
 ```
 
----
 
 ## 🔗 Breadcrumbs
 
@@ -110,7 +106,6 @@ Home > Services > Lawn Mowing > Schedule
 - E-commerce
 - Documentation
 
----
 
 ## 📑 Tabs
 
@@ -134,7 +129,6 @@ Content for selected tab
 └────────┴──────────────┘
 ```
 
----
 
 ## 📋 Navigation Best Practices
 
@@ -153,7 +147,6 @@ Content for selected tab
 - Avoid auto-playing dropdowns
 - Don't break browser back button
 
----
 
 ## ♿ Accessibility
 
@@ -184,7 +177,6 @@ Allow keyboard users to skip navigation:
 - Enter/Space: Activate link
 - Esc: Close mobile menu/dropdown
 
----
 
 ## 🎨 Common Navigation Examples
 
@@ -218,7 +210,6 @@ Allow keyboard users to skip navigation:
 └───────────────────────┘
 ```
 
----
 
 ## 🔄 Auto-generated Section
 
@@ -227,7 +218,6 @@ Allow keyboard users to skip navigation:
 > 2. Run `npm run docs:update-navigation-patterns`
 > 3. Visual examples will be added
 
----
 
 **Related:**
 - [Navigation Components →](../components/navigation.md)

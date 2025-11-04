@@ -2,7 +2,6 @@
 
 > Building inclusive experiences for all LawnGuru users.
 
----
 
 ## 🎯 Our Commitment
 
@@ -10,7 +9,6 @@ LawnGuru is committed to creating accessible experiences that work for everyone,
 
 **Target Standard:** WCAG 2.1 Level AA compliance
 
----
 
 ## 📋 Core Principles
 
@@ -44,7 +42,6 @@ Content must be robust enough to work with current and future technologies.
 - **Valid** HTML markup
 - **Progressive enhancement**
 
----
 
 ## ♿ Specific Requirements
 
@@ -234,7 +231,6 @@ Content must be robust enough to work with current and future technologies.
 </div>
 ```
 
----
 
 ## 🧪 Testing
 
@@ -265,7 +261,6 @@ npm run test:axe
 npm run lighthouse
 ```
 
----
 
 ## 📚 Resources
 
@@ -274,7 +269,6 @@ npm run lighthouse
 - [A11y Project](https://www.a11yproject.com/)
 - [MDN Accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility)
 
----
 
 ## 🔄 Review Process
 
@@ -285,7 +279,6 @@ Every feature must:
 4. Meet WCAG 2.1 Level AA standards
 5. Be reviewed by accessibility champion
 
----
 
 **Related:**
 - [Design Principles →](./design-principles.md)

@@ -2,7 +2,6 @@
 
 > Purposeful animations that enhance the user experience.
 
----
 
 ## 🎯 Purpose of Motion
 
@@ -16,7 +15,6 @@ Motion in LawnGuru serves specific purposes:
 
 **Important:** Motion should enhance, not distract. When in doubt, less is more.
 
----
 
 ## ⏱️ Duration
 
@@ -58,7 +56,6 @@ Motion in LawnGuru serves specific purposes:
 - Large element movements
 - Attention-grabbing animations
 
----
 
 ## 📐 Easing Functions
 
@@ -109,7 +106,6 @@ Motion in LawnGuru serves specific purposes:
 - Loading spinners
 - Continuous motion
 
----
 
 ## 🎨 Common Animation Patterns
 
@@ -182,7 +178,6 @@ Motion in LawnGuru serves specific purposes:
 }
 ```
 
----
 
 ## 🧩 Component Animations
 
@@ -278,7 +273,6 @@ Motion in LawnGuru serves specific purposes:
 }
 ```
 
----
 
 ## ♿ Accessibility
 
@@ -302,7 +296,6 @@ Motion in LawnGuru serves specific purposes:
 - Ensure animations don't prevent access to content
 - Allow users to pause, stop, or hide animations
 
----
 
 ## 📋 Animation Best Practices
 
@@ -324,7 +317,6 @@ Motion in LawnGuru serves specific purposes:
 - Avoid auto-playing animations
 - Don't use animations as the only indicator of change
 
----
 
 ## 🎭 Animation Principles
 
@@ -343,7 +335,6 @@ Stagger related animations slightly.
 ### 5. Natural Motion
 Mimic real-world physics (easing, gravity).
 
----
 
 ## 🔄 Orchestration
 
@@ -364,7 +355,6 @@ When animating multiple elements:
 /* Or use JavaScript for dynamic lists */
 ```
 
----
 
 ## 🧪 Testing
 
@@ -383,7 +373,6 @@ When animating multiple elements:
 - [ ] Doesn't block user interaction
 - [ ] Uses GPU-accelerated properties
 
----
 
 ## 📚 Resources
 
@@ -391,7 +380,6 @@ When animating multiple elements:
 - [Cubic Bezier Generator](https://cubic-bezier.com/)
 - [Framer Motion](https://www.framer.com/motion/) (for React)
 
----
 
 **Related:**
 - [Design Principles →](./design-principles.md)

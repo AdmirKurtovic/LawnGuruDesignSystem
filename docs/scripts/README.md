@@ -2,7 +2,6 @@
 
 This directory contains scripts to help automate the LawnGuru Design System documentation updates from Figma.
 
----
 
 ## 📜 Available Scripts
 
@@ -45,7 +44,6 @@ node update-docs.js typography ../screenshots/typography.png
 - `form-patterns` - Form patterns
 - `navigation-patterns` - Navigation patterns
 
----
 
 ## 🔄 Documentation Update Workflow
 
@@ -102,7 +100,6 @@ node update-docs.js typography ../screenshots/typography.png
    - Paste into appropriate .md file
    - Preserve existing structure
 
----
 
 ## 📁 Folder Structure
 
@@ -119,7 +116,6 @@ docs/
 └── [documentation files]
 ```
 
----
 
 ## 🎯 Best Practices
 
@@ -161,7 +157,6 @@ docs/
    - Show usage patterns
    - Provide do's and don'ts
 
----
 
 ## 🚀 Future Enhancements
 
@@ -174,7 +169,6 @@ Planned improvements for automation:
 - [ ] Auto-PR creation
 - [ ] Visual regression testing
 
----
 
 ## 🆘 Troubleshooting
 
@@ -197,7 +191,6 @@ node update-docs.js buttons ./screenshots/buttons.png
 - Ensure you're in the correct directory
 - Verify the component type name
 
----
 
 ## 📞 Support
 
@@ -206,6 +199,5 @@ Questions or issues?
 - Check the main [Contributing Guide](../guidelines/contributing.md)
 - Contact the design system team
 
----
 
 **Happy documenting! 🌱**

@@ -2,13 +2,11 @@
 
 > Everything you need to start using the LawnGuru Design System.
 
----
 
 ## 👋 Welcome!
 
 The LawnGuru Design System helps you build consistent, accessible, and beautiful experiences. This guide will get you up and running quickly.
 
----
 
 ## 🎯 Who is this for?
 
@@ -27,7 +25,6 @@ The LawnGuru Design System helps you build consistent, accessible, and beautiful
 - Reference best practices
 - Plan features
 
----
 
 ## 🎨 For Designers
 
@@ -71,7 +68,6 @@ All components use design tokens for:
 - [Typography](./foundations/typography.md)
 - [Design Principles](./guidelines/design-principles.md)
 
----
 
 ## 💻 For Developers
 
@@ -202,7 +198,6 @@ Browse the [Components documentation](./components/buttons.md).
 - [Accessibility Guidelines](./guidelines/accessibility.md)
 - [Contributing Guide](./guidelines/contributing.md)
 
----
 
 ## 📦 Quick Start Examples
 
@@ -291,7 +286,6 @@ function Header() {
 }
 ```
 
----
 
 ## 🎓 Learning Path
 
@@ -317,7 +311,6 @@ function Header() {
 2. Read [Writing Guidelines](./guidelines/writing.md)
 3. Understand [Motion](./guidelines/motion.md)
 
----
 
 ## 🆘 Getting Help
 
@@ -341,7 +334,6 @@ function Header() {
 - Submit improvements
 - Help others
 
----
 
 ## 🚀 Next Steps
 
@@ -352,7 +344,6 @@ Now that you're set up:
 3. **Share feedback** - Let us know what works (and what doesn't)
 4. **Contribute** - Help make the design system better
 
----
 
 ## 📚 Additional Resources
 
@@ -368,7 +359,6 @@ Now that you're set up:
 - [Atlassian Design System](https://atlassian.design/)
 - [Shopify Polaris](https://polaris.shopify.com/)
 
----
 
 ## 🎉 Welcome to the LawnGuru Design System!
 

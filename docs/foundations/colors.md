@@ -2,7 +2,6 @@
 
 > LawnGuru's color system is designed to create a fresh, natural, and trustworthy brand experience.
 
----
 
 ## 🎨 Brand Colors
 
@@ -31,7 +30,6 @@ The signature LawnGuru green represents growth, nature, and vitality. Multiple s
 - Hover states (darker shades)
 - Backgrounds (lighter shades: 50-100)
 
----
 
 ## 🎨 Semantic Colors
 
@@ -81,7 +79,6 @@ The LawnGuru design system includes a complete set of semantic colors for convey
 
 **Usage:** Special highlights, featured content, promotional elements, call-outs
 
----
 
 ## ⚫⚪ Neutral Colors
 
@@ -109,7 +106,6 @@ A comprehensive gray scale from light to dark for text, borders, backgrounds, an
 - **Shadows and overlays:** `--neutral-950` or `--neutral-1000` with opacity
 - **Maximum contrast:** `--neutral-00` (white) and `--neutral-1000` (black)
 
----
 
 ## 📋 Usage Guidelines
 
@@ -125,7 +121,6 @@ A comprehensive gray scale from light to dark for text, borders, backgrounds, an
 - Don't use colors as the only way to convey information
 - Avoid using too many colors in a single interface
 
----
 
 ## ♿ Accessibility
 
@@ -139,7 +134,6 @@ All color combinations must meet WCAG 2.1 Level AA standards:
 - Use patterns, icons, or labels in addition to color
 - Test designs with color blindness simulators
 
----
 
 ## 🔄 Color System Overview
 
@@ -204,7 +198,6 @@ The LawnGuru color system is built on a comprehensive token-based approach with:
 > **Last Updated:** Extracted from Figma Color.json tokens (2025-10-22)
 > **Primary Brand Color:** `#008934` (green-700)
 
----
 
 ## 🎯 Semantic Color Tokens
 
@@ -274,7 +267,6 @@ Shadow tokens with varying opacity for depth and elevation:
 
 *Note: Shadow tokens have multiple levels (e.g., -center-07, -center-08, etc.) for different elevation depths.*
 
----
 
 **Next Steps:**
 - [Typography →](./typography.md)

@@ -2,7 +2,6 @@
 
 > Cards are containers that group related content and actions.
 
----
 
 ## 🎴 Card Types
 
@@ -24,7 +23,6 @@ Customer reviews and feedback.
 ### Stats Card
 Highlights key metrics and numbers.
 
----
 
 ## 📋 Usage Guidelines
 
@@ -34,7 +32,6 @@ Highlights key metrics and numbers.
 - Use elevation (shadows) to indicate hierarchy
 - Ensure sufficient contrast for readability
 
----
 
 ## 🔄 Auto-generated Section
 
@@ -43,7 +40,6 @@ Highlights key metrics and numbers.
 > 2. Run `npm run docs:update-cards`
 > 3. Full documentation will be generated
 
----
 
 **Related:**
 - [Buttons →](./buttons.md)

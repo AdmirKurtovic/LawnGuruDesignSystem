@@ -2,7 +2,6 @@
 
 > Complete form examples and best practices for user input.
 
----
 
 ## 📝 Common Form Patterns
 
@@ -39,7 +38,6 @@ Edit content directly in place without a traditional form.
 - User needs quick updates
 - Context is important
 
----
 
 ## 🎯 Form Validation
 
@@ -81,7 +79,6 @@ Validate when form is submitted.
 ℹ️ We'll send a confirmation to this email
 ```
 
----
 
 ## 📋 Field Patterns
 
@@ -109,7 +106,6 @@ Show/hide fields based on user input:
       └─→ [Date selector appears]
 ```
 
----
 
 ## 🎨 Form Layout Patterns
 
@@ -143,7 +139,6 @@ Show/hide fields based on user input:
 [Input field____]    [Input field____]
 ```
 
----
 
 ## 📱 Mobile Form Patterns
 
@@ -163,7 +158,6 @@ Show/hide fields based on user input:
 <input type="url" />       <!-- URL keyboard -->
 ```
 
----
 
 ## ♿ Accessibility
 
@@ -203,7 +197,6 @@ Show/hide fields based on user input:
 </form>
 ```
 
----
 
 ## 📊 Common Form Examples
 
@@ -260,7 +253,6 @@ Step 4: Review & Payment
 Already have an account? [Login]
 ```
 
----
 
 ## 🔄 Auto-generated Section
 
@@ -269,7 +261,6 @@ Already have an account? [Login]
 > 2. Run `npm run docs:update-form-patterns`
 > 3. Visual examples will be added
 
----
 
 **Related:**
 - [Form Components →](../components/forms.md)

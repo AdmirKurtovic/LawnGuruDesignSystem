@@ -2,7 +2,6 @@
 
 > Clear, accessible typography that ensures readability across all LawnGuru experiences.
 
----
 
 ## 📝 Font Families
 
@@ -39,7 +38,6 @@
 
 **Usage:** Code snippets, technical content, data, numbers
 
----
 
 ## 📏 Type Scale
 
@@ -85,7 +83,6 @@
 ```
 **Usage:** Component titles (H4), small section headers
 
----
 
 ### Body Text
 
@@ -132,7 +129,6 @@
 ```
 **Usage:** Legal text, extremely small labels (use sparingly)
 
----
 
 ## 🎯 Font Weights
 
@@ -149,7 +145,6 @@
 - **Semibold (600):** Most headings (H2-H6), form labels, navigation
 - **Bold (700):** Large headings (H1, Display), hero text, marketing content
 
----
 
 ## 📐 Letter Spacing
 
@@ -168,7 +163,6 @@
 - **Normal (0%):** Body text, standard headings, most UI elements
 - **Wide spacing (0.5% to 1.5%):** All caps text, small labels, buttons, tags
 
----
 
 ## 📱 Responsive Typography
 
@@ -187,7 +181,6 @@ Typography scales based on viewport size for optimal readability.
 - Full type scale
 - Optimal line lengths (50-75 characters)
 
----
 
 ## 📋 Usage Guidelines
 
@@ -203,7 +196,6 @@ Typography scales based on viewport size for optimal readability.
 - Don't use font sizes smaller than 12px (except legal text)
 - Avoid all caps for long text (reduces readability)
 
----
 
 ## ♿ Accessibility
 
@@ -221,7 +213,6 @@ Typography scales based on viewport size for optimal readability.
 - Letter spacing: Normal for body, slight increase for all caps
 - Word spacing: Default (adjust only for specific cases)
 
----
 
 ## 🔄 Typography System Overview
 
@@ -240,7 +231,6 @@ Typography scales based on viewport size for optimal readability.
 >
 > **Note:** This typography system provides a comprehensive, accessible type scale optimized for digital interfaces. All sizes and line heights are designed to work together harmoniously.
 
----
 
 ## 📊 Complete Typography Token Reference
 
@@ -296,7 +286,6 @@ Typography scales based on viewport size for optimal readability.
 | `font-weight-500` | 500 | Medium | Subheadings, important UI |
 | `font-weight-400` | 400 | Regular | Body text, default |
 
----
 
 **Next Steps:**
 - [Spacing →](./spacing.md)

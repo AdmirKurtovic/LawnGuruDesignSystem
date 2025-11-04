@@ -2,7 +2,6 @@
 
 > Visual depth, blur effects, and border styling for the LawnGuru design system.
 
----
 
 ## 🌑 Shadows
 
@@ -90,7 +89,6 @@ Special shadows using the primary brand color for emphasis.
 - Brand moments
 - Special call-outs
 
----
 
 ## 💨 Background Blur
 
@@ -129,7 +127,6 @@ Glassmorphism effects for modern, layered interfaces.
 }
 ```
 
----
 
 ## 🔲 Border Radius
 
@@ -164,7 +161,6 @@ Rounded corners for softening interfaces and creating visual consistency.
 | Avatars | 9999px | `--radius-9999` |
 | Large containers | 20-24px | `--radius-20` or `--radius-24` |
 
----
 
 ## 📏 Border Width
 
@@ -211,7 +207,6 @@ Consistent border thickness for UI elements.
 - Progress bars
 - Loading states
 
----
 
 ## 📋 Usage Examples
 
@@ -277,7 +272,6 @@ Consistent border thickness for UI elements.
 }
 ```
 
----
 
 ## 🎨 Design Principles
 
@@ -297,7 +291,6 @@ Consistent border thickness for UI elements.
 - Prefer lighter shadows for better performance
 - Reduce blur radius on low-end devices
 
----
 
 ## ♿ Accessibility
 
@@ -311,7 +304,6 @@ Consistent border thickness for UI elements.
 - Use color AND border to define boundaries
 - Ensure sufficient contrast for border colors
 
----
 
 ## 🔄 System Overview
 
@@ -323,7 +315,6 @@ Consistent border thickness for UI elements.
 
 > **Last Updated:** Extracted from Figma Shape.json tokens (2025-10-22)
 
----
 
 ## 📊 Complete Token Reference
 
@@ -356,7 +347,6 @@ Consistent border thickness for UI elements.
 | `border-width-bold` | 3px | Bold | Very strong borders |
 | `border-width-black` | 4px | Black | Maximum emphasis |
 
----
 
 **Next Steps:**
 - [Colors →](./colors.md)

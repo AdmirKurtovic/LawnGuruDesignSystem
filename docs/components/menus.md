@@ -2,7 +2,6 @@
 
 > Contextual menu overlays for actions, navigation, and options.
 
----
 
 ## 🎯 Components
 
@@ -61,7 +60,6 @@ Overlay menu that appears when triggered, containing a list of actions or option
 </DropdownMenu>
 ```
 
----
 
 ### Menu Item
 
@@ -144,7 +142,6 @@ Individual selectable item within a menu.
 </MenuItem>
 ```
 
----
 
 ### Menu Section / Menu Group
 
@@ -183,7 +180,6 @@ Logical grouping of related menu items with optional header.
 </DropdownMenu>
 ```
 
----
 
 ### Menu Divider
 
@@ -203,7 +199,6 @@ Separator line between menu sections or items.
 <MenuItem>Sign Out</MenuItem>
 ```
 
----
 
 ### Context Menu
 
@@ -239,7 +234,6 @@ Menu triggered by right-click, providing contextual actions for the clicked elem
 </ContextMenu>
 ```
 
----
 
 ### Select Menu
 
@@ -320,7 +314,6 @@ Dropdown menu for selecting one or multiple options, similar to a native `<selec
 </SelectMenu>
 ```
 
----
 
 ### Combobox
 
@@ -389,7 +382,6 @@ Combination of text input and dropdown menu, allowing both typing and selection.
 **Interactive Demo:**
 See the [Component Showcase](./showcase.md#advanced-selectors) for live examples.
 
----
 
 ### Command Menu / Command Palette
 
@@ -491,7 +483,6 @@ const commandGroups = [
 **Interactive Demo:**
 See the [Component Showcase](./showcase.md#advanced-selectors) for live examples.
 
----
 
 ### Mega Menu
 
@@ -552,7 +543,6 @@ Large dropdown menu with multi-column layout, rich content, and navigation optio
 </MegaMenu>
 ```
 
----
 
 ## 📋 Usage Guidelines
 
@@ -594,7 +584,6 @@ Large dropdown menu with multi-column layout, rich content, and navigation optio
 - Marketing/promotional content
 - Feature discovery
 
----
 
 ## 📋 Best Practices
 
@@ -629,7 +618,6 @@ Large dropdown menu with multi-column layout, rich content, and navigation optio
 - Debounce search input
 - Avoid rendering hidden menus
 
----
 
 ## ♿ Accessibility
 
@@ -681,7 +669,6 @@ Large dropdown menu with multi-column layout, rich content, and navigation optio
 - Highlight focused item clearly
 - Support roving tabindex for items
 
----
 
 ## 🔄 Auto-generated Section
 
@@ -690,7 +677,6 @@ Large dropdown menu with multi-column layout, rich content, and navigation optio
 > 2. Run `npm run docs:update-menus`
 > 3. Full documentation will be generated
 
----
 
 **Related:**
 - [Buttons →](./buttons.md)

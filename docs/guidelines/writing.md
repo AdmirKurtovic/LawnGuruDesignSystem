@@ -2,7 +2,6 @@
 
 > Clear, friendly, and helpful content that speaks to LawnGuru users.
 
----
 
 ## 🎯 Voice & Tone
 
@@ -37,7 +36,6 @@ Tone adapts to context:
 - Affirming
 - Forward-looking
 
----
 
 ## ✍️ Writing Principles
 
@@ -80,7 +78,6 @@ Tone adapts to context:
 **Instead of:** "Your lawn will be mowed by our team"
 **Write:** "Our team will mow your lawn"
 
----
 
 ## 📝 Content Types
 
@@ -153,7 +150,6 @@ Tone adapts to context:
 - ❌ "No data"
 - ❌ "0 results found"
 
----
 
 ## 📋 Grammar & Style
 
@@ -206,7 +202,6 @@ Tone adapts to context:
 - "We'll" not "We will"
 - "Don't" not "Do not"
 
----
 
 ## 🌐 Inclusive Language
 
@@ -234,7 +229,6 @@ Tone adapts to context:
 - Avoid idioms that don't translate well
 - Be mindful of cultural differences
 
----
 
 ## 📱 Platform-Specific
 
@@ -258,7 +252,6 @@ Tone adapts to context:
 - Essential info only
 - Clear and urgent if needed
 
----
 
 ## ✅ Content Checklist
 
@@ -272,7 +265,6 @@ Before publishing, check:
 - [ ] Is spelling and grammar correct?
 - [ ] Does it follow our style guide?
 
----
 
 ## 📚 Word List
 
@@ -290,7 +282,6 @@ Before publishing, check:
 - just (minimizes importance)
 - obviously/clearly (assumes knowledge)
 
----
 
 **Related:**
 - [Design Principles →](./design-principles.md)

@@ -2,7 +2,6 @@
 
 > Complete guide to automating LawnGuru design system documentation with Claude
 
----
 
 ## 🎯 Overview
 
@@ -14,7 +13,6 @@ This guide explains how to automatically generate and update design system docum
 - 🔄 Easy updates when designs change
 - 📚 Comprehensive, consistent documentation
 
----
 
 ## 🚀 Quick Start
 
@@ -35,7 +33,6 @@ node docs/scripts/update-docs.js buttons ./screenshots/buttons.png
 # 4. Review and commit
 ```
 
----
 
 ## 📸 Step-by-Step: Export from Figma
 
@@ -73,7 +70,6 @@ Or select specific components/frames to document.
 - Scale: 2x
 - Include: All variants and states visible
 
----
 
 ## 🤖 Step-by-Step: Generate Documentation with Claude
 
@@ -122,7 +118,6 @@ Or select specific components/frames to document.
    - Replace the auto-generated section
    - Preserve existing structure
 
----
 
 ## 📋 Component Documentation Checklist
 
@@ -154,7 +149,6 @@ When documenting components, ensure you capture:
 - [ ] Common patterns
 - [ ] Real-world scenarios
 
----
 
 ## 🎨 Documenting Different Component Types
 
@@ -213,7 +207,6 @@ When documenting components, ensure you capture:
 - Include labels
 - Show different sizes
 
----
 
 ## 🔄 Batch Documentation Workflow
 
@@ -268,7 +261,6 @@ Or process individually in Claude Code for better control.
 - Fill in any gaps
 - Add custom examples
 
----
 
 ## 🎯 Advanced: Custom Prompts
 
@@ -312,7 +304,6 @@ Create documentation for:
 Include semantic token mappings and theming considerations.
 ```
 
----
 
 ## 🧪 Quality Assurance
 
@@ -334,7 +325,6 @@ Include semantic token mappings and theming considerations.
 - Check internal links
 - Verify against Figma source
 
----
 
 ## 🚀 Continuous Updates
 
@@ -368,7 +358,6 @@ Recommend quarterly review:
 - Refresh code examples
 - Add new features
 
----
 
 ## 💡 Tips & Best Practices
 
@@ -414,7 +403,6 @@ Recommend quarterly review:
 - Delay documentation
 - Skip the review phase
 
----
 
 ## 🆘 Troubleshooting
 
@@ -447,7 +435,6 @@ Please follow this structure:
 - Provide exact values in prompt
 - Double-check after generation
 
----
 
 ## 📞 Support
 
@@ -458,7 +445,6 @@ Need help with documentation automation?
 - **Ideas:** Suggest in Discussions
 - **Urgent:** Contact design system team
 
----
 
 ## 🔮 Future Roadmap
 
@@ -480,7 +466,6 @@ Planned automation improvements:
 - Visual diff detection
 - Automated publishing
 
----
 
 ## 📚 Additional Resources
 
@@ -489,6 +474,5 @@ Planned automation improvements:
 - [Markdown Guide](https://www.markdownguide.org/)
 - [Design Systems Guide](https://www.designsystems.com/)
 
----
 
 **Happy documenting! Let AI do the heavy lifting. 🤖🌱**

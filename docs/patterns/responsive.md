@@ -2,7 +2,6 @@
 
 > Mobile-first responsive design patterns for LawnGuru.
 
----
 
 ## 📱 Mobile-First Approach
 
@@ -14,7 +13,6 @@ LawnGuru uses a mobile-first design strategy, starting with mobile layouts and p
 - Easier to scale up than down
 - Aligns with majority of users
 
----
 
 ## 🎯 Breakpoint Strategy
 
@@ -46,7 +44,6 @@ LawnGuru uses a mobile-first design strategy, starting with mobile layouts and p
 }
 ```
 
----
 
 ## 🔄 Common Patterns
 
@@ -120,7 +117,6 @@ Adjust grid columns based on screen size.
 }
 ```
 
----
 
 ## 📏 Touch Targets
 
@@ -136,7 +132,6 @@ Ensure interactive elements are easily tappable on mobile:
 }
 ```
 
----
 
 ## 🖼️ Images
 
@@ -171,7 +166,6 @@ Ensure interactive elements are easily tappable on mobile:
 </picture>
 ```
 
----
 
 ## 📋 Best Practices
 
@@ -189,7 +183,6 @@ Ensure interactive elements are easily tappable on mobile:
 - Don't use tiny text on mobile
 - Avoid horizontal scrolling
 
----
 
 ## 🔄 Container Queries
 
@@ -212,7 +205,6 @@ For component-level responsive design:
 }
 ```
 
----
 
 **Related:**
 - [Layouts →](./layouts.md)

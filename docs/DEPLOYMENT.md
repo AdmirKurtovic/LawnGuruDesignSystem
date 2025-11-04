@@ -2,13 +2,11 @@
 
 > How to deploy the LawnGuru Design System documentation website
 
----
 
 ## 🚀 Deployment Options
 
 The documentation site is a static website that can be deployed to various platforms.
 
----
 
 ## Option 1: Vercel (Recommended)
 
@@ -49,7 +47,6 @@ The documentation site is a static website that can be deployed to various platf
 - Update DNS records as instructed
 - SSL is automatic
 
----
 
 ## Option 2: Netlify
 
@@ -83,7 +80,6 @@ Create `netlify.toml` in project root:
   status = 200
 ```
 
----
 
 ## Option 3: GitHub Pages
 
@@ -143,7 +139,6 @@ export default defineConfig({
 })
 ```
 
----
 
 ## Option 4: Self-Hosted (VPS/Server)
 
@@ -194,7 +189,6 @@ This creates a `docs/.vitepress/dist` folder with static files.
    sudo systemctl restart nginx
    ```
 
----
 
 ## Environment Variables
 
@@ -213,7 +207,6 @@ Add to `.env.production`:
 VITE_API_URL=https://api.lawnguru.com
 ```
 
----
 
 ## Custom Domain
 
@@ -237,7 +230,6 @@ For self-hosted, use [Let's Encrypt](https://letsencrypt.org/):
 sudo certbot --nginx -d design-system.yourdomain.com
 ```
 
----
 
 ## Performance Optimization
 
@@ -258,7 +250,6 @@ Already optimized by VitePress, but you can:
    - Optimize SVGs
    - Lazy load images
 
----
 
 ## Continuous Deployment
 
@@ -279,7 +270,6 @@ npm run docs:build
 rsync -avz docs/.vitepress/dist/ user@server:/var/www/design-system/
 ```
 
----
 
 ## Monitoring
 
@@ -306,7 +296,6 @@ export default defineConfig({
 })
 ```
 
----
 
 ## Troubleshooting
 
@@ -332,7 +321,6 @@ npm run docs:build
 - Clear browser cache
 - Rebuild and redeploy
 
----
 
 ## Deployment Checklist
 
@@ -348,7 +336,6 @@ Before deploying:
 - [ ] Analytics added (optional)
 - [ ] README updated
 
----
 
 ## 📞 Support
 
@@ -357,6 +344,5 @@ Deployment issues?
 - Open GitHub issue
 - Contact DevOps team
 
----
 
 **Happy deploying! 🚀🌱**

@@ -6,7 +6,6 @@
 **Version:** 1.0.0
 **Status:** 🟢 Active Development
 
----
 
 ## 📚 Table of Contents
 
@@ -52,7 +51,6 @@ Best practices and usage guidelines.
 - [**Writing Style**](./guidelines/writing.md) - Voice, tone, and content guidelines
 - [**Motion**](./guidelines/motion.md) - Animation and transition principles
 
----
 
 ## 🚀 Introduction
 
@@ -72,7 +70,6 @@ The LawnGuru Design System is a collection of reusable components, patterns, and
 - **Product Managers**: Understand patterns and best practices
 - **Content Writers**: Follow voice and tone guidelines
 
----
 
 ## 🛠️ Tech Stack
 
@@ -82,7 +79,6 @@ This design system supports:
 - **Mobile**: React Native
 - **Design**: Figma
 
----
 
 ## 📦 Quick Links
 
@@ -91,7 +87,6 @@ This design system supports:
 - [NPM Package](#) _(Coming Soon)_
 - [GitHub Repository](#)
 
----
 
 ## 🤝 Contributing
 
@@ -104,7 +99,6 @@ We welcome contributions! Please read our [Contributing Guide](./guidelines/cont
 3. Review generated documentation
 4. Submit for review
 
----
 
 ## 📞 Support
 
@@ -112,12 +106,10 @@ We welcome contributions! Please read our [Contributing Guide](./guidelines/cont
 - **Found a bug?** File an issue
 - **Need help?** Contact the design system team
 
----
 
 ## 📄 License
 
 Proprietary - LawnGuru © 2025
 
----
 
 **Built with 🌱 by the LawnGuru team**

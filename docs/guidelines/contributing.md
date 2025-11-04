@@ -2,13 +2,11 @@
 
 > Help us build and maintain a world-class design system.
 
----
 
 ## 🙌 Welcome Contributors!
 
 We're thrilled you want to contribute to the LawnGuru Design System! Whether you're fixing a bug, adding a component, or improving documentation, your contributions make LawnGuru better for everyone.
 
----
 
 ## 🎯 Ways to Contribute
 
@@ -52,7 +50,6 @@ Documentation is always welcome!
 - Clarify confusing sections
 - Add screenshots or diagrams
 
----
 
 ## 🔄 Contribution Workflow
 
@@ -148,7 +145,6 @@ git push origin your-branch-name
 - Include screenshots/videos for UI changes
 - Request reviews from relevant team members
 
----
 
 ## 📋 Component Contribution Guidelines
 
@@ -191,7 +187,6 @@ When adding a new component, ensure:
 - [ ] No breaking changes
 - [ ] Changelog updated
 
----
 
 ## 🎨 Design Contribution Guidelines
 
@@ -227,7 +222,6 @@ When adding a new component, ensure:
    - Update documentation
    - Notify team
 
----
 
 ## 💻 Code Standards
 
@@ -313,7 +307,6 @@ Button.displayName = 'Button';
 }
 ```
 
----
 
 ## 📝 Documentation Standards
 
@@ -324,7 +317,6 @@ Button.displayName = 'Button';
 
 > Brief description of the component
 
----
 
 ## Overview
 Detailed description of what the component does and when to use it.
@@ -345,7 +337,6 @@ Accessibility requirements and considerations.
 Real-world usage examples.
 ```
 
----
 
 ## ✅ Review Process
 
@@ -373,7 +364,6 @@ Real-world usage examples.
 4. **Update documentation** - Keep docs in sync
 5. **Squash commits** - Clean commit history (if requested)
 
----
 
 ## 🚫 What Not to Do
 
@@ -385,7 +375,6 @@ Real-world usage examples.
 ❌ Submit WIP without [WIP] tag
 ❌ Make multiple unrelated changes in one PR
 
----
 
 ## 💬 Communication
 
@@ -402,7 +391,6 @@ Real-world usage examples.
 - PR reviews: Within 3 business days
 - Questions answered: Within 1 business day
 
----
 
 ## 🏆 Recognition
 
@@ -412,7 +400,6 @@ We appreciate all contributions! Contributors are:
 - Invited to contributor meetings
 - Eligible for swag (coming soon!)
 
----
 
 ## 📚 Resources
 
@@ -421,7 +408,6 @@ We appreciate all contributions! Contributors are:
 - [Accessibility Guidelines](./accessibility.md)
 - [Design Principles](./design-principles.md)
 
----
 
 ## 📞 Need Help?
 
@@ -434,6 +420,5 @@ Stuck or have questions?
 
 We're here to help! 🌱
 
----
 
 **Thank you for contributing to LawnGuru!**

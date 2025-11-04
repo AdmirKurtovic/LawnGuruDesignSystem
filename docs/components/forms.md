@@ -2,7 +2,6 @@
 
 > Form elements that enable user input and data collection.
 
----
 
 ## 📝 Components
 
@@ -36,7 +35,6 @@ Dropdown component for selecting one option from a list.
 />
 ```
 
----
 
 ### Toggle Switch / Switch
 
@@ -87,7 +85,6 @@ Binary on/off switch for settings and preferences.
 **Interactive Demo:**
 See the [Component Showcase](./showcase.md#switchtoggle) for live examples.
 
----
 
 ### Checkbox
 
@@ -121,7 +118,6 @@ Multi-select option component for forms and lists.
 />
 ```
 
----
 
 ### Radio Button / Radio Group
 
@@ -184,7 +180,6 @@ Single-select option component for mutually exclusive choices.
 **Interactive Demo:**
 See the [Component Showcase](./showcase.md#radio-group) for live examples.
 
----
 
 ### Text Input
 
@@ -227,7 +222,6 @@ Standard single-line text input field.
 />
 ```
 
----
 
 ### Search Input
 
@@ -261,7 +255,6 @@ Specialized input field for search functionality.
 />
 ```
 
----
 
 ### Textarea
 
@@ -326,7 +319,6 @@ Multi-line text input for longer content.
 **Interactive Demo:**
 See the [Component Showcase](./showcase.md#textarea) for live examples.
 
----
 
 ### Date Picker
 
@@ -348,7 +340,6 @@ Calendar-based date selection component (see screenshot #5).
 - Min/max date ranges
 - Keyboard navigation
 
----
 
 ### File Upload
 
@@ -368,7 +359,6 @@ Component for file selection and upload.
 - Completed
 - Error (file too large, wrong type)
 
----
 
 ### Slider / Range Input
 
@@ -428,7 +418,6 @@ Input for selecting a value from within a given range.
 **Interactive Demo:**
 See the [Component Showcase](./showcase.md#slider) for live examples.
 
----
 
 ### Tabs
 
@@ -487,7 +476,6 @@ Tabbed interface for organizing content into separate views.
 **Interactive Demo:**
 See the [Component Showcase](./showcase.md#tabs) for live examples.
 
----
 
 ### Toggle Group
 
@@ -537,7 +525,6 @@ Group of toggle buttons for multi-select or single-select options.
 **Interactive Demo:**
 See the [Component Showcase](./showcase.md#toggle-group) for live examples.
 
----
 
 ## 📋 Usage Guidelines
 
@@ -570,7 +557,6 @@ See the [Component Showcase](./showcase.md#toggle-group) for live examples.
 - Indicate at form level what's required
 - Don't make everything required
 
----
 
 ## ♿ Accessibility
 
@@ -580,7 +566,6 @@ See the [Component Showcase](./showcase.md#toggle-group) for live examples.
 - Support keyboard navigation
 - Use appropriate input types
 
----
 
 ## 🔄 Auto-generated Section
 
@@ -589,7 +574,6 @@ See the [Component Showcase](./showcase.md#toggle-group) for live examples.
 > 2. Run `npm run docs:update-forms`
 > 3. Full documentation will be generated
 
----
 
 **Related:**
 - [Buttons →](./buttons.md)

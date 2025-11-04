@@ -2,13 +2,11 @@
 
 > Core principles that guide design decisions at LawnGuru.
 
----
 
 ## 🌱 Our Design Philosophy
 
 LawnGuru's design system is built on principles that reflect our values and serve our users' needs. These principles guide every design decision, from pixel-level details to high-level strategy.
 
----
 
 ## 1. 🎯 Clear & Focused
 
@@ -30,7 +28,6 @@ LawnGuru's design system is built on principles that reflect our values and serv
 ❌ Cluttered interfaces
 ❌ Hidden or unclear actions
 
----
 
 ## 2. 🤝 Friendly & Approachable
 
@@ -52,7 +49,6 @@ LawnGuru's design system is built on principles that reflect our values and serv
 ❌ Cold, robotic language
 ❌ Cryptic error codes
 
----
 
 ## 3. 🔒 Trustworthy & Reliable
 
@@ -74,7 +70,6 @@ LawnGuru's design system is built on principles that reflect our values and serv
 ❌ Misleading information
 ❌ Inconsistent branding
 
----
 
 ## 4. ⚡ Efficient & Fast
 
@@ -96,7 +91,6 @@ LawnGuru's design system is built on principles that reflect our values and serv
 ❌ Slow interactions
 ❌ Repetitive data entry
 
----
 
 ## 5. ♿ Inclusive & Accessible
 
@@ -118,7 +112,6 @@ LawnGuru's design system is built on principles that reflect our values and serv
 ❌ Desktop-only experiences
 ❌ Assumptions about users
 
----
 
 ## 6. 🎨 Beautiful & Delightful
 
@@ -140,7 +133,6 @@ LawnGuru's design system is built on principles that reflect our values and serv
 ❌ Inconsistent styling
 ❌ Generic experiences
 
----
 
 ## 7. 📱 Mobile-First
 
@@ -162,7 +154,6 @@ LawnGuru's design system is built on principles that reflect our values and serv
 ❌ Desktop-first thinking
 ❌ Desktop-only features
 
----
 
 ## 8. 🧩 Consistent & Predictable
 
@@ -184,7 +175,6 @@ LawnGuru's design system is built on principles that reflect our values and serv
 ❌ Inconsistent UI elements
 ❌ Unexpected behaviors
 
----
 
 ## 9. 📊 Data-Informed
 
@@ -206,7 +196,6 @@ LawnGuru's design system is built on principles that reflect our values and serv
 ❌ Ignoring data
 ❌ Assuming preferences
 
----
 
 ## 10. 🌍 Scalable & Systematic
 
@@ -228,7 +217,6 @@ LawnGuru's design system is built on principles that reflect our values and serv
 ❌ Inconsistent patterns
 ❌ Undocumented decisions
 
----
 
 ## 🎯 Decision Framework
 
@@ -245,7 +233,6 @@ When faced with a design decision, ask:
 9. **Is it validated by data?** (Data-Informed)
 10. **Can it scale?** (Scalable & Systematic)
 
----
 
 ## 🤔 When Principles Conflict
 
@@ -267,7 +254,6 @@ Sometimes principles compete. Here's how to prioritize:
 - Consult the team
 - Document the decision
 
----
 
 ## 📚 Real-World Examples
 
@@ -287,7 +273,6 @@ Sometimes principles compete. Here's how to prioritize:
 - **Helpful:** "We're working on it. Try again in a minute, or contact us if it continues"
 - **Trustworthy:** Takes responsibility and offers solution
 
----
 
 ## 🔄 Living Principles
 
@@ -297,7 +282,6 @@ These principles evolve as LawnGuru grows. They're reviewed quarterly and update
 - Business priorities
 - Industry changes
 
----
 
 **Related:**
 - [Accessibility →](./accessibility.md)

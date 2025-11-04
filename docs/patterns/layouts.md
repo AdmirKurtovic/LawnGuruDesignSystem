@@ -2,7 +2,6 @@
 
 > Standard page templates and layout patterns for consistent structure.
 
----
 
 ## 📐 Layout Templates
 
@@ -65,7 +64,6 @@ Text-heavy content with sidebar.
 └── Footer
 ```
 
----
 
 ## 📱 Responsive Behavior
 
@@ -86,7 +84,6 @@ Text-heavy content with sidebar.
 - Expanded navigation
 - Optimal spacing
 
----
 
 ## 📏 Layout Specifications
 
@@ -117,7 +114,6 @@ gap: var(--spacing-md);
 --breakpoint-2xl: 1536px
 ```
 
----
 
 ## 📋 Usage Guidelines
 
@@ -136,7 +132,6 @@ gap: var(--spacing-md);
 - Don't pack content too tightly
 - Balance content and empty space
 
----
 
 ## 🔄 Auto-generated Section
 
@@ -145,7 +140,6 @@ gap: var(--spacing-md);
 > 2. Run `npm run docs:update-layouts`
 > 3. Full documentation will be generated with visual examples
 
----
 
 **Related:**
 - [Responsive Patterns →](./responsive.md)

@@ -2,7 +2,6 @@
 
 > Design tokens are the building blocks of the LawnGuru design system. They store visual design attributes as data.
 
----
 
 ## 🎯 What are Design Tokens?
 
@@ -14,7 +13,6 @@ Design tokens are platform-agnostic variables that store design decisions. They 
 - Easy to maintain and update
 - Enables theming and customization
 
----
 
 ## 📦 Token Categories
 
@@ -184,7 +182,6 @@ Durations, easing functions, and timing.
 }
 ```
 
----
 
 ## 🔧 Token Format
 
@@ -200,7 +197,6 @@ Tokens follow the [W3C Design Token Format](https://tr.designtokens.org/format/)
 }
 ```
 
----
 
 ## 📤 Exporting Tokens
 
@@ -256,7 +252,6 @@ export const tokens = {
 };
 ```
 
----
 
 ## 🎨 Token Usage in Components
 
@@ -270,7 +265,6 @@ export const tokens = {
 }
 ```
 
----
 
 ## 🔄 Updating Tokens
 
@@ -285,7 +279,6 @@ export const tokens = {
 Figma → tokens.json → Transform → CSS/JS/iOS/Android → Distribute
 ```
 
----
 
 ## 📋 Token Naming Convention
 
@@ -301,7 +294,6 @@ Tokens follow a hierarchical naming structure:
 - `font-size-heading-h1`
 - `border-radius-card`
 
----
 
 ## 🔄 Auto-generated Section
 
@@ -310,7 +302,6 @@ Tokens follow a hierarchical naming structure:
 > 2. Run `npm run docs:update-tokens`
 > 3. Token files will be automatically generated
 
----
 
 **Next Steps:**
 - [Colors →](./colors.md)

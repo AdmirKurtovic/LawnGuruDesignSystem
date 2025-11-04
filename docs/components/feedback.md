@@ -2,7 +2,6 @@
 
 > Components that provide feedback, status updates, and system communication to users.
 
----
 
 ## 📝 Components
 
@@ -52,7 +51,6 @@ Expandable content sections that reveal additional information when clicked.
 </Accordion>
 ```
 
----
 
 ### Snackbar
 
@@ -103,7 +101,6 @@ Brief, temporary messages that appear at the bottom of the screen to provide fee
 />
 ```
 
----
 
 ### Notification Stub / Toast
 
@@ -217,7 +214,6 @@ See the [Component Showcase](./showcase.md#toast-notification) for live examples
 - Keyboard accessible
 - Uses Teleport for proper stacking context
 
----
 
 ### Content Block / Alert Card
 
@@ -266,7 +262,6 @@ Inline alert or information card for contextual messages within page content.
 </Alert>
 ```
 
----
 
 ### Loading Indicators
 
@@ -363,7 +358,6 @@ onMounted(() => {
 **Interactive Demo:**
 See the [Component Showcase](./showcase.md#progress-bar) for live examples.
 
----
 
 #### Skeleton Loader
 
@@ -461,7 +455,6 @@ See the [Component Showcase](./showcase.md#skeleton-loader) for live examples.
 - Keep skeleton visible for minimum 300ms (avoid flash)
 - Replace with actual content smoothly (use transitions)
 
----
 
 ### Empty States
 
@@ -501,7 +494,6 @@ Helpful messages and guidance when no content is available.
 />
 ```
 
----
 
 ### Error States
 
@@ -572,7 +564,6 @@ Error messages and recovery options when something goes wrong.
 />
 ```
 
----
 
 ## 📋 Usage Guidelines
 
@@ -613,7 +604,6 @@ Error messages and recovery options when something goes wrong.
 - System errors
 - Network failures
 
----
 
 ## ♿ Accessibility
 
@@ -632,7 +622,6 @@ Error messages and recovery options when something goes wrong.
 - Provide context for errors
 - Don't rely solely on color to convey meaning
 
----
 
 ## 🔄 Auto-generated Section
 
@@ -641,7 +630,6 @@ Error messages and recovery options when something goes wrong.
 > 2. Run `npm run docs:update-feedback`
 > 3. Full documentation will be generated
 
----
 
 **Related:**
 - [Buttons →](./buttons.md)

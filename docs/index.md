@@ -129,7 +129,6 @@ We welcome contributions! Help us make the design system better:
 - [**Automation Guide**](/AUTOMATION_GUIDE) - Generate docs from Figma
 - [**GitHub Repository**](https://github.com/lawnguru/design-system) - Source code
 
----
 
 <div class="cta-section">
   <h3>Ready to build something amazing?</h3>

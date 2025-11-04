@@ -2,7 +2,6 @@
 
 > Components for displaying structured data and information.
 
----
 
 ## 📊 Components
 
@@ -85,7 +84,6 @@ Visual representation of users or entities using images, initials, or icons.
 {/* Displays: 3 avatars + "+1" */}
 ```
 
----
 
 ### Badges
 
@@ -165,7 +163,6 @@ Small labels to highlight status, counts, or categorical information.
 <Badge variant="outlined" color="neutral">Beta</Badge>
 ```
 
----
 
 ### Tags
 
@@ -231,7 +228,6 @@ Categorization components for filtering, organizing, and labeling content.
 </Tag>
 ```
 
----
 
 ### Tooltips
 
@@ -307,7 +303,6 @@ Contextual information that appears on hover or focus, providing additional deta
 </label>
 ```
 
----
 
 ### Popovers
 
@@ -392,7 +387,6 @@ Richer contextual overlays that can contain more complex content like forms, lis
 />
 ```
 
----
 
 ### Dividers / Separator
 
@@ -510,7 +504,6 @@ See the [Component Showcase](./showcase.md#separator) for live examples.
 }
 ```
 
----
 
 ### Tables
 
@@ -598,7 +591,6 @@ Display tabular data with sorting, filtering, and pagination capabilities.
 />
 ```
 
----
 
 ### Lists
 
@@ -669,7 +661,6 @@ Display collections of related items in a structured format.
 </List>
 ```
 
----
 
 ## 📋 Usage Guidelines
 
@@ -723,7 +714,6 @@ Display collections of related items in a structured format.
 - Search results
 - Activity feeds
 
----
 
 ## ♿ Accessibility
 
@@ -757,7 +747,6 @@ Display collections of related items in a structured format.
 - Provide caption or `aria-label`
 - Make sortable columns keyboard accessible
 
----
 
 ## 🔄 Auto-generated Section
 
@@ -766,7 +755,6 @@ Display collections of related items in a structured format.
 > 2. Run `npm run docs:update-data-display`
 > 3. Full documentation will be generated
 
----
 
 **Related:**
 - [Buttons →](./buttons.md)
