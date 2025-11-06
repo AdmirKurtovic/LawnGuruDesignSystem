@@ -47,11 +47,6 @@
       "name": "Design Tokens",
       "icon": "swatchbook",
       "url": "docs/foundations/tokens"
-    },
-    {
-      "name": "GitHub",
-      "icon": "github",
-      "url": "https://github.com/AdmirKurtovic/LawnGuruDesignSystem"
     }
   ],
   "navigation": [
@@ -105,6 +100,16 @@
         "docs/guidelines/writing",
         "docs/guidelines/motion",
         "docs/guidelines/contributing"
+      ]
+    },
+    {
+      "group": "Resources",
+      "pages": [
+        {
+          "name": "GitHub Repository",
+          "icon": "github",
+          "url": "https://github.com/AdmirKurtovic/LawnGuruDesignSystem"
+        }
       ]
     }
   ],
