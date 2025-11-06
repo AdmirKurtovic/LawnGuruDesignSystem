@@ -15,12 +15,6 @@
       "to": "#00B047"
     }
   },
-  "topbarLinks": [
-    {
-      "name": "GitHub",
-      "url": "https://github.com/AdmirKurtovic/LawnGuruDesignSystem"
-    }
-  ],
   "topbarCtaButton": {
     "name": "Get Started",
     "url": "https://lawnguru.mintlify.app/getting-started"
@@ -53,6 +47,11 @@
       "name": "Design Tokens",
       "icon": "swatchbook",
       "url": "docs/foundations/tokens"
+    },
+    {
+      "name": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/AdmirKurtovic/LawnGuruDesignSystem"
     }
   ],
   "navigation": [
