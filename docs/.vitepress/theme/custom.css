@@ -207,6 +207,25 @@
   justify-content: flex-start !important;
 }
 
+/* Make navbar title horizontal with logo on left */
+.VPNavBarTitle {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+/* Size logo to match text height */
+.VPNavBarTitle .VPImage {
+  height: 40px !important;
+  width: auto !important;
+}
+
+.VPNavBarTitle .logo {
+  height: 40px !important;
+  width: auto !important;
+}
+
 /* Style navbar title to show "LawnGuru" with "Design System" subtitle */
 .VPNavBarTitle .title {
   display: flex !important;
@@ -214,6 +233,7 @@
   line-height: 1.2 !important;
   text-align: left !important;
   align-items: flex-start !important;
+  justify-content: center !important;
 }
 
 .VPNavBarTitle .title::after {
