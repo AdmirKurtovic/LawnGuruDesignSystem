@@ -1,5 +1,3 @@
-# LawnGuru Design System
-
 Build consistent, accessible, and beautiful lawn care experiences.
 
 ## 🚀 Quick Start

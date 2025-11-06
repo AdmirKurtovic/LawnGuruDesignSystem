@@ -51,6 +51,12 @@
   width: 300px !important;
   padding: 24px 16px !important;
   background: #F6F6F6 !important;
+  position: fixed !important;
+  top: 64px !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  overflow-y: auto !important;
+  border-right: 1px solid #E5E5E5 !important;
 }
 
 /* Force sidebar to show on home page */
@@ -69,38 +75,97 @@
   padding-left: 320px !important;
 }
 
+.VPDoc.has-sidebar .container {
+  max-width: none !important;
+  padding-left: 340px !important;
+}
+
 /* Sidebar navigation */
 .VPSidebarNav {
   padding: 0 !important;
 }
 
+/* Keep search in navbar - it's already functional */
+.VPNavBarSearch {
+  flex: 1 !important;
+  max-width: 400px !important;
+  margin-left: auto !important;
+  margin-right: 48px !important;
+}
+
+/* Hide right sidebar "On this page" */
+.VPDocAside {
+  display: none !important;
+}
+
+.VPDocAsideOutline {
+  display: none !important;
+}
+
+/* Adjust content width without right sidebar */
+.VPDoc:not(.has-aside) .content-container {
+  max-width: 100% !important;
+}
+
+.VPDoc .container {
+  margin-right: 0 !important;
+  max-width: 1200px !important;
+}
+
 /* Section headers (Brand, Product) */
+.VPSidebarItem.level-0 {
+  margin-top: 24px !important;
+}
+
+.VPSidebarItem.level-0:first-child {
+  margin-top: 0 !important;
+}
+
 .VPSidebarItem.level-0 > .item > .text {
   font-size: 14px !important;
   font-weight: 700 !important;
   color: #0B0B0B !important;
   text-transform: none !important;
-  padding: 12px 0 8px 0 !important;
+  padding: 8px 0 !important;
   letter-spacing: 0 !important;
 }
 
-/* First level items */
+/* First level items (Introduction, Messaging, etc) */
 .VPSidebarItem.level-1 > .item {
-  padding-left: 12px !important;
+  padding: 8px 12px !important;
+  margin: 2px 0 !important;
   border-left: 3px solid transparent !important;
+  border-radius: 4px !important;
+  transition: all 0.15s ease !important;
 }
 
 /* Active/selected item */
-.VPSidebarItem.level-1.is-active > .item {
+.VPSidebarItem.level-1.is-active > .item,
+.VPSidebarItem.level-1 > .item.active {
   background: #E5E5E5 !important;
   border-left-color: #008934 !important;
-  border-radius: 4px !important;
 }
 
 /* Hover state */
 .VPSidebarItem.level-1 > .item:hover {
   background: #E5E5E5 !important;
+}
+
+/* Second level items (nested items) */
+.VPSidebarItem.level-2 > .item {
+  padding: 6px 12px 6px 24px !important;
+  margin: 2px 0 !important;
+  font-size: 13px !important;
   border-radius: 4px !important;
+}
+
+.VPSidebarItem.level-2.is-active > .item {
+  background: #E5E5E5 !important;
+  color: #008934 !important;
+}
+
+.VPSidebarItem.level-2 > .item:hover {
+  background: #E5E5E5 !important;
 }
 
 /* Link text styling */
@@ -108,6 +173,11 @@
   font-size: 14px !important;
   color: #2A2A2A !important;
   font-weight: 500 !important;
+}
+
+.VPSidebarItem.is-active .text {
+  color: #0B0B0B !important;
+  font-weight: 600 !important;
 }
 
 /* Collapsible caret */
