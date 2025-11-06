@@ -9,11 +9,6 @@
       </div>
     </a>
 
-    <!-- Search -->
-    <div class="sidebar-search">
-      <VPLocalSearchBox v-if="theme.search?.provider === 'local'" />
-    </div>
-
     <!-- GitHub Link -->
     <a
       href="https://github.com/lawnguru/design-system"
@@ -30,10 +25,7 @@
 </template>
 
 <script setup>
-import { useData } from 'vitepress'
-import VPLocalSearchBox from 'vitepress/dist/client/theme-default/components/VPLocalSearchBox.vue'
-
-const { theme } = useData()
+// No imports needed for now - search can be accessed via keyboard shortcut
 </script>
 
 <style scoped>
@@ -72,10 +64,6 @@ const { theme } = useData()
   font-size: 12px;
   font-weight: 500;
   color: rgba(11, 11, 11, 0.6);
-}
-
-.sidebar-search {
-  margin-bottom: 16px;
 }
 
 .sidebar-github {
