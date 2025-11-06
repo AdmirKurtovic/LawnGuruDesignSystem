@@ -43,6 +43,15 @@
 
 
 /* ============================================
+   Hide Top Navbar
+   ============================================ */
+
+.VPNav,
+.VPNavBar {
+  display: none !important;
+}
+
+/* ============================================
    Sidebar Styling - Pajamas Style
    ============================================ */
 
@@ -52,7 +61,7 @@
   padding: 24px 16px !important;
   background: #F6F6F6 !important;
   position: fixed !important;
-  top: 64px !important;
+  top: 0 !important;
   left: 0 !important;
   bottom: 0 !important;
   overflow-y: auto !important;
@@ -71,13 +80,26 @@
 }
 
 /* Make sure content doesn't overlap with sidebar */
-.VPContent.has-sidebar {
+.VPContent.has-sidebar,
+.VPContent {
   padding-left: 320px !important;
+  padding-top: 48px !important;
 }
 
-.VPDoc.has-sidebar .container {
+.VPDoc.has-sidebar .container,
+.VPDoc .container {
   max-width: none !important;
   padding-left: 340px !important;
+  padding-right: 48px !important;
+}
+
+/* Adjust content wrapper without navbar */
+.Layout {
+  padding-top: 0 !important;
+}
+
+.VPContent {
+  padding-top: 48px !important;
 }
 
 /* Sidebar navigation */
@@ -85,13 +107,6 @@
   padding: 0 !important;
 }
 
-/* Keep search in navbar - it's already functional */
-.VPNavBarSearch {
-  flex: 1 !important;
-  max-width: 400px !important;
-  margin-left: auto !important;
-  margin-right: 48px !important;
-}
 
 /* Hide right sidebar "On this page" */
 .VPDocAside {
@@ -190,15 +205,6 @@
   margin-bottom: 24px !important;
 }
 
-/* Hide top navigation menu (we use sidebar instead) */
-.VPNavBarMenu {
-  display: none !important;
-}
-
-/* Simplify navbar - only show logo, title, and search */
-.VPNavBar .content-body {
-  justify-content: space-between !important;
-}
 
 /* ============================================
    Custom Styling
@@ -344,87 +350,7 @@
   }
 }
 
-/* ============================================
-   Navbar Title Styling
-   ============================================ */
 
-/* Left-align logo and title container - target multiple levels */
-.VPNavBar .container .title,
-.VPNavBar .VPNavBarTitle,
-.VPNavBarTitle.has-sidebar {
-  justify-content: flex-start !important;
-  margin-right: auto !important;
-}
-
-/* Remove centering from navbar content */
-.VPNavBar .content {
-  justify-content: flex-start !important;
-}
-
-.VPNavBar .content-body {
-  justify-content: flex-start !important;
-}
-
-/* Make navbar title horizontal with logo on left */
-.VPNavBarTitle {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: 12px !important;
-}
-
-/* Size logo to match text height */
-.VPNavBarTitle .VPImage {
-  height: 40px !important;
-  width: auto !important;
-}
-
-.VPNavBarTitle .logo {
-  height: 40px !important;
-  width: auto !important;
-}
-
-/* Style navbar title to show "LawnGuru" with "Design System" subtitle */
-.VPNavBarTitle .title {
-  display: flex !important;
-  flex-direction: column !important;
-  line-height: 1.2 !important;
-  text-align: left !important;
-  align-items: flex-start !important;
-  justify-content: center !important;
-}
-
-.VPNavBarTitle .title::after {
-  content: "Design System";
-  font-size: 12px;
-  font-weight: 500;
-  color: rgba(11, 11, 11, 0.6);
-  margin-top: 2px;
-  text-align: left;
-  display: block;
-}
-
-/* Expand search input field by 200px */
-.VPNavBarSearch .DocSearch-Button {
-  width: calc(100% + 200px);
-  max-width: 400px;
-}
-
-@media (min-width: 768px) {
-  .VPNavBarSearch.search {
-    width: calc(12.8rem + 200px);
-  }
-}
-
-/* ============================================
-   Hero Title Styling
-   ============================================ */
-
-/* Make "Design System" text smaller and place under "LawnGuru" */
-.VPHome .text {
-  font-size: 32px !important;
-  margin-top: 8px;
-}
 
 /* ============================================
    Animations

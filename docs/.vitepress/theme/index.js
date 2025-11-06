@@ -1,5 +1,6 @@
 // Custom theme for LawnGuru Design System
 import DefaultTheme from 'vitepress/theme'
+import Layout from './Layout.vue'
 import './custom.css'
 import './tokens.css'
 
@@ -38,6 +39,7 @@ import LgPagination from './components/LgPagination.vue'
 
 export default {
   extends: DefaultTheme,
+  Layout,
   enhanceApp({ app, router, siteData }) {
     // Register components globally
     app.component('LgButton', LgButton)
