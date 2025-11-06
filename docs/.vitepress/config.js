@@ -14,72 +14,71 @@ export default defineConfig({
 
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Getting Started', link: '/getting-started' },
-      { text: 'Foundations', link: '/foundations/colors' },
-      { text: 'Components', link: '/components/buttons' },
-      { text: 'Patterns', link: '/patterns/layouts' },
-      { text: 'Guidelines', link: '/guidelines/design-principles' },
     ],
 
-    sidebar: {
-      '/foundations/': [
-        {
-          text: 'Foundations',
-          items: [
-            { text: 'Colors', link: '/foundations/colors' },
-            { text: 'Typography', link: '/foundations/typography' },
-            { text: 'Spacing', link: '/foundations/spacing' },
-            { text: 'Effects & Borders', link: '/foundations/effects-and-borders' },
-            { text: 'Tokens', link: '/foundations/tokens' },
-            { text: 'Icons', link: '/foundations/icons' },
-          ]
-        }
-      ],
-      '/components/': [
-        {
-          text: 'Overview',
-          items: [
-            { text: '🎮 Interactive Showcase', link: '/components/showcase' },
-          ]
-        },
-        {
-          text: 'Components',
-          items: [
-            { text: 'Buttons', link: '/components/buttons' },
-            { text: 'Forms', link: '/components/forms' },
-            { text: 'Cards', link: '/components/cards' },
-            { text: 'Navigation', link: '/components/navigation' },
-            { text: 'Feedback', link: '/components/feedback' },
-            { text: 'Data Display', link: '/components/data-display' },
-            { text: 'Menus', link: '/components/menus' },
-            { text: 'Modals', link: '/components/modals' },
-          ]
-        }
-      ],
-      '/patterns/': [
-        {
-          text: 'Patterns',
-          items: [
-            { text: 'Layouts', link: '/patterns/layouts' },
-            { text: 'Responsive', link: '/patterns/responsive' },
-            { text: 'Forms', link: '/patterns/forms' },
-            { text: 'Navigation', link: '/patterns/navigation' },
-          ]
-        }
-      ],
-      '/guidelines/': [
-        {
-          text: 'Guidelines',
-          items: [
-            { text: 'Design Principles', link: '/guidelines/design-principles' },
-            { text: 'Accessibility', link: '/guidelines/accessibility' },
-            { text: 'Writing', link: '/guidelines/writing' },
-            { text: 'Motion', link: '/guidelines/motion' },
-            { text: 'Contributing', link: '/guidelines/contributing' },
-          ]
-        }
-      ],
-    },
+    sidebar: [
+      {
+        text: 'Brand',
+        collapsed: false,
+        items: [
+          { text: 'Introduction', link: '/guidelines/design-principles' },
+          {
+            text: 'Messaging',
+            collapsed: true,
+            items: [
+              { text: 'Brand voice', link: '/guidelines/writing' },
+            ]
+          },
+          { text: 'Resources', link: '/guidelines/contributing' },
+        ]
+      },
+      {
+        text: 'Product',
+        collapsed: false,
+        items: [
+          { text: 'Get started', link: '/getting-started' },
+          {
+            text: 'Foundations',
+            collapsed: true,
+            items: [
+              { text: 'Colors', link: '/foundations/colors' },
+              { text: 'Typography', link: '/foundations/typography' },
+              { text: 'Spacing', link: '/foundations/spacing' },
+              { text: 'Effects & Borders', link: '/foundations/effects-and-borders' },
+              { text: 'Tokens', link: '/foundations/tokens' },
+              { text: 'Icons', link: '/foundations/icons' },
+            ]
+          },
+          {
+            text: 'Components',
+            collapsed: true,
+            items: [
+              { text: 'Interactive Showcase', link: '/components/showcase' },
+              { text: 'Buttons', link: '/components/buttons' },
+              { text: 'Forms', link: '/components/forms' },
+              { text: 'Cards', link: '/components/cards' },
+              { text: 'Navigation', link: '/components/navigation' },
+              { text: 'Feedback', link: '/components/feedback' },
+              { text: 'Data Display', link: '/components/data-display' },
+              { text: 'Menus', link: '/components/menus' },
+              { text: 'Modals', link: '/components/modals' },
+            ]
+          },
+          {
+            text: 'Patterns',
+            collapsed: true,
+            items: [
+              { text: 'Layouts', link: '/patterns/layouts' },
+              { text: 'Responsive', link: '/patterns/responsive' },
+              { text: 'Forms', link: '/patterns/forms' },
+              { text: 'Navigation', link: '/patterns/navigation' },
+            ]
+          },
+          { text: 'Accessibility', link: '/guidelines/accessibility' },
+          { text: 'Motion', link: '/guidelines/motion' },
+        ]
+      },
+    ],
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/lawnguru/design-system' }

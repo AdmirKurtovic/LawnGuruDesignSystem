@@ -43,6 +43,78 @@
 
 
 /* ============================================
+   Sidebar Styling - Pajamas Style
+   ============================================ */
+
+/* Always show sidebar */
+.VPSidebar {
+  width: 300px !important;
+  padding: 24px 16px !important;
+  background: #F6F6F6 !important;
+}
+
+/* Sidebar navigation */
+.VPSidebarNav {
+  padding: 0 !important;
+}
+
+/* Section headers (Brand, Product) */
+.VPSidebarItem.level-0 > .item > .text {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #0B0B0B !important;
+  text-transform: none !important;
+  padding: 12px 0 8px 0 !important;
+  letter-spacing: 0 !important;
+}
+
+/* First level items */
+.VPSidebarItem.level-1 > .item {
+  padding-left: 12px !important;
+  border-left: 3px solid transparent !important;
+}
+
+/* Active/selected item */
+.VPSidebarItem.level-1.is-active > .item {
+  background: #E5E5E5 !important;
+  border-left-color: #008934 !important;
+  border-radius: 4px !important;
+}
+
+/* Hover state */
+.VPSidebarItem.level-1 > .item:hover {
+  background: #E5E5E5 !important;
+  border-radius: 4px !important;
+}
+
+/* Link text styling */
+.VPSidebarItem .text {
+  font-size: 14px !important;
+  color: #2A2A2A !important;
+  font-weight: 500 !important;
+}
+
+/* Collapsible caret */
+.VPSidebarItem .caret {
+  color: #2A2A2A !important;
+}
+
+/* Search styling */
+.VPLocalSearchBox {
+  margin-bottom: 24px !important;
+}
+
+/* Hide top navigation menu (we use sidebar instead) */
+.VPNavBarMenu {
+  display: none !important;
+}
+
+/* Simplify navbar - only show logo, title, and search */
+.VPNavBar .content-body {
+  justify-content: space-between !important;
+}
+
+/* ============================================
    Custom Styling
    ============================================ */
 
