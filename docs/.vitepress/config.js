@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'LawnGuru Design System',
+  title: 'LawnGuru',
   description: 'A comprehensive design system for building consistent, accessible, and beautiful lawn care experiences.',
 
   // Disable dark mode
@@ -10,6 +10,7 @@ export default defineConfig({
   // Theme configuration
   themeConfig: {
     logo: '/logo.svg',
+    siteTitle: 'LawnGuru',
 
     nav: [
       { text: 'Home', link: '/' },

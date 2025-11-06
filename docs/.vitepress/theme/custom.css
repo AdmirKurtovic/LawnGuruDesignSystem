@@ -187,6 +187,37 @@
 }
 
 /* ============================================
+   Navbar Title Styling
+   ============================================ */
+
+/* Style navbar title to show "LawnGuru" with "Design System" subtitle */
+.VPNavBarTitle .title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.VPNavBarTitle .title::after {
+  content: "Design System";
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(11, 11, 11, 0.6);
+  margin-top: 2px;
+}
+
+/* Expand search input field by 200px */
+.VPNavBarSearch .DocSearch-Button {
+  width: calc(100% + 200px);
+  max-width: 400px;
+}
+
+@media (min-width: 768px) {
+  .VPNavBarSearch.search {
+    width: calc(12.8rem + 200px);
+  }
+}
+
+/* ============================================
    Hero Title Styling
    ============================================ */
 
