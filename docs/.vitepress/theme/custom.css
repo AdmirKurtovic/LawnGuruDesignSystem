@@ -190,17 +190,30 @@
    Navbar Title Styling
    ============================================ */
 
-/* Left-align logo and title container */
-.VPNavBarTitle {
-  justify-content: flex-start;
+/* Left-align logo and title container - target multiple levels */
+.VPNavBar .container .title,
+.VPNavBar .VPNavBarTitle,
+.VPNavBarTitle.has-sidebar {
+  justify-content: flex-start !important;
+  margin-right: auto !important;
+}
+
+/* Remove centering from navbar content */
+.VPNavBar .content {
+  justify-content: flex-start !important;
+}
+
+.VPNavBar .content-body {
+  justify-content: flex-start !important;
 }
 
 /* Style navbar title to show "LawnGuru" with "Design System" subtitle */
 .VPNavBarTitle .title {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-  text-align: left;
+  display: flex !important;
+  flex-direction: column !important;
+  line-height: 1.2 !important;
+  text-align: left !important;
+  align-items: flex-start !important;
 }
 
 .VPNavBarTitle .title::after {
@@ -210,6 +223,7 @@
   color: rgba(11, 11, 11, 0.6);
   margin-top: 2px;
   text-align: left;
+  display: block;
 }
 
 /* Expand search input field by 200px */
