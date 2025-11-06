@@ -1,61 +1,6 @@
----
-layout: home
+# LawnGuru Design System
 
-hero:
-  name: LawnGuru
-  text: Design System
-  tagline: Build consistent, accessible, and beautiful lawn care experiences
-  image:
-    src: /hero-image.svg
-    alt: LawnGuru Design System
-  actions:
-    - theme: brand
-      text: Get Started
-      link: /getting-started
-    - theme: alt
-      text: View Components
-      link: /components/buttons
-    - theme: alt
-      text: Automation Guide
-      link: /AUTOMATION_GUIDE
-
-features:
-  - icon: 🎨
-    title: Comprehensive Foundations
-    details: Complete design tokens, color palettes, typography scales, and spacing systems that form the building blocks of your interface.
-    link: /foundations/colors
-    linkText: Explore Foundations
-
-  - icon: 🧩
-    title: Production-Ready Components
-    details: Fully documented, accessible components with code examples for React, TypeScript, and multiple frameworks.
-    link: /components/buttons
-    linkText: Browse Components
-
-  - icon: 📐
-    title: Proven Patterns
-    details: Battle-tested UI patterns and layouts for responsive design, forms, navigation, and common user flows.
-    link: /patterns/layouts
-    linkText: View Patterns
-
-  - icon: ♿
-    title: Accessibility First
-    details: WCAG 2.1 Level AA compliant with comprehensive accessibility guidelines and implementation notes.
-    link: /guidelines/accessibility
-    linkText: Accessibility Guide
-
-  - icon: 📝
-    title: Clear Guidelines
-    details: Design principles, writing style, motion guidelines, and contribution workflows to maintain consistency.
-    link: /guidelines/design-principles
-    linkText: Read Guidelines
-
-  - icon: 🤖
-    title: AI-Powered Documentation
-    details: Automated documentation generation from Figma using Claude AI. Keep your docs in sync with design changes.
-    link: /AUTOMATION_GUIDE
-    linkText: Learn Automation
----
+Build consistent, accessible, and beautiful lawn care experiences.
 
 ## 🚀 Quick Start
 

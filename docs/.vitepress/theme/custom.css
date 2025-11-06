@@ -46,11 +46,27 @@
    Sidebar Styling - Pajamas Style
    ============================================ */
 
-/* Always show sidebar */
+/* Always show sidebar - even on home page */
 .VPSidebar {
   width: 300px !important;
   padding: 24px 16px !important;
   background: #F6F6F6 !important;
+}
+
+/* Force sidebar to show on home page */
+.VPHome + .VPSidebar,
+.has-sidebar .VPSidebar {
+  display: block !important;
+}
+
+/* Adjust home layout to accommodate sidebar */
+.VPHome {
+  padding-left: 0 !important;
+}
+
+/* Make sure content doesn't overlap with sidebar */
+.VPContent.has-sidebar {
+  padding-left: 320px !important;
 }
 
 /* Sidebar navigation */
