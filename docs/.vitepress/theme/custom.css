@@ -66,6 +66,21 @@
   bottom: 0 !important;
   overflow-y: auto !important;
   border-right: 1px solid #E5E5E5 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.VPSidebar .VPSidebarNav {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Ensure footer (GitHub button) sticks to bottom even if class names differ */
+.VPSidebar .nav {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 /* Force sidebar to show on home page */
@@ -288,6 +303,161 @@
   border-radius: 6px;
   padding: 2px 8px;
   font-weight: 600;
+}
+
+/* ============================================
+   Homepage Styles
+   ============================================ */
+
+/* Hero Section */
+.homepage-hero {
+  background: linear-gradient(135deg, #FFDAB9 0%, #FFB6C1 25%, #DDA0DD 50%, #B19CD9 75%, #9370DB 100%);
+  padding: 80px 40px;
+  text-align: center;
+  border-radius: 12px;
+  margin-bottom: 48px;
+}
+
+.hero-logo {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #0B0B0B;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  color: #2A2A2A;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Homepage Sections - Brand and Product */
+.homepage-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.section-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  border-radius: 8px;
+  padding: 32px;
+}
+
+.section-card h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0B0B0B;
+  margin-bottom: 16px;
+  border: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.section-card p {
+  font-size: 16px;
+  color: #2A2A2A;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.section-card a {
+  color: #008934;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.section-card a:hover {
+  text-decoration: underline;
+}
+
+/* Contribute Section */
+.contribute-section {
+  background: #F6F6F6;
+  border: 1px solid #E5E5E5;
+  border-radius: 8px;
+  padding: 40px;
+  margin-bottom: 48px;
+}
+
+.contribute-section h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0B0B0B;
+  margin-bottom: 16px;
+  border: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.contribute-section > p {
+  font-size: 16px;
+  color: #2A2A2A;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.contribute-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.contribute-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  border-radius: 8px;
+  padding: 32px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.contribute-card:hover {
+  border-color: #008934;
+  box-shadow: 0 4px 12px rgba(0, 137, 52, 0.15);
+  transform: translateY(-2px);
+}
+
+.contribute-card svg {
+  color: #008934;
+}
+
+.contribute-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0B0B0B;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .homepage-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .contribute-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
 }
 
 /* ============================================
