@@ -36,12 +36,14 @@ import LgToast from './components/LgToast.vue'
 import LgPopover from './components/LgPopover.vue'
 import LgHoverCard from './components/LgHoverCard.vue'
 import LgPagination from './components/LgPagination.vue'
+import ColorSwatch from './components/ColorSwatch.vue'
 
 export default {
   extends: DefaultTheme,
   Layout,
   enhanceApp({ app, router, siteData }) {
     // Register components globally
+    app.component('ColorSwatch', ColorSwatch)
     app.component('LgButton', LgButton)
     app.component('LgInput', LgInput)
     app.component('LgInputGroup', LgInputGroup)

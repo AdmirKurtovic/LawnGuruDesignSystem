@@ -8,6 +8,19 @@
 ### Primary Green (Grass Theme)
 The signature LawnGuru green represents growth, nature, and vitality. Multiple shades available for different use cases.
 
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 24px 0;">
+  <ColorSwatch name="grass-50" color="#F0FFEA" />
+  <ColorSwatch name="grass-100" color="#E4FFDB" />
+  <ColorSwatch name="grass-200" color="#BAFFA3" />
+  <ColorSwatch name="grass-300" color="#8DFC72" />
+  <ColorSwatch name="grass-400" color="#5DF53F" />
+  <ColorSwatch name="grass-600" color="#00A31B" />
+  <ColorSwatch name="grass-700 (PRIMARY)" color="#008934" />
+  <ColorSwatch name="grass-800" color="#056535" />
+  <ColorSwatch name="grass-900" color="#024B33" />
+  <ColorSwatch name="grass-950" color="#003028" />
+</div>
+
 ```css
 /* Primary Green Scale - from lightest to darkest */
 --grass-50: #F0FFEA;  /* Lightest green - subtle backgrounds */
@@ -36,6 +49,13 @@ The signature LawnGuru green represents growth, nature, and vitality. Multiple s
 The LawnGuru design system includes a complete set of semantic colors for conveying meaning and status.
 
 ### Success (Green)
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 24px 0;">
+  <ColorSwatch name="success-light" color="#E4FFDB" />
+  <ColorSwatch name="success-base" color="#008934" />
+  <ColorSwatch name="success-dark" color="#024B33" />
+</div>
+
 ```css
 --success-light: #E4FFDB;  /* Light success green - backgrounds */
 --success-base: #008934;   /* Base success green - primary */
@@ -45,6 +65,13 @@ The LawnGuru design system includes a complete set of semantic colors for convey
 **Usage:** Confirmation messages, successful actions, positive status, completed states
 
 ### Error / Critical (Red)
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 24px 0;">
+  <ColorSwatch name="error-light" color="#FDEDEF" />
+  <ColorSwatch name="error-base" color="#E5132E" />
+  <ColorSwatch name="error-dark" color="#790C1B" />
+</div>
+
 ```css
 --error-light: #FDEDEF;  /* Light error red - backgrounds */
 --error-base: #E5132E;   /* Base error red - primary */
@@ -54,6 +81,13 @@ The LawnGuru design system includes a complete set of semantic colors for convey
 **Usage:** Error messages, destructive actions, alerts, validation errors, critical warnings
 
 ### Warning (Yellow)
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 24px 0;">
+  <ColorSwatch name="warning-light" color="#FDF6DB" />
+  <ColorSwatch name="warning-base" color="#FFCC00" />
+  <ColorSwatch name="warning-dark" color="#6D4607" />
+</div>
+
 ```css
 --warning-light: #FDF6DB;  /* Light warning yellow - backgrounds */
 --warning-base: #FFCC00;   /* Base warning yellow - primary */
@@ -63,6 +97,13 @@ The LawnGuru design system includes a complete set of semantic colors for convey
 **Usage:** Warnings, caution states, pending actions, important notices
 
 ### Info / Interactive (Blue)
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 24px 0;">
+  <ColorSwatch name="info-light" color="#E0F3FE" />
+  <ColorSwatch name="info-base" color="#0B65E3" />
+  <ColorSwatch name="info-dark" color="#0A1D56" />
+</div>
+
 ```css
 --info-light: #E0F3FE;  /* Light info blue - backgrounds */
 --info-base: #0B65E3;   /* Base info blue - primary */
@@ -72,6 +113,12 @@ The LawnGuru design system includes a complete set of semantic colors for convey
 **Usage:** Informational messages, tips, neutral notifications, help text, interactive elements
 
 ### Accent (Pink/Magenta)
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 24px 0;">
+  <ColorSwatch name="accent-base" color="#DD086C" />
+  <ColorSwatch name="accent-alt" color="#F6539F" />
+</div>
+
 ```css
 --accent-base: #DD086C;  /* Base accent - from Figma */
 --accent-alt: #F6539F;   /* Alternative accent - grass-dark theme */
@@ -84,6 +131,15 @@ The LawnGuru design system includes a complete set of semantic colors for convey
 
 ### Gray Scale
 A comprehensive gray scale from light to dark for text, borders, backgrounds, and UI elements.
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 24px 0;">
+  <ColorSwatch name="neutral-00" color="#FFFFFF" />
+  <ColorSwatch name="neutral-50" color="#F6F6F6" />
+  <ColorSwatch name="neutral-100" color="#F1F1F1" />
+  <ColorSwatch name="neutral-900" color="#2A2A2A" />
+  <ColorSwatch name="neutral-950" color="#0B0B0B" />
+  <ColorSwatch name="neutral-1000" color="#000000" />
+</div>
 
 ```css
 /* Neutral Scale - from lightest to darkest */
