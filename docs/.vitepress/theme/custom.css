@@ -69,20 +69,18 @@
   justify-content: space-between !important;
 }
 
-/* Center search field */
+/* Align search field to the right */
 .VPNavBarSearch {
-  position: absolute !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  width: 400px !important;
-  max-width: 400px !important;
+  margin-left: auto !important;
+  order: 2 !important;
 }
 
-/* Align navigation to the right */
+/* Navigation menu before search */
 .VPNavBarMenu {
-  margin-left: auto !important;
   display: flex !important;
   align-items: center !important;
+  order: 1 !important;
+  margin-right: 16px !important;
 }
 
 /* Hide social links (GitHub icon) */
