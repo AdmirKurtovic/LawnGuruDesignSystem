@@ -46,51 +46,49 @@
    Navigation and Search Styling
    ============================================ */
 
-/* Align navigation menu items to the right */
-.VPNavBar .VPNavBarMenu {
-  margin-left: auto !important;
+/* Hide GitHub icon */
+.VPSocialLink[aria-label="github"] {
+  display: none !important;
 }
 
-.VPNav .content-body {
+/* Navbar layout: Logo | Search (centered) | Nav (right) */
+.VPNavBar .container {
   display: flex !important;
-  align-items: center !important;
-}
-
-.VPNav .title {
-  flex: 0 0 auto !important;
-}
-
-.VPNav .content {
-  justify-content: space-between !important;
-}
-
-/* Center the search input field */
-.VPNavBarSearch {
-  flex: 1 !important;
-  max-width: 500px !important;
-  margin: 0 auto !important;
-  padding: 0 24px !important;
-}
-
-.VPNavBarSearchButton {
-  margin: 0 auto !important;
-}
-
-/* Adjust navbar content layout */
-.VPNavBar .content-body {
-  display: flex !important;
-  justify-content: space-between !important;
   align-items: center !important;
 }
 
 .VPNavBar .title {
   flex: 0 0 auto !important;
+  margin-right: 24px !important;
 }
 
 .VPNavBar .content {
+  flex: 1 !important;
   display: flex !important;
   align-items: center !important;
-  width: 100% !important;
+  justify-content: space-between !important;
+}
+
+/* Center search field */
+.VPNavBarSearch {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 400px !important;
+  max-width: 400px !important;
+}
+
+/* Align navigation to the right */
+.VPNavBarMenu {
+  margin-left: auto !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Hide social links (GitHub icon) */
+.VPNavBarExtra,
+.VPSocialLinks {
+  display: none !important;
 }
 
 /* ============================================

@@ -14,6 +14,11 @@ export default defineConfig({
 
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Getting Started', link: '/getting-started' },
+      { text: 'Foundations', link: '/foundations/colors' },
+      { text: 'Components', link: '/components/showcase' },
+      { text: 'Patterns', link: '/patterns/layouts' },
+      { text: 'Guidelines', link: '/guidelines/design-principles' },
     ],
 
     sidebar: [
