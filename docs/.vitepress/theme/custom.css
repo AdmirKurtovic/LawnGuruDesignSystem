@@ -51,9 +51,22 @@
   display: none !important;
 }
 
-/* Remove bottom border from navbar */
-.VPNavBar {
+/* Remove bottom border from navbar - multiple selectors for specificity */
+.VPNavBar,
+.VPNav .VPNavBar,
+nav.VPNavBar,
+.VPNavBar.has-sidebar {
   border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.VPNavBar::after {
+  display: none !important;
+}
+
+.VPNavBar .divider,
+.VPNavBar .divider-line {
+  display: none !important;
 }
 
 /* Navbar layout: Logo | Nav (center-right) | Search (far right) */
@@ -94,7 +107,12 @@
 .VPNavBarSearch {
   flex-shrink: 0 !important;
   white-space: nowrap !important;
-  margin-left: 24px !important;
+  margin-left: auto !important;
+  padding-left: 32px !important;
+}
+
+.VPNavBar .VPNavBarSearch.search {
+  margin-left: auto !important;
 }
 
 /* Hide social links (GitHub icon) */
