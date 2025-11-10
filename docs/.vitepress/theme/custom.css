@@ -97,6 +97,17 @@
   display: none !important;
 }
 
+/* Hide duplicate navigation elements */
+.VPNavScreenMenuGroup,
+.VPLocalNav {
+  display: none !important;
+}
+
+/* Hide breadcrumbs if any */
+.VPDocBreadcrumb {
+  display: none !important;
+}
+
 /* ============================================
    Custom Styling
    ============================================ */
