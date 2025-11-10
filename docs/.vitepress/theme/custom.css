@@ -51,11 +51,17 @@
   display: none !important;
 }
 
-/* Navbar layout: Logo | Nav (center-right) | Search (right) */
+/* Remove bottom border from navbar */
+.VPNavBar {
+  border-bottom: none !important;
+}
+
+/* Navbar layout: Logo | Nav (center-right) | Search (far right) */
 .VPNavBar .container {
   display: flex !important;
   align-items: center !important;
   flex-wrap: nowrap !important;
+  padding-right: 32px !important;
 }
 
 .VPNavBar .title {
@@ -65,7 +71,6 @@
 }
 
 .VPNavBar .content {
-  flex: 1 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: flex-end !important;
@@ -85,10 +90,11 @@
   white-space: nowrap !important;
 }
 
-/* Align search field to the right */
+/* Push search field to far right edge */
 .VPNavBarSearch {
   flex-shrink: 0 !important;
   white-space: nowrap !important;
+  margin-left: 24px !important;
 }
 
 /* Hide social links (GitHub icon) */
