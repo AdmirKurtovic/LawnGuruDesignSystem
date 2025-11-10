@@ -51,36 +51,44 @@
   display: none !important;
 }
 
-/* Navbar layout: Logo | Search (centered) | Nav (right) */
+/* Navbar layout: Logo | Nav (center-right) | Search (right) */
 .VPNavBar .container {
   display: flex !important;
   align-items: center !important;
+  flex-wrap: nowrap !important;
 }
 
 .VPNavBar .title {
   flex: 0 0 auto !important;
-  margin-right: 24px !important;
+  margin-right: auto !important;
+  white-space: nowrap !important;
 }
 
 .VPNavBar .content {
   flex: 1 !important;
   display: flex !important;
   align-items: center !important;
-  justify-content: space-between !important;
+  justify-content: flex-end !important;
+  flex-wrap: nowrap !important;
+  gap: 24px !important;
+}
+
+/* Navigation menu */
+.VPNavBarMenu {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+}
+
+.VPNavBarMenu .VPLink {
+  white-space: nowrap !important;
 }
 
 /* Align search field to the right */
 .VPNavBarSearch {
-  margin-left: auto !important;
-  order: 2 !important;
-}
-
-/* Navigation menu before search */
-.VPNavBarMenu {
-  display: flex !important;
-  align-items: center !important;
-  order: 1 !important;
-  margin-right: 16px !important;
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
 }
 
 /* Hide social links (GitHub icon) */
