@@ -51,68 +51,56 @@
   display: none !important;
 }
 
-/* Remove bottom border from navbar - multiple selectors for specificity */
-.VPNavBar,
-.VPNav .VPNavBar,
-nav.VPNavBar,
-.VPNavBar.has-sidebar {
-  border-bottom: none !important;
-  box-shadow: none !important;
+/* Add bottom border to navbar */
+.VPNavBar {
+  border-bottom: 1px solid var(--vp-c-divider) !important;
 }
 
-.VPNavBar::after {
-  display: none !important;
-}
-
-.VPNavBar .divider,
-.VPNavBar .divider-line {
-  display: none !important;
-}
-
-/* Navbar layout: Logo | Nav (center-right) | Search (far right) */
+/* Navbar layout: Logo | Nav items | Search (far right) */
 .VPNavBar .container {
   display: flex !important;
   align-items: center !important;
   flex-wrap: nowrap !important;
-  padding-right: 32px !important;
 }
 
 .VPNavBar .title {
   flex: 0 0 auto !important;
-  margin-right: auto !important;
+  margin-right: 24px !important;
   white-space: nowrap !important;
 }
 
 .VPNavBar .content {
+  flex: 1 !important;
   display: flex !important;
   align-items: center !important;
-  justify-content: flex-end !important;
+  justify-content: space-between !important;
   flex-wrap: nowrap !important;
-  gap: 24px !important;
 }
 
-/* Navigation menu */
+/* Navigation menu - keep on left side of content area */
 .VPNavBarMenu {
   display: flex !important;
   align-items: center !important;
   flex-wrap: nowrap !important;
   white-space: nowrap !important;
+  order: 1 !important;
+  margin-right: auto !important;
 }
 
 .VPNavBarMenu .VPLink {
   white-space: nowrap !important;
 }
 
-/* Push search field to far right edge */
+/* Push search field to far right */
 .VPNavBarSearch {
   flex-shrink: 0 !important;
   white-space: nowrap !important;
+  order: 2 !important;
   margin-left: auto !important;
-  padding-left: 32px !important;
 }
 
 .VPNavBar .VPNavBarSearch.search {
-  margin-left: auto !important;
+  order: 2 !important;
 }
 
 /* Hide social links (GitHub icon) */
