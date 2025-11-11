@@ -31,6 +31,7 @@ export default defineConfig({
       {
         text: 'Foundations',
         items: [
+          { text: 'Logo', link: '/foundations/logo' },
           { text: 'Colors', link: '/foundations/colors' },
           { text: 'Typography', link: '/foundations/typography' },
           { text: 'Spacing', link: '/foundations/spacing' },
