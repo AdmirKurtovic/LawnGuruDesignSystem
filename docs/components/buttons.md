@@ -190,65 +190,69 @@ color: var(--color-error-dark);
 
 ## 💻 Implementation
 
-### React Component
+### React Component (shadcn/ui)
+
+The app uses [shadcn/ui](https://ui.shadcn.com/) Button built on `class-variance-authority` and Radix UI.
 
 ```tsx
-import { Button } from '@lawnguru/ui';
+import { Button } from "@/components/ui/button";
 
-// Primary CTA
-<Button variant="primary" size="md">
-  Book Service
-</Button>
+// Primary CTA (default variant)
+<Button>Book Service</Button>
 
-// Secondary CTA
-<Button variant="secondary" size="md">
-  Cancel
-</Button>
+// Secondary
+<Button variant="secondary">Cancel</Button>
 
-// Destructive CTA
-<Button variant="destructive" size="md">
-  Delete Account
-</Button>
+// Outline
+<Button variant="outline">Learn More</Button>
 
-// Link Button
-<Button variant="link" size="md">
-  Learn More
-</Button>
+// Destructive
+<Button variant="destructive">Delete Account</Button>
+
+// Ghost
+<Button variant="ghost">Settings</Button>
+
+// Link
+<Button variant="link">View Details</Button>
 
 // With icon
-<Button variant="primary" size="md" icon={<ArrowIcon />}>
-  Continue
+<Button>
+  <ArrowIcon /> Continue
 </Button>
 
-// Loading state
-<Button variant="primary" size="md" loading>
-  Processing...
-</Button>
+// Size variants: xs, sm, default, lg, icon, icon-xs, icon-sm, icon-lg
+<Button size="lg">Large Button</Button>
+<Button size="icon"><PlusIcon /></Button>
 
 // Disabled state
-<Button variant="primary" size="md" disabled>
-  Unavailable
+<Button disabled>Unavailable</Button>
+
+// As child (render as a different element, e.g. Next.js Link)
+<Button asChild>
+  <Link href="/services">Browse Services</Link>
 </Button>
 ```
 
-### HTML/CSS
+### Available Variants
 
-```html
-<!-- Primary Button -->
-<button class="btn btn-primary btn-md">
-  Book Service
-</button>
+| Variant | Description | Tailwind Classes |
+|---------|-------------|-----------------|
+| `default` | Primary green CTA | `bg-primary text-primary-foreground` |
+| `secondary` | Muted secondary action | `bg-secondary text-secondary-foreground` |
+| `outline` | Bordered button | `border bg-background shadow-xs` |
+| `destructive` | Red destructive action | `bg-destructive text-white` |
+| `ghost` | Transparent hover-only | `hover:bg-accent` |
+| `link` | Underlined text link | `text-primary underline-offset-4` |
 
-<!-- Secondary Button -->
-<button class="btn btn-secondary btn-md">
-  Cancel
-</button>
+### Available Sizes
 
-<!-- Link Button -->
-<button class="btn btn-link btn-md">
-  Learn More
-</button>
-```
+| Size | Height | Description |
+|------|--------|-------------|
+| `xs` | 24px (h-6) | Extra small |
+| `sm` | 32px (h-8) | Small |
+| `default` | 36px (h-9) | Standard |
+| `lg` | 40px (h-10) | Large |
+| `icon` | 36x36px | Square icon button |
 
 
 ## ♿ Accessibility Requirements
@@ -376,9 +380,8 @@ Spacing:
 
 ## 🔄 Auto-generated Section
 
-> **Note:** This section was generated from Figma screenshots.
-> **Last updated:** 2025-10-22
-> **Source:** Design library → CTA Button & Link Button components
+> **Last updated:** 2026-03-25
+> **Source:** Design library (Figma) + shadcn/ui implementation (`lawnguru-app/src/components/ui/button.tsx`)
 
 
 **Related Components:**

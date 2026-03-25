@@ -313,7 +313,7 @@ Consistent border thickness for UI elements.
 - **Border Radius:** 12 values (0-32px + 9999px for pills)
 - **Border Width:** 7 values (0-4px including 0.5px hairline)
 
-> **Last Updated:** Extracted from Figma Shape.json tokens (2025-10-22)
+> **Last Updated:** Synced with Figma Shape.json tokens (2026-03-25)
 
 
 ## 📊 Complete Token Reference

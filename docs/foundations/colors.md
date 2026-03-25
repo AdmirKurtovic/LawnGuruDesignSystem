@@ -251,8 +251,9 @@ The LawnGuru color system is built on a comprehensive token-based approach with:
 | `--platinum-900` | `#2E3731` | Alternative dark |
 | `--silver-100` | `#EDF1F1` | Alternative subtle background |
 
-> **Last Updated:** Extracted from Figma Color.json tokens (2025-10-22)
-> **Primary Brand Color:** `#008934` (green-700)
+> **Last Updated:** Synced with Figma Color.json tokens (2026-03-25)
+> **Primary Brand Color:** `#008934` (grass-700)
+> **Note:** The Next.js app uses `#16a34a` (Tailwind green-600 / oklch) as `--primary` in `globals.css` via shadcn/ui defaults. The Figma design system uses `#008934` (grass-700). These should be reconciled.
 
 
 ## 🎯 Semantic Color Tokens

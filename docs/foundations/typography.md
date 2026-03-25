@@ -227,7 +227,7 @@ Typography scales based on viewport size for optimal readability.
 - Weights: 400 (Regular), 500 (Medium), 600 (Semibold), 700 (Bold)
 - Letter spacing: -1.5% to +1.5%
 
-> **Last Updated:** Extracted from Figma Font.json tokens (2025-10-22)
+> **Last Updated:** Synced with Figma Font.json tokens (2026-03-25)
 >
 > **Note:** This typography system provides a comprehensive, accessible type scale optimized for digital interfaces. All sizes and line heights are designed to work together harmoniously.
 

@@ -8,24 +8,22 @@
 LawnGuru uses a flexible spacing system based on multiples of 4px and 8px for consistent, predictable layouts.
 
 ```css
-/* Spacing Scale - From Figma Design Tokens */
+/* Spacing Scale - From Figma Spacing.json */
 --spacing-0: 0px;      /* No space */
 --spacing-2: 2px;      /* 0.125rem - Hairline */
 --spacing-4: 4px;      /* 0.25rem - Extra tight */
 --spacing-6: 6px;      /* 0.375rem - Compact */
 --spacing-8: 8px;      /* 0.5rem - Tight */
+--spacing-10: 10px;    /* 0.625rem - Snug */
 --spacing-12: 12px;    /* 0.75rem - Small */
 --spacing-16: 16px;    /* 1rem - Base (default) */
 --spacing-20: 20px;    /* 1.25rem - Medium */
 --spacing-24: 24px;    /* 1.5rem - Comfortable */
---spacing-28: 28px;    /* 1.75rem - Large */
 --spacing-32: 32px;    /* 2rem - Extra large */
 --spacing-40: 40px;    /* 2.5rem - Spacious */
 --spacing-48: 48px;    /* 3rem - Very spacious */
---spacing-56: 56px;    /* 3.5rem - Extra spacious */
 --spacing-64: 64px;    /* 4rem - Huge */
---spacing-80: 80px;    /* 5rem - Very huge */
---spacing-96: 96px;    /* 6rem - Massive */
+--spacing-80: 80px;    /* 5rem - Maximum */
 ```
 
 **Naming Convention:**
@@ -227,7 +225,7 @@ Spacing can be reduced on mobile devices for space efficiency:
 - Tablet: Reduce by 15-25%
 - Desktop: Use full scale
 
-> **Last Updated:** Extracted from Figma Spacing.json tokens (2025-10-22)
+> **Last Updated:** Synced with Figma Spacing.json tokens (2026-03-25)
 
 
 **Next Steps:**
